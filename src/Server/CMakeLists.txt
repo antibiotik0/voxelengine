@@ -5,8 +5,8 @@
 # =============================================================================
 
 add_library(VoxelServer STATIC
-    # Placeholder source - will be populated in future phases
-    ${CMAKE_CURRENT_SOURCE_DIR}/server_stub.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/World.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/WorldGenerator.cpp
 )
 add_library(Voxel::Server ALIAS VoxelServer)
 

@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <type_traits>
 #include <bit>
+#include <functional>
 
 namespace voxel {
 
@@ -242,12 +243,21 @@ struct ChunkPosition {
     }
 };
 
-} // namespace voxel
-
-// std::hash specialization for ChunkPosition
-template<>
-struct std::hash<voxel::ChunkPosition> {
-    [[nodiscard]] constexpr std::size_t operator()(const voxel::ChunkPosition& pos) const noexcept {
+// Custom hash functor for ChunkPosition (used in unordered_map)
+struct ChunkPositionHash {
+    [[nodiscard]] std::size_t operator()(const ChunkPosition& pos) const noexcept {
         return pos.hash();
     }
 };
+
+} // namespace voxel
+
+// std::hash specialization for ChunkPosition
+namespace std {
+    template<>
+    struct hash<voxel::ChunkPosition> {
+        [[nodiscard]] std::size_t operator()(const voxel::ChunkPosition& pos) const noexcept {
+            return pos.hash();
+        }
+    };
+}

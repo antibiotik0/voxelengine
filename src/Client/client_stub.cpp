@@ -6,10 +6,12 @@
 
 #include "Shared/Types.hpp"
 #include "Shared/Chunk.hpp"
+#include "Server/World.hpp"
 
 namespace voxel::client {
 
 // Compilation validation
 static_assert(alignof(voxel::Chunk) == 64, "Chunk must be 64-byte aligned");
+static_assert(sizeof(voxel::Voxel) == 4, "Voxel must be 32-bit");
 
 } // namespace voxel::client

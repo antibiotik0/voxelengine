@@ -86,8 +86,8 @@ public:
         , m_state(State::LOADED)
         , m_fully_dirty(true)
     {
-        // Zero-initialize all voxels (air)
-        std::memset(m_voxels.get(), 0, DATA_SIZE_BYTES);
+        // Zero-initialize all voxels (air) - use raw uint32_t pointer to avoid class-memaccess warning
+        std::memset(static_cast<void*>(m_voxels.get()), 0, DATA_SIZE_BYTES);
     }
 
     // Move-only semantics (no copying 1 MiB chunks)
@@ -202,7 +202,7 @@ public:
     void allocate() {
         if (!m_voxels) {
             m_voxels.reset(allocate_voxels());
-            std::memset(m_voxels.get(), 0, DATA_SIZE_BYTES);
+            std::memset(static_cast<void*>(m_voxels.get()), 0, DATA_SIZE_BYTES);
             m_state = State::LOADED;
             m_fully_dirty = true;
         }

@@ -1,0 +1,8 @@
+# ninja log v7
+23	1154	7904632291150528	src/Client/CMakeFiles/VoxelClient.dir/client_stub.cpp.obj	1e71d1797dab90f0
+14	1225	7904632291073072	src/Server/CMakeFiles/VoxelServer.dir/WorldGenerator.cpp.obj	d4403ae7de016dae
+5	1504	7904632290972515	src/Server/CMakeFiles/VoxelServer.dir/World.cpp.obj	4af0bf0e165f92be
+1505	1743	7904632305975638	src/Server/libVoxelServer.a	e84589bf18cdfc60
+1744	1843	7904632308360017	src/Client/libVoxelClient.a	5e3d007ad5890b26
+31	1988	7904632291241249	src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj	7a1dc305aff0f8e6
+1988	3812	7904632310808694	bin/VoxelEngineApp.exe	493b8c8db3410764

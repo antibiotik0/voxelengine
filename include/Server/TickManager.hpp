@@ -180,7 +180,7 @@ public:
 
         // Apply simulation speed modifier
         frame_time = Duration(static_cast<std::int64_t>(
-            frame_time.count() * m_config.simulation_speed
+            static_cast<double>(frame_time.count()) * m_config.simulation_speed
         ));
 
         // Prevent spiral of death - cap maximum frame time
@@ -262,7 +262,7 @@ public:
 
     // Get current simulation time in seconds
     [[nodiscard]] double simulation_time() const noexcept {
-        return m_stats.total_ticks * m_config.delta_time();
+        return static_cast<double>(m_stats.total_ticks) * m_config.delta_time();
     }
 
     // Get time until next tick in milliseconds

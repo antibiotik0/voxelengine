@@ -1,2 +1,0 @@
-C:\msys64\mingw64\bin\ar.exe qc libVoxelServer.a CMakeFiles/VoxelServer.dir/server_stub.cpp.obj
-C:\msys64\mingw64\bin\ranlib.exe libVoxelServer.a
