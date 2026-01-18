@@ -143,6 +143,7 @@ public:
     [[nodiscard]] std::size_t total_vertices() const noexcept { return m_total_vertices; }
     [[nodiscard]] std::size_t total_indices() const noexcept { return m_total_indices; }
     [[nodiscard]] std::size_t draw_calls_last_frame() const noexcept { return m_draw_calls; }
+    [[nodiscard]] std::size_t meshes_rebuilt_last_frame() const noexcept { return m_meshes_rebuilt; }
 
     // =============================================================================
     // DEBUG / VISUALIZATION
@@ -189,6 +190,7 @@ private:
     std::size_t m_total_vertices = 0;
     std::size_t m_total_indices = 0;
     std::size_t m_draw_calls = 0;
+    std::size_t m_meshes_rebuilt = 0;
 
     // Default texture (1x1 white)
     std::uint32_t m_default_texture = 0;

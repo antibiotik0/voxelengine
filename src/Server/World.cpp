@@ -359,4 +359,163 @@ Chunk* World::find_chunk_unlocked(ChunkPosition pos) {
     return it != m_chunks.end() ? it->second.get() : nullptr;
 }
 
+// =============================================================================
+// BLOCK MANIPULATION (Phase 3)
+// =============================================================================
+
+Voxel World::break_block(std::int64_t world_x, std::int64_t world_y, std::int64_t world_z) {
+    // Get current voxel
+    Voxel old_voxel = get_voxel(
+        static_cast<ChunkCoord>(world_x),
+        static_cast<ChunkCoord>(world_y),
+        static_cast<ChunkCoord>(world_z)
+    );
+
+    // If already air, nothing to break
+    if (old_voxel.is_air()) {
+        return old_voxel;
+    }
+
+    // Set to air
+    set_voxel(
+        static_cast<ChunkCoord>(world_x),
+        static_cast<ChunkCoord>(world_y),
+        static_cast<ChunkCoord>(world_z),
+        Voxel{}  // Air
+    );
+
+    // Mark chunk as dirty
+    ChunkPosition chunk_pos = world_to_chunk_pos(
+        static_cast<ChunkCoord>(world_x),
+        static_cast<ChunkCoord>(world_y),
+        static_cast<ChunkCoord>(world_z)
+    );
+    mark_chunk_dirty(chunk_pos);
+
+    // Check if block was on chunk border - mark adjacent chunks dirty too
+    LocalCoord local_x = world_to_local(static_cast<ChunkCoord>(world_x));
+    LocalCoord local_y = world_to_local(static_cast<ChunkCoord>(world_y));
+    LocalCoord local_z = world_to_local(static_cast<ChunkCoord>(world_z));
+
+    // Check X borders
+    if (local_x == 0) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x - 1, chunk_pos.y, chunk_pos.z});
+    } else if (local_x == CHUNK_SIZE_X - 1) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x + 1, chunk_pos.y, chunk_pos.z});
+    }
+
+    // Check Y borders
+    if (local_y == 0) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x, chunk_pos.y - 1, chunk_pos.z});
+    } else if (local_y == CHUNK_SIZE_Y - 1) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x, chunk_pos.y + 1, chunk_pos.z});
+    }
+
+    // Check Z borders
+    if (local_z == 0) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x, chunk_pos.y, chunk_pos.z - 1});
+    } else if (local_z == CHUNK_SIZE_Z - 1) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x, chunk_pos.y, chunk_pos.z + 1});
+    }
+
+    return old_voxel;
+}
+
+bool World::place_block(std::int64_t world_x, std::int64_t world_y, std::int64_t world_z, Voxel voxel) {
+    // Check if position already has a block
+    Voxel existing = get_voxel(
+        static_cast<ChunkCoord>(world_x),
+        static_cast<ChunkCoord>(world_y),
+        static_cast<ChunkCoord>(world_z)
+    );
+
+    // Can only place in air
+    if (!existing.is_air()) {
+        return false;
+    }
+
+    // Place the block
+    bool success = set_voxel(
+        static_cast<ChunkCoord>(world_x),
+        static_cast<ChunkCoord>(world_y),
+        static_cast<ChunkCoord>(world_z),
+        voxel
+    );
+
+    if (!success) {
+        return false;
+    }
+
+    // Mark chunk as dirty
+    ChunkPosition chunk_pos = world_to_chunk_pos(
+        static_cast<ChunkCoord>(world_x),
+        static_cast<ChunkCoord>(world_y),
+        static_cast<ChunkCoord>(world_z)
+    );
+    mark_chunk_dirty(chunk_pos);
+
+    // Check if block was on chunk border - mark adjacent chunks dirty too
+    LocalCoord local_x = world_to_local(static_cast<ChunkCoord>(world_x));
+    LocalCoord local_y = world_to_local(static_cast<ChunkCoord>(world_y));
+    LocalCoord local_z = world_to_local(static_cast<ChunkCoord>(world_z));
+
+    // Check X borders
+    if (local_x == 0) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x - 1, chunk_pos.y, chunk_pos.z});
+    } else if (local_x == CHUNK_SIZE_X - 1) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x + 1, chunk_pos.y, chunk_pos.z});
+    }
+
+    // Check Y borders
+    if (local_y == 0) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x, chunk_pos.y - 1, chunk_pos.z});
+    } else if (local_y == CHUNK_SIZE_Y - 1) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x, chunk_pos.y + 1, chunk_pos.z});
+    }
+
+    // Check Z borders
+    if (local_z == 0) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x, chunk_pos.y, chunk_pos.z - 1});
+    } else if (local_z == CHUNK_SIZE_Z - 1) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x, chunk_pos.y, chunk_pos.z + 1});
+    }
+
+    return true;
+}
+
+// =============================================================================
+// DIRTY CHUNK TRACKING
+// =============================================================================
+
+bool World::has_dirty_chunks() const {
+    std::lock_guard lock(m_dirty_mutex);
+    return !m_dirty_chunks.empty();
+}
+
+std::vector<ChunkPosition> World::consume_dirty_chunks() {
+    std::lock_guard lock(m_dirty_mutex);
+    std::vector<ChunkPosition> result;
+    result.reserve(m_dirty_chunks.size());
+    for (const auto& pos : m_dirty_chunks) {
+        result.push_back(pos);
+    }
+    m_dirty_chunks.clear();
+    return result;
+}
+
+void World::mark_chunk_dirty(ChunkPosition pos) {
+    // Check if chunk exists first (with shared lock)
+    bool exists = false;
+    {
+        std::shared_lock lock(m_chunks_mutex);
+        exists = (m_chunks.find(pos) != m_chunks.end());
+    }
+    
+    // Only mark if chunk actually exists
+    if (exists) {
+        std::lock_guard lock(m_dirty_mutex);
+        m_dirty_chunks.insert(pos);
+    }
+}
+
 } // namespace voxel::server

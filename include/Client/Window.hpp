@@ -28,7 +28,8 @@ struct InputState {
     double mouse_dx = 0.0;         // Delta since last frame
     double mouse_dy = 0.0;
     double scroll_y = 0.0;         // Scroll delta
-    bool mouse_buttons[8] = {};    // Mouse button states
+    bool mouse_buttons[8] = {};    // Mouse button states (held)
+    bool mouse_buttons_pressed[8] = {};  // Mouse buttons pressed this frame
     bool mouse_captured = false;   // Is mouse captured (hidden cursor)?
 
     // Reset per-frame deltas
@@ -37,6 +38,9 @@ struct InputState {
         mouse_dy = 0.0;
         scroll_y = 0.0;
         for (auto& pressed : keys_pressed) {
+            pressed = false;
+        }
+        for (auto& pressed : mouse_buttons_pressed) {
             pressed = false;
         }
     }
@@ -111,6 +115,9 @@ public:
 
     // Check if mouse button is held
     [[nodiscard]] bool is_mouse_down(std::int32_t button) const;
+
+    // Check if mouse button was pressed this frame
+    [[nodiscard]] bool is_mouse_pressed(std::int32_t button) const;
 
     // Capture/release mouse (hide cursor, enable raw input)
     void capture_mouse(bool capture);

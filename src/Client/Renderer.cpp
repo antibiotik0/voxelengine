@@ -210,6 +210,7 @@ void Renderer::begin_frame() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     m_draw_calls = 0;
+    m_meshes_rebuilt = 0;
 }
 
 void Renderer::end_frame() {
@@ -262,6 +263,7 @@ bool Renderer::upload_chunk_mesh(const ChunkPosition& pos, const ChunkMesh& mesh
     // Update stats
     m_total_vertices += gpu_data.vertex_count;
     m_total_indices += gpu_data.index_count;
+    ++m_meshes_rebuilt;
 
     LOG("Upload", "  Upload successful: VAO=", gpu_data.vao, " VBO=", gpu_data.vbo, " EBO=", gpu_data.ebo);
 

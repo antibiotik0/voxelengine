@@ -275,6 +275,13 @@ bool Window::is_mouse_down(std::int32_t button) const {
     return false;
 }
 
+bool Window::is_mouse_pressed(std::int32_t button) const {
+    if (button >= 0 && button < 8) {
+        return m_input.mouse_buttons_pressed[button];
+    }
+    return false;
+}
+
 void Window::capture_mouse(bool capture) {
     if (!m_window) return;
 
@@ -337,7 +344,11 @@ void Window::key_callback(GLFWwindow* window, int key, int /*scancode*/, int act
 void Window::mouse_button_callback(GLFWwindow* window, int button, int action, int /*mods*/) {
     auto* self = static_cast<Window*>(glfwGetWindowUserPointer(window));
     if (self && button >= 0 && button < 8) {
-        self->m_input.mouse_buttons[button] = (action == GLFW_PRESS);
+        bool pressed = (action == GLFW_PRESS);
+        self->m_input.mouse_buttons[button] = pressed;
+        if (pressed) {
+            self->m_input.mouse_buttons_pressed[button] = true;
+        }
     }
 }
 

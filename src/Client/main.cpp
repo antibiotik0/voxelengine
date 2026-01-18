@@ -1,11 +1,13 @@
 // =============================================================================
 // VOXEL ENGINE - ENTRY POINT
-// Phase 2: The Geometry Engine - Full Render Loop
+// Phase 3: World Interaction - Block Breaking/Placing, Collision
 // =============================================================================
 
 #include "Shared/Types.hpp"
 #include "Shared/Chunk.hpp"
 #include "Shared/Settings.hpp"
+#include "Shared/Raycast.hpp"
+#include "Shared/Collision.hpp"
 #include "Server/TickManager.hpp"
 #include "Server/World.hpp"
 #include "Server/WorldGenerator.hpp"
@@ -13,7 +15,6 @@
 #include "Client/Camera.hpp"
 #include "Client/Renderer.hpp"
 #include "Client/MeshGenerator.hpp"
-#include "Client/BlockRaycast.hpp"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -51,11 +52,18 @@ struct AppState {
     float fov = 70.0f;
     bool first_frame = true;
 
+    // Physics state
+    bool collision_enabled = true;
+    bool on_ground = false;
+
     // Debug overlay
     bool show_debug = false;
 
     // Currently targeted block (from raycast)
-    std::optional<RaycastResult> targeted_block;
+    std::optional<RaycastHit> targeted_block;
+
+    // Block type to place (1 = stone by default)
+    std::uint16_t selected_block = 1;
 };
 
 // =============================================================================
@@ -112,6 +120,20 @@ void process_input(AppState& app, Window& window) {
     if (window.is_key_pressed(GLFW_KEY_F3)) {
         app.show_debug = !app.show_debug;
         std::printf("Debug overlay: %s\n", app.show_debug ? "ON" : "OFF");
+    }
+
+    // Toggle collision (F4)
+    if (window.is_key_pressed(GLFW_KEY_F4)) {
+        app.collision_enabled = !app.collision_enabled;
+        std::printf("Collision: %s\n", app.collision_enabled ? "ON" : "OFF");
+    }
+
+    // Block selection (1-9 keys)
+    for (int i = 0; i < 9; ++i) {
+        if (window.is_key_pressed(GLFW_KEY_1 + i)) {
+            app.selected_block = static_cast<std::uint16_t>(i + 1);
+            std::printf("Selected block: %u\n", app.selected_block);
+        }
     }
 
     // Update camera origin if needed (for origin shifting)
@@ -267,7 +289,12 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
     std::printf("Shift:    Down\n");
     std::printf("Ctrl:     Sprint\n");
     std::printf("Mouse:    Look\n");
+    std::printf("LMB:      Break block\n");
+    std::printf("RMB:      Place block\n");
+    std::printf("1-9:      Select block type\n");
     std::printf("ESC:      Toggle mouse capture\n");
+    std::printf("F3:       Debug overlay\n");
+    std::printf("F4:       Toggle collision\n");
     std::printf("----------------\n\n");
 
     // Main loop
@@ -285,46 +312,70 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
         if (app.fps_time >= 1.0) {
             app.current_fps = app.fps_count;
             if (!app.show_debug) {
-                std::printf("FPS: %d | Draw calls: %zu | Vertices: %zu\n",
+                std::printf("FPS: %d | Draw calls: %zu | Meshes rebuilt: %zu\n",
                     app.fps_count,
                     app.renderer.draw_calls_last_frame(),
-                    app.renderer.total_vertices());
+                    app.renderer.meshes_rebuilt_last_frame());
             }
             app.fps_count = 0;
             app.fps_time = 0.0;
         }
 
-        // Debug overlay (F3 style)
+        // Debug overlay (F3 style) - using int64_t world coordinates
         if (app.show_debug) {
             const auto& pos = app.camera.position();
-            ChunkCoord chunk_x = static_cast<ChunkCoord>(std::floor(pos.x / CHUNK_SIZE_X));
-            ChunkCoord chunk_y = static_cast<ChunkCoord>(std::floor(pos.y / CHUNK_SIZE_Y));
-            ChunkCoord chunk_z = static_cast<ChunkCoord>(std::floor(pos.z / CHUNK_SIZE_Z));
+            
+            // Precise world coordinates (int64_t)
+            std::int64_t world_x = static_cast<std::int64_t>(std::floor(pos.x));
+            std::int64_t world_y = static_cast<std::int64_t>(std::floor(pos.y));
+            std::int64_t world_z = static_cast<std::int64_t>(std::floor(pos.z));
 
-            // Calculate local position within chunk
-            double local_x = std::fmod(pos.x, static_cast<double>(CHUNK_SIZE_X));
-            double local_y = std::fmod(pos.y, static_cast<double>(CHUNK_SIZE_Y));
-            double local_z = std::fmod(pos.z, static_cast<double>(CHUNK_SIZE_Z));
-            if (local_x < 0) local_x += CHUNK_SIZE_X;
-            if (local_y < 0) local_y += CHUNK_SIZE_Y;
-            if (local_z < 0) local_z += CHUNK_SIZE_Z;
+            // Chunk coordinates
+            ChunkCoord chunk_x = static_cast<ChunkCoord>(world_x >> 6);  // /64 via bit shift
+            ChunkCoord chunk_y = static_cast<ChunkCoord>(world_y >> 6);
+            ChunkCoord chunk_z = static_cast<ChunkCoord>(world_z >> 6);
+
+            // Local coordinates within chunk
+            std::int32_t local_x = static_cast<std::int32_t>(world_x & 63);  // %64 via bit mask
+            std::int32_t local_y = static_cast<std::int32_t>(world_y & 63);
+            std::int32_t local_z = static_cast<std::int32_t>(world_z & 63);
 
             std::printf("\033[2J\033[H");  // Clear console (ANSI escape)
             std::printf("=== DEBUG (F3) ===\n");
             std::printf("FPS: %d (%.2f ms/frame)\n", app.current_fps, app.delta_time * 1000.0);
-            std::printf("Position: %.2f, %.2f, %.2f\n", pos.x, pos.y, pos.z);
-            std::printf("Chunk: %lld, %lld, %lld\n", static_cast<long long>(chunk_x), static_cast<long long>(chunk_y), static_cast<long long>(chunk_z));
-            std::printf("Local: %.2f, %.2f, %.2f\n", local_x, local_y, local_z);
+            std::printf("\n--- Position ---\n");
+            std::printf("XYZ: %.3f / %.3f / %.3f\n", pos.x, pos.y, pos.z);
+            std::printf("Block: %lld %lld %lld\n", 
+                static_cast<long long>(world_x),
+                static_cast<long long>(world_y),
+                static_cast<long long>(world_z));
+            std::printf("Chunk: %lld %lld %lld [%d %d %d]\n", 
+                static_cast<long long>(chunk_x),
+                static_cast<long long>(chunk_y),
+                static_cast<long long>(chunk_z),
+                local_x, local_y, local_z);
+            std::printf("\n--- Rendering ---\n");
             std::printf("Chunks loaded: %zu\n", app.renderer.uploaded_chunk_count());
             std::printf("Draw calls: %zu\n", app.renderer.draw_calls_last_frame());
             std::printf("Vertices: %zu\n", app.renderer.total_vertices());
-            std::printf("Indices: %zu\n", app.renderer.total_indices());
-            if (app.targeted_block) {
-                std::printf("Looking at: %d, %d, %d\n", 
-                    app.targeted_block->block_x,
-                    app.targeted_block->block_y,
-                    app.targeted_block->block_z);
+            std::printf("Meshes rebuilt: %zu\n", app.renderer.meshes_rebuilt_last_frame());
+            std::printf("\n--- Target ---\n");
+            if (app.targeted_block && app.targeted_block->hit) {
+                std::printf("Looking at: %lld, %lld, %lld\n", 
+                    static_cast<long long>(app.targeted_block->block_x),
+                    static_cast<long long>(app.targeted_block->block_y),
+                    static_cast<long long>(app.targeted_block->block_z));
+                std::printf("Face: %d, %d, %d\n",
+                    app.targeted_block->normal_x,
+                    app.targeted_block->normal_y,
+                    app.targeted_block->normal_z);
+            } else {
+                std::printf("Looking at: (none)\n");
             }
+            std::printf("\n--- Physics ---\n");
+            std::printf("Collision: %s\n", app.collision_enabled ? "ON" : "OFF");
+            std::printf("On ground: %s\n", app.on_ground ? "YES" : "NO");
+            std::printf("Selected block: %u\n", app.selected_block);
             std::printf("==================\n");
         }
 
@@ -335,22 +386,84 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
         // Update camera projection if window resized
         app.camera.set_projection(app.fov, window.aspect_ratio(), 0.1f, 1000.0f);
 
-        // Perform block raycast
+        // Perform block raycast using Amanatides-Woo algorithm
         {
             const auto& cam_pos = app.camera.position();
-            math::Vec3 origin(
-                static_cast<float>(cam_pos.x),
-                static_cast<float>(cam_pos.y),
-                static_cast<float>(cam_pos.z)
-            );
             const math::Vec3& direction = app.camera.front();
 
             // Lambda to get voxel from world
-            auto get_voxel = [&](std::int32_t x, std::int32_t y, std::int32_t z) -> Voxel {
-                return app.world->get_voxel(x, y, z);
+            auto get_voxel = [&](std::int64_t x, std::int64_t y, std::int64_t z) -> Voxel {
+                return app.world->get_voxel(
+                    static_cast<ChunkCoord>(x),
+                    static_cast<ChunkCoord>(y),
+                    static_cast<ChunkCoord>(z)
+                );
             };
 
-            app.targeted_block = BlockRaycaster::cast(origin, direction, app.player_reach, get_voxel);
+            app.targeted_block = VoxelRaycaster::cast(
+                cam_pos.x, cam_pos.y, cam_pos.z,
+                direction.x, direction.y, direction.z,
+                app.player_reach,
+                get_voxel
+            );
+        }
+
+        // Block breaking (Left Mouse Button)
+        if (window.is_mouse_pressed(GLFW_MOUSE_BUTTON_LEFT) && 
+            window.input().mouse_captured &&
+            app.targeted_block && app.targeted_block->hit) {
+            
+            Voxel broken = app.world->break_block(
+                app.targeted_block->block_x,
+                app.targeted_block->block_y,
+                app.targeted_block->block_z
+            );
+            
+            if (!broken.is_air()) {
+                std::printf("Broke block at %lld, %lld, %lld (type=%u)\n",
+                    static_cast<long long>(app.targeted_block->block_x),
+                    static_cast<long long>(app.targeted_block->block_y),
+                    static_cast<long long>(app.targeted_block->block_z),
+                    broken.type_id());
+            }
+        }
+
+        // Block placing (Right Mouse Button)
+        if (window.is_mouse_pressed(GLFW_MOUSE_BUTTON_RIGHT) && 
+            window.input().mouse_captured &&
+            app.targeted_block && app.targeted_block->hit) {
+            
+            // Place block adjacent to hit face
+            std::int64_t place_x = app.targeted_block->block_x + app.targeted_block->normal_x;
+            std::int64_t place_y = app.targeted_block->block_y + app.targeted_block->normal_y;
+            std::int64_t place_z = app.targeted_block->block_z + app.targeted_block->normal_z;
+
+            Voxel new_block(app.selected_block);
+            if (app.world->place_block(place_x, place_y, place_z, new_block)) {
+                std::printf("Placed block at %lld, %lld, %lld (type=%u)\n",
+                    static_cast<long long>(place_x),
+                    static_cast<long long>(place_y),
+                    static_cast<long long>(place_z),
+                    app.selected_block);
+            }
+        }
+
+        // Rebuild dirty chunk meshes
+        if (app.world->has_dirty_chunks()) {
+            auto dirty_positions = app.world->consume_dirty_chunks();
+            for (const auto& pos : dirty_positions) {
+                const Chunk* chunk = app.world->get_chunk(pos);
+                if (chunk) {
+                    ChunkMesh mesh;
+                    app.mesh_gen.generate(*chunk, mesh);
+                    if (!mesh.is_empty) {
+                        app.renderer.upload_chunk_mesh(pos, mesh);
+                    } else {
+                        // Remove empty mesh
+                        app.renderer.remove_chunk_mesh(pos);
+                    }
+                }
+            }
         }
 
         // Render
@@ -359,11 +472,11 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
         app.renderer.render_chunks();
 
         // Render block highlight if targeting a block
-        if (app.targeted_block) {
+        if (app.targeted_block && app.targeted_block->hit) {
             app.renderer.render_block_highlight(
-                app.targeted_block->block_x,
-                app.targeted_block->block_y,
-                app.targeted_block->block_z
+                static_cast<std::int32_t>(app.targeted_block->block_x),
+                static_cast<std::int32_t>(app.targeted_block->block_y),
+                static_cast<std::int32_t>(app.targeted_block->block_z)
             );
         }
 

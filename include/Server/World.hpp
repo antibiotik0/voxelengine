@@ -9,7 +9,9 @@
 
 #include <memory>
 #include <shared_mutex>
+#include <mutex>
 #include <unordered_map>
+#include <unordered_set>
 #include <optional>
 #include <functional>
 #include <vector>
@@ -126,6 +128,33 @@ public:
     [[nodiscard]] std::optional<Voxel> get_voxel_safe(ChunkCoord world_x, ChunkCoord world_y, ChunkCoord world_z) const;
 
     // =============================================================================
+    // BLOCK MANIPULATION (Phase 3)
+    // =============================================================================
+
+    // Break block at world coordinates
+    // Returns the voxel that was broken (or air if nothing was there)
+    // Marks affected chunk(s) as dirty
+    Voxel break_block(std::int64_t world_x, std::int64_t world_y, std::int64_t world_z);
+
+    // Place block at world coordinates
+    // Returns true if placement was successful
+    // Marks affected chunk(s) as dirty
+    bool place_block(std::int64_t world_x, std::int64_t world_y, std::int64_t world_z, Voxel voxel);
+
+    // =============================================================================
+    // DIRTY CHUNK TRACKING
+    // =============================================================================
+
+    // Check if any chunks need mesh rebuild
+    [[nodiscard]] bool has_dirty_chunks() const;
+
+    // Get list of dirty chunk positions and clear the dirty set
+    [[nodiscard]] std::vector<ChunkPosition> consume_dirty_chunks();
+
+    // Mark a chunk as dirty (for external use)
+    void mark_chunk_dirty(ChunkPosition pos);
+
+    // =============================================================================
     // BULK OPERATIONS
     // =============================================================================
 
@@ -175,6 +204,10 @@ private:
     // Chunk storage with reader-writer lock
     mutable std::shared_mutex m_chunks_mutex;
     ChunkMap m_chunks;
+
+    // Dirty chunks that need mesh rebuild
+    mutable std::mutex m_dirty_mutex;
+    std::unordered_set<ChunkPosition> m_dirty_chunks;
 
     // Statistics
     std::uint64_t m_chunks_generated = 0;
