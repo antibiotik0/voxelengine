@@ -1,0 +1,72 @@
+# =============================================================================
+# VOXEL ENGINE - CONFIGURATION FILE
+# All engine constants loaded at runtime
+# =============================================================================
+
+[engine]
+version = "0.1.0"
+name = "VoxelEngine"
+
+[world]
+# World boundaries (±10 million units on X/Z)
+bound_min = -10000000
+bound_max = 10000000
+
+# Chunk dimensions (must be power of 2)
+chunk_size = 64
+
+# Vertical chunk range
+chunk_height_min = -4
+chunk_height_max = 16
+
+[simulation]
+# Ticks per second (fixed timestep)
+target_tps = 20
+
+# Maximum ticks per frame (spiral of death prevention)
+max_ticks_per_frame = 10
+
+# Default simulation speed (1.0 = normal)
+simulation_speed = 1.0
+
+# Gravity acceleration (blocks/s²)
+gravity = 32.0
+
+[rendering]
+# Field of view (degrees)
+fov = 70.0
+
+# View distance in chunks
+render_distance = 12
+
+# Vertical sync
+vsync = true
+
+# MSAA samples (0 = disabled)
+msaa_samples = 4
+
+[input]
+# Mouse sensitivity
+mouse_sensitivity = 0.1
+
+# Invert Y axis
+invert_y = false
+
+# Key repeat delay (ms)
+key_repeat_delay = 500
+
+[performance]
+# Mesh generation threads
+mesh_threads = 4
+
+# Chunk loading threads
+chunk_load_threads = 2
+
+# Maximum chunks in memory
+max_loaded_chunks = 4096
+
+# Greedy meshing enabled
+greedy_meshing = true
+
+# Face culling enabled
+face_culling = true

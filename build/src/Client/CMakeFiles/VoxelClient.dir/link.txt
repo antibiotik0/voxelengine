@@ -1,0 +1,2 @@
+C:\msys64\mingw64\bin\ar.exe qc libVoxelClient.a CMakeFiles/VoxelClient.dir/client_stub.cpp.obj
+C:\msys64\mingw64\bin\ranlib.exe libVoxelClient.a

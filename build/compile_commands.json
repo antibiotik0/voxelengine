@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Users/berke/Desktop/voxelengine/build/src/Server",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/VoxelServer.dir/includes_CXX.rsp -g -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O0 -g3 -fno-omit-frame-pointer -fsanitize=address,undefined -D_DEBUG -o CMakeFiles\\VoxelServer.dir\\server_stub.cpp.obj -c C:\\Users\\berke\\Desktop\\voxelengine\\src\\Server\\server_stub.cpp",
+  "file": "C:/Users/berke/Desktop/voxelengine/src/Server/server_stub.cpp",
+  "output": "src/Server/CMakeFiles/VoxelServer.dir/server_stub.cpp.obj"
+},
+{
+  "directory": "C:/Users/berke/Desktop/voxelengine/build/src/Client",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/VoxelClient.dir/includes_CXX.rsp -g -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O0 -g3 -fno-omit-frame-pointer -fsanitize=address,undefined -D_DEBUG -o CMakeFiles\\VoxelClient.dir\\client_stub.cpp.obj -c C:\\Users\\berke\\Desktop\\voxelengine\\src\\Client\\client_stub.cpp",
+  "file": "C:/Users/berke/Desktop/voxelengine/src/Client/client_stub.cpp",
+  "output": "src/Client/CMakeFiles/VoxelClient.dir/client_stub.cpp.obj"
+},
+{
+  "directory": "C:/Users/berke/Desktop/voxelengine/build/src/Client",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/VoxelEngineApp.dir/includes_CXX.rsp -g -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O0 -g3 -fno-omit-frame-pointer -fsanitize=address,undefined -D_DEBUG -o CMakeFiles\\VoxelEngineApp.dir\\main.cpp.obj -c C:\\Users\\berke\\Desktop\\voxelengine\\src\\Client\\main.cpp",
+  "file": "C:/Users/berke/Desktop/voxelengine/src/Client/main.cpp",
+  "output": "src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj"
+}
+]
