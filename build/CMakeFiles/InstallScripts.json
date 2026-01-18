@@ -2,6 +2,9 @@
 	"InstallScripts" : 
 	[
 		"C:/Users/berke/Desktop/voxelengine/build/cmake_install.cmake",
+		"C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/cmake_install.cmake",
+		"C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src/cmake_install.cmake",
+		"C:/Users/berke/Desktop/voxelengine/build/external/glad/cmake_install.cmake",
 		"C:/Users/berke/Desktop/voxelengine/build/src/Shared/cmake_install.cmake",
 		"C:/Users/berke/Desktop/voxelengine/build/src/Server/cmake_install.cmake",
 		"C:/Users/berke/Desktop/voxelengine/build/src/Client/cmake_install.cmake"

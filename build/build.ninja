@@ -73,6 +73,302 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Utility command for edit_cache
 
+build _deps/glfw-build/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\berke\Desktop\voxelengine\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\berke\Desktop\voxelengine -BC:\Users\berke\Desktop\voxelengine\build"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build _deps/glfw-build/edit_cache: phony _deps/glfw-build/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps/glfw-build/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\berke\Desktop\voxelengine\build\_deps\glfw-build && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\berke\Desktop\voxelengine -BC:\Users\berke\Desktop\voxelengine\build"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps/glfw-build/rebuild_cache: phony _deps/glfw-build/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for update_mappings
+
+build _deps/glfw-build/src/update_mappings: phony _deps/glfw-build/src/CMakeFiles/update_mappings
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Order-only phony target for glfw
+
+build cmake_object_order_depends_target_glfw: phony || .
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/context.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/context.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\context.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu99 -Wall -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/init.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/init.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\init.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu99 -Wall -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/input.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/input.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\input.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu99 -Wall -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/monitor.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/monitor.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\monitor.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu99 -Wall -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/vulkan.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/vulkan.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\vulkan.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu99 -Wall -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/window.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/window.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\window.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu99 -Wall -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_init.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/win32_init.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\win32_init.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu99 -Wall -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_joystick.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/win32_joystick.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\win32_joystick.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu99 -Wall -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_monitor.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/win32_monitor.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\win32_monitor.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu99 -Wall -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_time.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/win32_time.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\win32_time.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu99 -Wall -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_thread.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/win32_thread.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\win32_thread.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu99 -Wall -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_window.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/win32_window.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\win32_window.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu99 -Wall -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/wgl_context.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/wgl_context.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\wgl_context.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu99 -Wall -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/egl_context.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/egl_context.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\egl_context.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu99 -Wall -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+build _deps/glfw-build/src/CMakeFiles/glfw.dir/osmesa_context.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/osmesa_context.c || cmake_object_order_depends_target_glfw
+  CONFIG = Release
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
+  DEP_FILE = _deps\glfw-build\src\CMakeFiles\glfw.dir\osmesa_context.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu99 -Wall -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Link the static library _deps\glfw-build\src\libglfw3.a
+
+build _deps/glfw-build/src/libglfw3.a: C_STATIC_LIBRARY_LINKER__glfw_Release _deps/glfw-build/src/CMakeFiles/glfw.dir/context.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/init.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/input.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/monitor.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/vulkan.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/window.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_init.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_joystick.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_monitor.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_time.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_thread.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_window.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/wgl_context.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/egl_context.c.obj _deps/glfw-build/src/CMakeFiles/glfw.dir/osmesa_context.c.obj
+  CONFIG = Release
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = _deps\glfw-build\src\libglfw3.a
+  TARGET_PDB = glfw3.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build _deps/glfw-build/src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\berke\Desktop\voxelengine\build\_deps\glfw-build\src && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\berke\Desktop\voxelengine -BC:\Users\berke\Desktop\voxelengine\build"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build _deps/glfw-build/src/edit_cache: phony _deps/glfw-build/src/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps/glfw-build/src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\berke\Desktop\voxelengine\build\_deps\glfw-build\src && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\berke\Desktop\voxelengine -BC:\Users\berke\Desktop\voxelengine\build"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps/glfw-build/src/rebuild_cache: phony _deps/glfw-build/src/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Custom command for _deps\glfw-build\src\CMakeFiles\update_mappings
+
+build _deps/glfw-build/src/CMakeFiles/update_mappings | ${cmake_ninja_workdir}_deps/glfw-build/src/CMakeFiles/update_mappings: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\berke\Desktop\voxelengine\build\_deps\glfw-src\src && "C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/CMake/GenerateMappings.cmake mappings.h.in mappings.h"
+  DESC = Updating gamepad mappings from upstream repository
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/berke/Desktop/voxelengine/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target glad
+
+
+#############################################
+# Order-only phony target for glad
+
+build cmake_object_order_depends_target_glad: phony || .
+
+build external/glad/CMakeFiles/glad.dir/src/glad.c.obj: C_COMPILER__glad_unscanned_Release C$:/Users/berke/Desktop/voxelengine/external/glad/src/glad.c || cmake_object_order_depends_target_glad
+  CONFIG = Release
+  DEP_FILE = external\glad\CMakeFiles\glad.dir\src\glad.c.obj.d
+  FLAGS = -O3 -DNDEBUG
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  OBJECT_DIR = external\glad\CMakeFiles\glad.dir
+  OBJECT_FILE_DIR = external\glad\CMakeFiles\glad.dir\src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target glad
+
+
+#############################################
+# Link the static library external\glad\libglad.a
+
+build external/glad/libglad.a: C_STATIC_LIBRARY_LINKER__glad_Release external/glad/CMakeFiles/glad.dir/src/glad.c.obj
+  CONFIG = Release
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = external\glad\CMakeFiles\glad.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = external\glad\libglad.a
+  TARGET_PDB = glad.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build external/glad/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\berke\Desktop\voxelengine\build\external\glad && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\berke\Desktop\voxelengine -BC:\Users\berke\Desktop\voxelengine\build"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build external/glad/edit_cache: phony external/glad/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build external/glad/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\berke\Desktop\voxelengine\build\external\glad && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\berke\Desktop\voxelengine -BC:\Users\berke\Desktop\voxelengine\build"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build external/glad/rebuild_cache: phony external/glad/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/berke/Desktop/voxelengine/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
 build src/Shared/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
   COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\berke\Desktop\voxelengine\build\src\Shared && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\berke\Desktop\voxelengine -BC:\Users\berke\Desktop\voxelengine\build"
   DESC = Running CMake cache editor...
@@ -176,13 +472,45 @@ build src/Server/rebuild_cache: phony src/Server/CMakeFiles/rebuild_cache.util
 #############################################
 # Order-only phony target for VoxelClient
 
-build cmake_object_order_depends_target_VoxelClient: phony || cmake_object_order_depends_target_VoxelServer
+build cmake_object_order_depends_target_VoxelClient: phony || cmake_object_order_depends_target_VoxelServer cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw
 
-build src/Client/CMakeFiles/VoxelClient.dir/client_stub.cpp.obj: CXX_COMPILER__VoxelClient_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/client_stub.cpp || cmake_object_order_depends_target_VoxelClient
+build src/Client/CMakeFiles/VoxelClient.dir/MeshGenerator.cpp.obj: CXX_COMPILER__VoxelClient_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/MeshGenerator.cpp || cmake_object_order_depends_target_VoxelClient
   CONFIG = Release
-  DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\client_stub.cpp.obj.d
+  DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\MeshGenerator.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
-  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include
+  OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
+  OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelClient.dir
+
+build src/Client/CMakeFiles/VoxelClient.dir/Camera.cpp.obj: CXX_COMPILER__VoxelClient_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/Camera.cpp || cmake_object_order_depends_target_VoxelClient
+  CONFIG = Release
+  DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\Camera.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include
+  OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
+  OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelClient.dir
+
+build src/Client/CMakeFiles/VoxelClient.dir/Shader.cpp.obj: CXX_COMPILER__VoxelClient_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/Shader.cpp || cmake_object_order_depends_target_VoxelClient
+  CONFIG = Release
+  DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\Shader.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include
+  OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
+  OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelClient.dir
+
+build src/Client/CMakeFiles/VoxelClient.dir/Window.cpp.obj: CXX_COMPILER__VoxelClient_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/Window.cpp || cmake_object_order_depends_target_VoxelClient
+  CONFIG = Release
+  DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\Window.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include
+  OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
+  OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelClient.dir
+
+build src/Client/CMakeFiles/VoxelClient.dir/Renderer.cpp.obj: CXX_COMPILER__VoxelClient_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/Renderer.cpp || cmake_object_order_depends_target_VoxelClient
+  CONFIG = Release
+  DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\Renderer.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include
   OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
   OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelClient.dir
 
@@ -194,7 +522,7 @@ build src/Client/CMakeFiles/VoxelClient.dir/client_stub.cpp.obj: CXX_COMPILER__V
 #############################################
 # Link the static library src\Client\libVoxelClient.a
 
-build src/Client/libVoxelClient.a: CXX_STATIC_LIBRARY_LINKER__VoxelClient_Release src/Client/CMakeFiles/VoxelClient.dir/client_stub.cpp.obj || src/Server/libVoxelServer.a
+build src/Client/libVoxelClient.a: CXX_STATIC_LIBRARY_LINKER__VoxelClient_Release src/Client/CMakeFiles/VoxelClient.dir/MeshGenerator.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Camera.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Shader.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Window.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Renderer.cpp.obj || _deps/glfw-build/src/libglfw3.a external/glad/libglad.a src/Server/libVoxelServer.a
   CONFIG = Release
   LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
   OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
@@ -210,7 +538,7 @@ build src/Client/libVoxelClient.a: CXX_STATIC_LIBRARY_LINKER__VoxelClient_Releas
 #############################################
 # Order-only phony target for VoxelEngineApp
 
-build cmake_object_order_depends_target_VoxelEngineApp: phony || cmake_object_order_depends_target_VoxelClient cmake_object_order_depends_target_VoxelServer
+build cmake_object_order_depends_target_VoxelEngineApp: phony || cmake_object_order_depends_target_VoxelClient cmake_object_order_depends_target_VoxelServer cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw
 
 build src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj: CXX_COMPILER__VoxelEngineApp_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/main.cpp || cmake_object_order_depends_target_VoxelEngineApp
   CONFIG = Release
@@ -228,11 +556,11 @@ build src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj: CXX_COMPILER__Voxel
 #############################################
 # Link the executable bin\VoxelEngineApp.exe
 
-build bin/VoxelEngineApp.exe: CXX_EXECUTABLE_LINKER__VoxelEngineApp_Release src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj | src/Client/libVoxelClient.a src/Server/libVoxelServer.a || src/Client/libVoxelClient.a src/Server/libVoxelServer.a
+build bin/VoxelEngineApp.exe: CXX_EXECUTABLE_LINKER__VoxelEngineApp_Release src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj | src/Client/libVoxelClient.a src/Server/libVoxelServer.a external/glad/libglad.a _deps/glfw-build/src/libglfw3.a || _deps/glfw-build/src/libglfw3.a external/glad/libglad.a src/Client/libVoxelClient.a src/Server/libVoxelServer.a
   CONFIG = Release
   FLAGS = -O3 -DNDEBUG
   LINK_FLAGS = -flto -s
-  LINK_LIBRARIES = src/Client/libVoxelClient.a  src/Server/libVoxelServer.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = src/Client/libVoxelClient.a  src/Server/libVoxelServer.a  external/glad/libglad.a  _deps/glfw-build/src/libglfw3.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = src\Client\CMakeFiles\VoxelEngineApp.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -275,9 +603,19 @@ build VoxelEngineApp.exe: phony bin/VoxelEngineApp.exe
 
 build VoxelServer: phony src/Server/libVoxelServer.a
 
+build glad: phony external/glad/libglad.a
+
+build glfw: phony _deps/glfw-build/src/libglfw3.a
+
 build libVoxelClient.a: phony src/Client/libVoxelClient.a
 
 build libVoxelServer.a: phony src/Server/libVoxelServer.a
+
+build libglad.a: phony external/glad/libglad.a
+
+build libglfw3.a: phony _deps/glfw-build/src/libglfw3.a
+
+build update_mappings: phony _deps/glfw-build/src/update_mappings
 
 # =============================================================================
 # Folder targets.
@@ -287,7 +625,28 @@ build libVoxelServer.a: phony src/Server/libVoxelServer.a
 #############################################
 # Folder: C:/Users/berke/Desktop/voxelengine/build
 
-build all: phony src/Shared/all src/Server/all src/Client/all
+build all: phony _deps/glfw-build/all external/glad/all src/Shared/all src/Server/all src/Client/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build
+
+build _deps/glfw-build/all: phony _deps/glfw-build/src/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
+
+build _deps/glfw-build/src/all: phony _deps/glfw-build/src/libglfw3.a
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/berke/Desktop/voxelengine/build/external/glad
+
+build external/glad/all: phony external/glad/libglad.a
 
 # =============================================================================
 
@@ -317,14 +676,14 @@ build src/Shared/all: phony
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja C$:/Users/berke/Desktop/voxelengine/build/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/src/Shared/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/src/Server/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/src/Client/cmake_install.cmake: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Users/berke/Desktop/voxelengine/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Client/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Server/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Shared/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.0/CMakeCXXCompiler.cmake CMakeFiles/4.1.0/CMakeRCCompiler.cmake CMakeFiles/4.1.0/CMakeSystem.cmake
+build build.ninja C$:/Users/berke/Desktop/voxelengine/build/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/external/glad/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/src/Shared/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/src/Server/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/src/Client/cmake_install.cmake: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCCompilerFlag.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/ExternalProject/shared_internal_commands.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent/CMakeLists.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindGit.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckFlagCommonConfig.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/berke/Desktop/voxelengine/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/external/glad/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Client/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Server/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Shared/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.0/CMakeCCompiler.cmake CMakeFiles/4.1.0/CMakeCXXCompiler.cmake CMakeFiles/4.1.0/CMakeRCCompiler.cmake CMakeFiles/4.1.0/CMakeSystem.cmake _deps/glfw-src/CMakeLists.txt _deps/glfw-src/src/CMakeLists.txt _deps/glfw-src/src/glfw3.pc.in _deps/glfw-src/src/glfw3Config.cmake.in _deps/glfw-src/src/glfw_config.h.in
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Users/berke/Desktop/voxelengine/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Client/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Server/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Shared/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.0/CMakeCXXCompiler.cmake CMakeFiles/4.1.0/CMakeRCCompiler.cmake CMakeFiles/4.1.0/CMakeSystem.cmake: phony
+build C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCCompilerFlag.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/ExternalProject/shared_internal_commands.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent/CMakeLists.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindGit.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckFlagCommonConfig.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/berke/Desktop/voxelengine/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/external/glad/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Client/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Server/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Shared/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.0/CMakeCCompiler.cmake CMakeFiles/4.1.0/CMakeCXXCompiler.cmake CMakeFiles/4.1.0/CMakeRCCompiler.cmake CMakeFiles/4.1.0/CMakeSystem.cmake _deps/glfw-src/CMakeLists.txt _deps/glfw-src/src/CMakeLists.txt _deps/glfw-src/src/glfw3.pc.in _deps/glfw-src/src/glfw3Config.cmake.in _deps/glfw-src/src/glfw_config.h.in: phony
 
 
 #############################################

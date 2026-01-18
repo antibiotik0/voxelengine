@@ -2859,3 +2859,1753 @@ events:
       Running the CXX compiler's linker: "C:/msys64/mingw64/x86_64-w64-mingw32/bin/ld.exe" "-v"
       GNU ld (GNU Binutils) 2.43.1
 ...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FindGit.cmake:86 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake:1874 (find_package)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake:1609 (__FetchContent_populateSubbuild)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake:2145:EVAL:2 (__FetchContent_doPopulation)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake:2145 (cmake_language)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake:2384 (__FetchContent_Populate)"
+      - "CMakeLists.txt:154 (FetchContent_MakeAvailable)"
+    mode: "program"
+    variable: "GIT_EXECUTABLE"
+    description: "Git command line client"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "git.cmd"
+      - "git"
+    candidate_directories:
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Tailscale/"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/"
+      - "C:/Users/berke/AppData/Roaming/npm/"
+      - "C:/dev/vcpkg/"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/CMake/sbin/"
+      - "C:/Program Files/CMake/"
+      - "C:/Program Files (x86)/VoxelEngine/bin/"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/"
+      - "C:/Program Files (x86)/VoxelEngine/"
+      - "C:/Users/berke/AppData/Local/Atlassian/SourceTree/git_local/bin/"
+    searched_directories:
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/git.cmd.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/git.cmd.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/git.cmd"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/git.cmd.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/git.cmd.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/git.cmd"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/git.cmd.com"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/git.cmd.exe"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/git.cmd"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git.cmd.com"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git.cmd.exe"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git.cmd"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/git.cmd.com"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/git.cmd.exe"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/git.cmd"
+      - "C:/Windows/System32/git.cmd.com"
+      - "C:/Windows/System32/git.cmd.exe"
+      - "C:/Windows/System32/git.cmd"
+      - "C:/Windows/git.cmd.com"
+      - "C:/Windows/git.cmd.exe"
+      - "C:/Windows/git.cmd"
+      - "C:/Windows/System32/wbem/git.cmd.com"
+      - "C:/Windows/System32/wbem/git.cmd.exe"
+      - "C:/Windows/System32/wbem/git.cmd"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git.cmd.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git.cmd.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git.cmd"
+      - "C:/Windows/System32/OpenSSH/git.cmd.com"
+      - "C:/Windows/System32/OpenSSH/git.cmd.exe"
+      - "C:/Windows/System32/OpenSSH/git.cmd"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/git.cmd.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/git.cmd.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/git.cmd"
+      - "C:/Program Files/nodejs/git.cmd.com"
+      - "C:/Program Files/nodejs/git.cmd.exe"
+      - "C:/Program Files/nodejs/git.cmd"
+      - "C:/Program Files/CMake/bin/git.cmd.com"
+      - "C:/Program Files/CMake/bin/git.cmd.exe"
+      - "C:/Program Files/CMake/bin/git.cmd"
+      - "C:/Program Files/Docker/Docker/resources/bin/git.cmd.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/git.cmd.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/git.cmd"
+      - "C:/Program Files/dotnet/git.cmd.com"
+      - "C:/Program Files/dotnet/git.cmd.exe"
+      - "C:/Program Files/dotnet/git.cmd"
+      - "C:/Program Files/Git/cmd/git.cmd.com"
+      - "C:/Program Files/Git/cmd/git.cmd.exe"
+      - "C:/Program Files/Git/cmd/git.cmd"
+      - "C:/Program Files/Tailscale/git.cmd.com"
+      - "C:/Program Files/Tailscale/git.cmd.exe"
+      - "C:/Program Files/Tailscale/git.cmd"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/git.cmd.com"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/git.cmd.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/git.cmd"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/git.cmd.com"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/git.cmd.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/git.cmd"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/git.cmd.com"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/git.cmd.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/git.cmd"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/git.cmd.com"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/git.cmd.exe"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/git.cmd"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/git.cmd.com"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/git.cmd.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/git.cmd"
+      - "C:/msys64/mingw64/bin/git.cmd.com"
+      - "C:/msys64/mingw64/bin/git.cmd.exe"
+      - "C:/msys64/mingw64/bin/git.cmd"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/git.cmd.com"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/git.cmd.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/git.cmd"
+      - "C:/Users/berke/AppData/Roaming/npm/git.cmd.com"
+      - "C:/Users/berke/AppData/Roaming/npm/git.cmd.exe"
+      - "C:/Users/berke/AppData/Roaming/npm/git.cmd"
+      - "C:/dev/vcpkg/git.cmd.com"
+      - "C:/dev/vcpkg/git.cmd.exe"
+      - "C:/dev/vcpkg/git.cmd"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/git.cmd.com"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/git.cmd.exe"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/git.cmd"
+      - "C:/Program Files/bin/git.cmd.com"
+      - "C:/Program Files/bin/git.cmd.exe"
+      - "C:/Program Files/bin/git.cmd"
+      - "C:/Program Files/sbin/git.cmd.com"
+      - "C:/Program Files/sbin/git.cmd.exe"
+      - "C:/Program Files/sbin/git.cmd"
+      - "C:/Program Files/git.cmd.com"
+      - "C:/Program Files/git.cmd.exe"
+      - "C:/Program Files/git.cmd"
+      - "C:/Program Files (x86)/bin/git.cmd.com"
+      - "C:/Program Files (x86)/bin/git.cmd.exe"
+      - "C:/Program Files (x86)/bin/git.cmd"
+      - "C:/Program Files (x86)/sbin/git.cmd.com"
+      - "C:/Program Files (x86)/sbin/git.cmd.exe"
+      - "C:/Program Files (x86)/sbin/git.cmd"
+      - "C:/Program Files (x86)/git.cmd.com"
+      - "C:/Program Files (x86)/git.cmd.exe"
+      - "C:/Program Files (x86)/git.cmd"
+      - "C:/Program Files/CMake/bin/git.cmd.com"
+      - "C:/Program Files/CMake/bin/git.cmd.exe"
+      - "C:/Program Files/CMake/bin/git.cmd"
+      - "C:/Program Files/CMake/sbin/git.cmd.com"
+      - "C:/Program Files/CMake/sbin/git.cmd.exe"
+      - "C:/Program Files/CMake/sbin/git.cmd"
+      - "C:/Program Files/CMake/git.cmd.com"
+      - "C:/Program Files/CMake/git.cmd.exe"
+      - "C:/Program Files/CMake/git.cmd"
+      - "C:/Program Files (x86)/VoxelEngine/bin/git.cmd.com"
+      - "C:/Program Files (x86)/VoxelEngine/bin/git.cmd.exe"
+      - "C:/Program Files (x86)/VoxelEngine/bin/git.cmd"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/git.cmd.com"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/git.cmd.exe"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/git.cmd"
+      - "C:/Program Files (x86)/VoxelEngine/git.cmd.com"
+      - "C:/Program Files (x86)/VoxelEngine/git.cmd.exe"
+      - "C:/Program Files (x86)/VoxelEngine/git.cmd"
+      - "C:/Users/berke/AppData/Local/Atlassian/SourceTree/git_local/bin/git.cmd.com"
+      - "C:/Users/berke/AppData/Local/Atlassian/SourceTree/git_local/bin/git.cmd.exe"
+      - "C:/Users/berke/AppData/Local/Atlassian/SourceTree/git_local/bin/git.cmd"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/git.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/git.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/git"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/git.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/git.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/git"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/git.com"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/git.exe"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/git"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git.com"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git.exe"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/git"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/git.com"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/git.exe"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/git"
+      - "C:/Windows/System32/git.com"
+      - "C:/Windows/System32/git.exe"
+      - "C:/Windows/System32/git"
+      - "C:/Windows/git.com"
+      - "C:/Windows/git.exe"
+      - "C:/Windows/git"
+      - "C:/Windows/System32/wbem/git.com"
+      - "C:/Windows/System32/wbem/git.exe"
+      - "C:/Windows/System32/wbem/git"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/git"
+      - "C:/Windows/System32/OpenSSH/git.com"
+      - "C:/Windows/System32/OpenSSH/git.exe"
+      - "C:/Windows/System32/OpenSSH/git"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/git.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/git.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/git"
+      - "C:/Program Files/nodejs/git.com"
+      - "C:/Program Files/nodejs/git.exe"
+      - "C:/Program Files/nodejs/git"
+      - "C:/Program Files/CMake/bin/git.com"
+      - "C:/Program Files/CMake/bin/git.exe"
+      - "C:/Program Files/CMake/bin/git"
+      - "C:/Program Files/Docker/Docker/resources/bin/git.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/git.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/git"
+      - "C:/Program Files/dotnet/git.com"
+      - "C:/Program Files/dotnet/git.exe"
+      - "C:/Program Files/dotnet/git"
+      - "C:/Program Files/Git/cmd/git.com"
+    found: "C:/Program Files/Git/cmd/git.exe"
+    search_context:
+      ENV{PATH}:
+        - "c:\\Users\\berke\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\berke\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.16.8-hotspot\\bin"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\java8path"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Tailscale\\"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Microsoft\\jdk-17.0.12.7-hotspot\\bin"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\berke\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Ollama"
+        - "C:\\Users\\berke\\AppData\\Roaming\\npm"
+        - "C:\\dev\\vcpkg"
+        - "C:\\Users\\berke\\AppData\\Local\\PowerToys\\DSCModules\\"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/VoxelEngine"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/VoxelEngine"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompiler.cmake:54 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:64 (_cmake_find_compiler)"
+      - "build/_deps/glfw-src/CMakeLists.txt:3 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER"
+    description: "C compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cc"
+      - "gcc"
+      - "cl"
+      - "bcc"
+      - "xlc"
+      - "icx"
+      - "clang"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/cc.com"
+    found: "C:/msys64/mingw64/bin/cc.exe"
+    search_context:
+      ENV{PATH}:
+        - "c:\\Users\\berke\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\berke\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.16.8-hotspot\\bin"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\java8path"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Tailscale\\"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Microsoft\\jdk-17.0.12.7-hotspot\\bin"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\berke\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Ollama"
+        - "C:\\Users\\berke\\AppData\\Roaming\\npm"
+        - "C:\\dev\\vcpkg"
+        - "C:\\Users\\berke\\AppData\\Local\\PowerToys\\DSCModules\\"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/VoxelEngine"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/VoxelEngine"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "build/_deps/glfw-src/CMakeLists.txt:3 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/"
+    found: "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "c:\\Users\\berke\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\berke\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.16.8-hotspot\\bin"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\java8path"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Tailscale\\"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Microsoft\\jdk-17.0.12.7-hotspot\\bin"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\berke\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Ollama"
+        - "C:\\Users\\berke\\AppData\\Roaming\\npm"
+        - "C:\\dev\\vcpkg"
+        - "C:\\Users\\berke\\AppData\\Local\\PowerToys\\DSCModules\\"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/VoxelEngine"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/VoxelEngine"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "build/_deps/glfw-src/CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: C:/msys64/mingw64/bin/cc.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
+      
+      The C compiler identification is GNU, found in:
+        C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/4.1.0/CompilerIdC/a.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "build/_deps/glfw-src/CMakeLists.txt:3 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ar-14.2"
+      - "gcc-ar-14"
+      - "gcc-ar14"
+      - "gcc-ar"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Tailscale/"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/"
+      - "C:/Users/berke/AppData/Roaming/npm/"
+      - "C:/dev/vcpkg/"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/CMake/sbin/"
+      - "C:/Program Files/CMake/"
+      - "C:/Program Files (x86)/VoxelEngine/bin/"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/"
+      - "C:/Program Files (x86)/VoxelEngine/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/gcc-ar-14.2.com"
+      - "C:/msys64/mingw64/bin/gcc-ar-14.2.exe"
+      - "C:/msys64/mingw64/bin/gcc-ar-14.2"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-14.2.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-14.2.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-14.2"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14.2.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14.2.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14.2"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ar-14.2.com"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ar-14.2.exe"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ar-14.2"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ar-14.2.com"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ar-14.2.exe"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ar-14.2"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ar-14.2.com"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ar-14.2.exe"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ar-14.2"
+      - "C:/Windows/System32/gcc-ar-14.2.com"
+      - "C:/Windows/System32/gcc-ar-14.2.exe"
+      - "C:/Windows/System32/gcc-ar-14.2"
+      - "C:/Windows/gcc-ar-14.2.com"
+      - "C:/Windows/gcc-ar-14.2.exe"
+      - "C:/Windows/gcc-ar-14.2"
+      - "C:/Windows/System32/wbem/gcc-ar-14.2.com"
+      - "C:/Windows/System32/wbem/gcc-ar-14.2.exe"
+      - "C:/Windows/System32/wbem/gcc-ar-14.2"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-14.2.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-14.2.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-14.2"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-14.2.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-14.2.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-14.2"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ar-14.2.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ar-14.2.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ar-14.2"
+      - "C:/Program Files/nodejs/gcc-ar-14.2.com"
+      - "C:/Program Files/nodejs/gcc-ar-14.2.exe"
+      - "C:/Program Files/nodejs/gcc-ar-14.2"
+      - "C:/Program Files/CMake/bin/gcc-ar-14.2.com"
+      - "C:/Program Files/CMake/bin/gcc-ar-14.2.exe"
+      - "C:/Program Files/CMake/bin/gcc-ar-14.2"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ar-14.2.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ar-14.2.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ar-14.2"
+      - "C:/Program Files/dotnet/gcc-ar-14.2.com"
+      - "C:/Program Files/dotnet/gcc-ar-14.2.exe"
+      - "C:/Program Files/dotnet/gcc-ar-14.2"
+      - "C:/Program Files/Git/cmd/gcc-ar-14.2.com"
+      - "C:/Program Files/Git/cmd/gcc-ar-14.2.exe"
+      - "C:/Program Files/Git/cmd/gcc-ar-14.2"
+      - "C:/Program Files/Tailscale/gcc-ar-14.2.com"
+      - "C:/Program Files/Tailscale/gcc-ar-14.2.exe"
+      - "C:/Program Files/Tailscale/gcc-ar-14.2"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ar-14.2.com"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ar-14.2.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ar-14.2"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ar-14.2.com"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ar-14.2.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ar-14.2"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ar-14.2.com"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ar-14.2.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ar-14.2"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ar-14.2.com"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ar-14.2.exe"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ar-14.2"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar-14.2.com"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar-14.2.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar-14.2"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ar-14.2.com"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ar-14.2.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ar-14.2"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ar-14.2.com"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ar-14.2.exe"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ar-14.2"
+      - "C:/dev/vcpkg/gcc-ar-14.2.com"
+      - "C:/dev/vcpkg/gcc-ar-14.2.exe"
+      - "C:/dev/vcpkg/gcc-ar-14.2"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ar-14.2.com"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ar-14.2.exe"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ar-14.2"
+      - "C:/Program Files/bin/gcc-ar-14.2.com"
+      - "C:/Program Files/bin/gcc-ar-14.2.exe"
+      - "C:/Program Files/bin/gcc-ar-14.2"
+      - "C:/Program Files/sbin/gcc-ar-14.2.com"
+      - "C:/Program Files/sbin/gcc-ar-14.2.exe"
+      - "C:/Program Files/sbin/gcc-ar-14.2"
+      - "C:/Program Files/gcc-ar-14.2.com"
+      - "C:/Program Files/gcc-ar-14.2.exe"
+      - "C:/Program Files/gcc-ar-14.2"
+      - "C:/Program Files (x86)/bin/gcc-ar-14.2.com"
+      - "C:/Program Files (x86)/bin/gcc-ar-14.2.exe"
+      - "C:/Program Files (x86)/bin/gcc-ar-14.2"
+      - "C:/Program Files (x86)/sbin/gcc-ar-14.2.com"
+      - "C:/Program Files (x86)/sbin/gcc-ar-14.2.exe"
+      - "C:/Program Files (x86)/sbin/gcc-ar-14.2"
+      - "C:/Program Files (x86)/gcc-ar-14.2.com"
+      - "C:/Program Files (x86)/gcc-ar-14.2.exe"
+      - "C:/Program Files (x86)/gcc-ar-14.2"
+      - "C:/Program Files/CMake/bin/gcc-ar-14.2.com"
+      - "C:/Program Files/CMake/bin/gcc-ar-14.2.exe"
+      - "C:/Program Files/CMake/bin/gcc-ar-14.2"
+      - "C:/Program Files/CMake/sbin/gcc-ar-14.2.com"
+      - "C:/Program Files/CMake/sbin/gcc-ar-14.2.exe"
+      - "C:/Program Files/CMake/sbin/gcc-ar-14.2"
+      - "C:/Program Files/CMake/gcc-ar-14.2.com"
+      - "C:/Program Files/CMake/gcc-ar-14.2.exe"
+      - "C:/Program Files/CMake/gcc-ar-14.2"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ar-14.2.com"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ar-14.2.exe"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ar-14.2"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ar-14.2.com"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ar-14.2.exe"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ar-14.2"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ar-14.2.com"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ar-14.2.exe"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ar-14.2"
+      - "C:/msys64/mingw64/bin/gcc-ar-14.com"
+      - "C:/msys64/mingw64/bin/gcc-ar-14.exe"
+      - "C:/msys64/mingw64/bin/gcc-ar-14"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-14.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-14.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-14"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ar-14.com"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ar-14.exe"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ar-14"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ar-14.com"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ar-14.exe"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ar-14"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ar-14.com"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ar-14.exe"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ar-14"
+      - "C:/Windows/System32/gcc-ar-14.com"
+      - "C:/Windows/System32/gcc-ar-14.exe"
+      - "C:/Windows/System32/gcc-ar-14"
+      - "C:/Windows/gcc-ar-14.com"
+      - "C:/Windows/gcc-ar-14.exe"
+      - "C:/Windows/gcc-ar-14"
+      - "C:/Windows/System32/wbem/gcc-ar-14.com"
+      - "C:/Windows/System32/wbem/gcc-ar-14.exe"
+      - "C:/Windows/System32/wbem/gcc-ar-14"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-14.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-14.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-14"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-14.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-14.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-14"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ar-14.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ar-14.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ar-14"
+      - "C:/Program Files/nodejs/gcc-ar-14.com"
+      - "C:/Program Files/nodejs/gcc-ar-14.exe"
+      - "C:/Program Files/nodejs/gcc-ar-14"
+      - "C:/Program Files/CMake/bin/gcc-ar-14.com"
+      - "C:/Program Files/CMake/bin/gcc-ar-14.exe"
+      - "C:/Program Files/CMake/bin/gcc-ar-14"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ar-14.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ar-14.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ar-14"
+      - "C:/Program Files/dotnet/gcc-ar-14.com"
+      - "C:/Program Files/dotnet/gcc-ar-14.exe"
+      - "C:/Program Files/dotnet/gcc-ar-14"
+      - "C:/Program Files/Git/cmd/gcc-ar-14.com"
+      - "C:/Program Files/Git/cmd/gcc-ar-14.exe"
+      - "C:/Program Files/Git/cmd/gcc-ar-14"
+      - "C:/Program Files/Tailscale/gcc-ar-14.com"
+      - "C:/Program Files/Tailscale/gcc-ar-14.exe"
+      - "C:/Program Files/Tailscale/gcc-ar-14"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ar-14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ar-14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ar-14"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ar-14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ar-14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ar-14"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ar-14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ar-14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ar-14"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ar-14.com"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ar-14.exe"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ar-14"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar-14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar-14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar-14"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ar-14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ar-14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ar-14"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ar-14.com"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ar-14.exe"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ar-14"
+      - "C:/dev/vcpkg/gcc-ar-14.com"
+      - "C:/dev/vcpkg/gcc-ar-14.exe"
+      - "C:/dev/vcpkg/gcc-ar-14"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ar-14.com"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ar-14.exe"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ar-14"
+      - "C:/Program Files/bin/gcc-ar-14.com"
+      - "C:/Program Files/bin/gcc-ar-14.exe"
+      - "C:/Program Files/bin/gcc-ar-14"
+      - "C:/Program Files/sbin/gcc-ar-14.com"
+      - "C:/Program Files/sbin/gcc-ar-14.exe"
+      - "C:/Program Files/sbin/gcc-ar-14"
+      - "C:/Program Files/gcc-ar-14.com"
+      - "C:/Program Files/gcc-ar-14.exe"
+      - "C:/Program Files/gcc-ar-14"
+      - "C:/Program Files (x86)/bin/gcc-ar-14.com"
+      - "C:/Program Files (x86)/bin/gcc-ar-14.exe"
+      - "C:/Program Files (x86)/bin/gcc-ar-14"
+      - "C:/Program Files (x86)/sbin/gcc-ar-14.com"
+      - "C:/Program Files (x86)/sbin/gcc-ar-14.exe"
+      - "C:/Program Files (x86)/sbin/gcc-ar-14"
+      - "C:/Program Files (x86)/gcc-ar-14.com"
+      - "C:/Program Files (x86)/gcc-ar-14.exe"
+      - "C:/Program Files (x86)/gcc-ar-14"
+      - "C:/Program Files/CMake/bin/gcc-ar-14.com"
+      - "C:/Program Files/CMake/bin/gcc-ar-14.exe"
+      - "C:/Program Files/CMake/bin/gcc-ar-14"
+      - "C:/Program Files/CMake/sbin/gcc-ar-14.com"
+      - "C:/Program Files/CMake/sbin/gcc-ar-14.exe"
+      - "C:/Program Files/CMake/sbin/gcc-ar-14"
+      - "C:/Program Files/CMake/gcc-ar-14.com"
+      - "C:/Program Files/CMake/gcc-ar-14.exe"
+      - "C:/Program Files/CMake/gcc-ar-14"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ar-14.com"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ar-14.exe"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ar-14"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ar-14.com"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ar-14.exe"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ar-14"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ar-14.com"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ar-14.exe"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ar-14"
+      - "C:/msys64/mingw64/bin/gcc-ar14.com"
+      - "C:/msys64/mingw64/bin/gcc-ar14.exe"
+      - "C:/msys64/mingw64/bin/gcc-ar14"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar14.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar14.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar14"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar14.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar14.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar14"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ar14.com"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ar14.exe"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ar14"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ar14.com"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ar14.exe"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ar14"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ar14.com"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ar14.exe"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ar14"
+      - "C:/Windows/System32/gcc-ar14.com"
+      - "C:/Windows/System32/gcc-ar14.exe"
+      - "C:/Windows/System32/gcc-ar14"
+      - "C:/Windows/gcc-ar14.com"
+      - "C:/Windows/gcc-ar14.exe"
+      - "C:/Windows/gcc-ar14"
+      - "C:/Windows/System32/wbem/gcc-ar14.com"
+      - "C:/Windows/System32/wbem/gcc-ar14.exe"
+      - "C:/Windows/System32/wbem/gcc-ar14"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar14.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar14.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar14"
+      - "C:/Windows/System32/OpenSSH/gcc-ar14.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ar14.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ar14"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ar14.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ar14.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ar14"
+      - "C:/Program Files/nodejs/gcc-ar14.com"
+      - "C:/Program Files/nodejs/gcc-ar14.exe"
+      - "C:/Program Files/nodejs/gcc-ar14"
+      - "C:/Program Files/CMake/bin/gcc-ar14.com"
+      - "C:/Program Files/CMake/bin/gcc-ar14.exe"
+      - "C:/Program Files/CMake/bin/gcc-ar14"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ar14.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ar14.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ar14"
+      - "C:/Program Files/dotnet/gcc-ar14.com"
+      - "C:/Program Files/dotnet/gcc-ar14.exe"
+      - "C:/Program Files/dotnet/gcc-ar14"
+      - "C:/Program Files/Git/cmd/gcc-ar14.com"
+      - "C:/Program Files/Git/cmd/gcc-ar14.exe"
+      - "C:/Program Files/Git/cmd/gcc-ar14"
+      - "C:/Program Files/Tailscale/gcc-ar14.com"
+      - "C:/Program Files/Tailscale/gcc-ar14.exe"
+      - "C:/Program Files/Tailscale/gcc-ar14"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ar14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ar14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ar14"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ar14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ar14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ar14"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ar14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ar14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ar14"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ar14.com"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ar14.exe"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ar14"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar14"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ar14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ar14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ar14"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ar14.com"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ar14.exe"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ar14"
+      - "C:/dev/vcpkg/gcc-ar14.com"
+      - "C:/dev/vcpkg/gcc-ar14.exe"
+      - "C:/dev/vcpkg/gcc-ar14"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ar14.com"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ar14.exe"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ar14"
+      - "C:/Program Files/bin/gcc-ar14.com"
+      - "C:/Program Files/bin/gcc-ar14.exe"
+      - "C:/Program Files/bin/gcc-ar14"
+      - "C:/Program Files/sbin/gcc-ar14.com"
+      - "C:/Program Files/sbin/gcc-ar14.exe"
+      - "C:/Program Files/sbin/gcc-ar14"
+      - "C:/Program Files/gcc-ar14.com"
+      - "C:/Program Files/gcc-ar14.exe"
+      - "C:/Program Files/gcc-ar14"
+      - "C:/Program Files (x86)/bin/gcc-ar14.com"
+      - "C:/Program Files (x86)/bin/gcc-ar14.exe"
+      - "C:/Program Files (x86)/bin/gcc-ar14"
+      - "C:/Program Files (x86)/sbin/gcc-ar14.com"
+      - "C:/Program Files (x86)/sbin/gcc-ar14.exe"
+      - "C:/Program Files (x86)/sbin/gcc-ar14"
+      - "C:/Program Files (x86)/gcc-ar14.com"
+      - "C:/Program Files (x86)/gcc-ar14.exe"
+      - "C:/Program Files (x86)/gcc-ar14"
+      - "C:/Program Files/CMake/bin/gcc-ar14.com"
+      - "C:/Program Files/CMake/bin/gcc-ar14.exe"
+      - "C:/Program Files/CMake/bin/gcc-ar14"
+      - "C:/Program Files/CMake/sbin/gcc-ar14.com"
+      - "C:/Program Files/CMake/sbin/gcc-ar14.exe"
+      - "C:/Program Files/CMake/sbin/gcc-ar14"
+      - "C:/Program Files/CMake/gcc-ar14.com"
+      - "C:/Program Files/CMake/gcc-ar14.exe"
+      - "C:/Program Files/CMake/gcc-ar14"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ar14.com"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ar14.exe"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ar14"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ar14.com"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ar14.exe"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ar14"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ar14.com"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ar14.exe"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ar14"
+      - "C:/msys64/mingw64/bin/gcc-ar.com"
+    found: "C:/msys64/mingw64/bin/gcc-ar.exe"
+    search_context:
+      ENV{PATH}:
+        - "c:\\Users\\berke\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\berke\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.16.8-hotspot\\bin"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\java8path"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Tailscale\\"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Microsoft\\jdk-17.0.12.7-hotspot\\bin"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\berke\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Ollama"
+        - "C:\\Users\\berke\\AppData\\Roaming\\npm"
+        - "C:\\dev\\vcpkg"
+        - "C:\\Users\\berke\\AppData\\Local\\PowerToys\\DSCModules\\"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/VoxelEngine"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/VoxelEngine"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "build/_deps/glfw-src/CMakeLists.txt:3 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ranlib-14.2"
+      - "gcc-ranlib-14"
+      - "gcc-ranlib14"
+      - "gcc-ranlib"
+    candidate_directories:
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/Docker/Docker/resources/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Tailscale/"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/"
+      - "C:/Users/berke/AppData/Roaming/npm/"
+      - "C:/dev/vcpkg/"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/CMake/sbin/"
+      - "C:/Program Files/CMake/"
+      - "C:/Program Files (x86)/VoxelEngine/bin/"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/"
+      - "C:/Program Files (x86)/VoxelEngine/"
+    searched_directories:
+      - "C:/msys64/mingw64/bin/gcc-ranlib-14.2.com"
+      - "C:/msys64/mingw64/bin/gcc-ranlib-14.2.exe"
+      - "C:/msys64/mingw64/bin/gcc-ranlib-14.2"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-14.2.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-14.2.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-14.2"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14.2.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14.2.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14.2"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ranlib-14.2.com"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ranlib-14.2.exe"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ranlib-14.2"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ranlib-14.2.com"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ranlib-14.2.exe"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ranlib-14.2"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ranlib-14.2.com"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ranlib-14.2.exe"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ranlib-14.2"
+      - "C:/Windows/System32/gcc-ranlib-14.2.com"
+      - "C:/Windows/System32/gcc-ranlib-14.2.exe"
+      - "C:/Windows/System32/gcc-ranlib-14.2"
+      - "C:/Windows/gcc-ranlib-14.2.com"
+      - "C:/Windows/gcc-ranlib-14.2.exe"
+      - "C:/Windows/gcc-ranlib-14.2"
+      - "C:/Windows/System32/wbem/gcc-ranlib-14.2.com"
+      - "C:/Windows/System32/wbem/gcc-ranlib-14.2.exe"
+      - "C:/Windows/System32/wbem/gcc-ranlib-14.2"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-14.2.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-14.2.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-14.2"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-14.2.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-14.2.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-14.2"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ranlib-14.2.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ranlib-14.2.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ranlib-14.2"
+      - "C:/Program Files/nodejs/gcc-ranlib-14.2.com"
+      - "C:/Program Files/nodejs/gcc-ranlib-14.2.exe"
+      - "C:/Program Files/nodejs/gcc-ranlib-14.2"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-14.2.com"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-14.2.exe"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-14.2"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ranlib-14.2.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ranlib-14.2.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ranlib-14.2"
+      - "C:/Program Files/dotnet/gcc-ranlib-14.2.com"
+      - "C:/Program Files/dotnet/gcc-ranlib-14.2.exe"
+      - "C:/Program Files/dotnet/gcc-ranlib-14.2"
+      - "C:/Program Files/Git/cmd/gcc-ranlib-14.2.com"
+      - "C:/Program Files/Git/cmd/gcc-ranlib-14.2.exe"
+      - "C:/Program Files/Git/cmd/gcc-ranlib-14.2"
+      - "C:/Program Files/Tailscale/gcc-ranlib-14.2.com"
+      - "C:/Program Files/Tailscale/gcc-ranlib-14.2.exe"
+      - "C:/Program Files/Tailscale/gcc-ranlib-14.2"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ranlib-14.2.com"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ranlib-14.2.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ranlib-14.2"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ranlib-14.2.com"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ranlib-14.2.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ranlib-14.2"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ranlib-14.2.com"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ranlib-14.2.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ranlib-14.2"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-14.2.com"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-14.2.exe"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-14.2"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib-14.2.com"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib-14.2.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib-14.2"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ranlib-14.2.com"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ranlib-14.2.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ranlib-14.2"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ranlib-14.2.com"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ranlib-14.2.exe"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ranlib-14.2"
+      - "C:/dev/vcpkg/gcc-ranlib-14.2.com"
+      - "C:/dev/vcpkg/gcc-ranlib-14.2.exe"
+      - "C:/dev/vcpkg/gcc-ranlib-14.2"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ranlib-14.2.com"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ranlib-14.2.exe"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ranlib-14.2"
+      - "C:/Program Files/bin/gcc-ranlib-14.2.com"
+      - "C:/Program Files/bin/gcc-ranlib-14.2.exe"
+      - "C:/Program Files/bin/gcc-ranlib-14.2"
+      - "C:/Program Files/sbin/gcc-ranlib-14.2.com"
+      - "C:/Program Files/sbin/gcc-ranlib-14.2.exe"
+      - "C:/Program Files/sbin/gcc-ranlib-14.2"
+      - "C:/Program Files/gcc-ranlib-14.2.com"
+      - "C:/Program Files/gcc-ranlib-14.2.exe"
+      - "C:/Program Files/gcc-ranlib-14.2"
+      - "C:/Program Files (x86)/bin/gcc-ranlib-14.2.com"
+      - "C:/Program Files (x86)/bin/gcc-ranlib-14.2.exe"
+      - "C:/Program Files (x86)/bin/gcc-ranlib-14.2"
+      - "C:/Program Files (x86)/sbin/gcc-ranlib-14.2.com"
+      - "C:/Program Files (x86)/sbin/gcc-ranlib-14.2.exe"
+      - "C:/Program Files (x86)/sbin/gcc-ranlib-14.2"
+      - "C:/Program Files (x86)/gcc-ranlib-14.2.com"
+      - "C:/Program Files (x86)/gcc-ranlib-14.2.exe"
+      - "C:/Program Files (x86)/gcc-ranlib-14.2"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-14.2.com"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-14.2.exe"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-14.2"
+      - "C:/Program Files/CMake/sbin/gcc-ranlib-14.2.com"
+      - "C:/Program Files/CMake/sbin/gcc-ranlib-14.2.exe"
+      - "C:/Program Files/CMake/sbin/gcc-ranlib-14.2"
+      - "C:/Program Files/CMake/gcc-ranlib-14.2.com"
+      - "C:/Program Files/CMake/gcc-ranlib-14.2.exe"
+      - "C:/Program Files/CMake/gcc-ranlib-14.2"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ranlib-14.2.com"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ranlib-14.2.exe"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ranlib-14.2"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ranlib-14.2.com"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ranlib-14.2.exe"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ranlib-14.2"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ranlib-14.2.com"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ranlib-14.2.exe"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ranlib-14.2"
+      - "C:/msys64/mingw64/bin/gcc-ranlib-14.com"
+      - "C:/msys64/mingw64/bin/gcc-ranlib-14.exe"
+      - "C:/msys64/mingw64/bin/gcc-ranlib-14"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-14.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-14.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-14"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ranlib-14.com"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ranlib-14.exe"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ranlib-14"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ranlib-14.com"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ranlib-14.exe"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ranlib-14"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ranlib-14.com"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ranlib-14.exe"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ranlib-14"
+      - "C:/Windows/System32/gcc-ranlib-14.com"
+      - "C:/Windows/System32/gcc-ranlib-14.exe"
+      - "C:/Windows/System32/gcc-ranlib-14"
+      - "C:/Windows/gcc-ranlib-14.com"
+      - "C:/Windows/gcc-ranlib-14.exe"
+      - "C:/Windows/gcc-ranlib-14"
+      - "C:/Windows/System32/wbem/gcc-ranlib-14.com"
+      - "C:/Windows/System32/wbem/gcc-ranlib-14.exe"
+      - "C:/Windows/System32/wbem/gcc-ranlib-14"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-14.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-14.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-14"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-14.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-14.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-14"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ranlib-14.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ranlib-14.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ranlib-14"
+      - "C:/Program Files/nodejs/gcc-ranlib-14.com"
+      - "C:/Program Files/nodejs/gcc-ranlib-14.exe"
+      - "C:/Program Files/nodejs/gcc-ranlib-14"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-14.com"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-14.exe"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-14"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ranlib-14.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ranlib-14.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ranlib-14"
+      - "C:/Program Files/dotnet/gcc-ranlib-14.com"
+      - "C:/Program Files/dotnet/gcc-ranlib-14.exe"
+      - "C:/Program Files/dotnet/gcc-ranlib-14"
+      - "C:/Program Files/Git/cmd/gcc-ranlib-14.com"
+      - "C:/Program Files/Git/cmd/gcc-ranlib-14.exe"
+      - "C:/Program Files/Git/cmd/gcc-ranlib-14"
+      - "C:/Program Files/Tailscale/gcc-ranlib-14.com"
+      - "C:/Program Files/Tailscale/gcc-ranlib-14.exe"
+      - "C:/Program Files/Tailscale/gcc-ranlib-14"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ranlib-14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ranlib-14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ranlib-14"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ranlib-14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ranlib-14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ranlib-14"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ranlib-14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ranlib-14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ranlib-14"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-14.com"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-14.exe"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-14"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib-14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib-14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib-14"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ranlib-14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ranlib-14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ranlib-14"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ranlib-14.com"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ranlib-14.exe"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ranlib-14"
+      - "C:/dev/vcpkg/gcc-ranlib-14.com"
+      - "C:/dev/vcpkg/gcc-ranlib-14.exe"
+      - "C:/dev/vcpkg/gcc-ranlib-14"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ranlib-14.com"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ranlib-14.exe"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ranlib-14"
+      - "C:/Program Files/bin/gcc-ranlib-14.com"
+      - "C:/Program Files/bin/gcc-ranlib-14.exe"
+      - "C:/Program Files/bin/gcc-ranlib-14"
+      - "C:/Program Files/sbin/gcc-ranlib-14.com"
+      - "C:/Program Files/sbin/gcc-ranlib-14.exe"
+      - "C:/Program Files/sbin/gcc-ranlib-14"
+      - "C:/Program Files/gcc-ranlib-14.com"
+      - "C:/Program Files/gcc-ranlib-14.exe"
+      - "C:/Program Files/gcc-ranlib-14"
+      - "C:/Program Files (x86)/bin/gcc-ranlib-14.com"
+      - "C:/Program Files (x86)/bin/gcc-ranlib-14.exe"
+      - "C:/Program Files (x86)/bin/gcc-ranlib-14"
+      - "C:/Program Files (x86)/sbin/gcc-ranlib-14.com"
+      - "C:/Program Files (x86)/sbin/gcc-ranlib-14.exe"
+      - "C:/Program Files (x86)/sbin/gcc-ranlib-14"
+      - "C:/Program Files (x86)/gcc-ranlib-14.com"
+      - "C:/Program Files (x86)/gcc-ranlib-14.exe"
+      - "C:/Program Files (x86)/gcc-ranlib-14"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-14.com"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-14.exe"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-14"
+      - "C:/Program Files/CMake/sbin/gcc-ranlib-14.com"
+      - "C:/Program Files/CMake/sbin/gcc-ranlib-14.exe"
+      - "C:/Program Files/CMake/sbin/gcc-ranlib-14"
+      - "C:/Program Files/CMake/gcc-ranlib-14.com"
+      - "C:/Program Files/CMake/gcc-ranlib-14.exe"
+      - "C:/Program Files/CMake/gcc-ranlib-14"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ranlib-14.com"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ranlib-14.exe"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ranlib-14"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ranlib-14.com"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ranlib-14.exe"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ranlib-14"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ranlib-14.com"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ranlib-14.exe"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ranlib-14"
+      - "C:/msys64/mingw64/bin/gcc-ranlib14.com"
+      - "C:/msys64/mingw64/bin/gcc-ranlib14.exe"
+      - "C:/msys64/mingw64/bin/gcc-ranlib14"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib14.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib14.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib14"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib14.com"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib14.exe"
+      - "C:/Users/berke/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib14"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ranlib14.com"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ranlib14.exe"
+      - "C:/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ranlib14"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ranlib14.com"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ranlib14.exe"
+      - "C:/Program Files/Common Files/Oracle/Java/javapath/gcc-ranlib14"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ranlib14.com"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ranlib14.exe"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ranlib14"
+      - "C:/Windows/System32/gcc-ranlib14.com"
+      - "C:/Windows/System32/gcc-ranlib14.exe"
+      - "C:/Windows/System32/gcc-ranlib14"
+      - "C:/Windows/gcc-ranlib14.com"
+      - "C:/Windows/gcc-ranlib14.exe"
+      - "C:/Windows/gcc-ranlib14"
+      - "C:/Windows/System32/wbem/gcc-ranlib14.com"
+      - "C:/Windows/System32/wbem/gcc-ranlib14.exe"
+      - "C:/Windows/System32/wbem/gcc-ranlib14"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib14.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib14.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib14"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib14.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib14.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib14"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ranlib14.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ranlib14.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/gcc-ranlib14"
+      - "C:/Program Files/nodejs/gcc-ranlib14.com"
+      - "C:/Program Files/nodejs/gcc-ranlib14.exe"
+      - "C:/Program Files/nodejs/gcc-ranlib14"
+      - "C:/Program Files/CMake/bin/gcc-ranlib14.com"
+      - "C:/Program Files/CMake/bin/gcc-ranlib14.exe"
+      - "C:/Program Files/CMake/bin/gcc-ranlib14"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ranlib14.com"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ranlib14.exe"
+      - "C:/Program Files/Docker/Docker/resources/bin/gcc-ranlib14"
+      - "C:/Program Files/dotnet/gcc-ranlib14.com"
+      - "C:/Program Files/dotnet/gcc-ranlib14.exe"
+      - "C:/Program Files/dotnet/gcc-ranlib14"
+      - "C:/Program Files/Git/cmd/gcc-ranlib14.com"
+      - "C:/Program Files/Git/cmd/gcc-ranlib14.exe"
+      - "C:/Program Files/Git/cmd/gcc-ranlib14"
+      - "C:/Program Files/Tailscale/gcc-ranlib14.com"
+      - "C:/Program Files/Tailscale/gcc-ranlib14.exe"
+      - "C:/Program Files/Tailscale/gcc-ranlib14"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ranlib14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ranlib14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft/jdk-17.0.12.7-hotspot/bin/gcc-ranlib14"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ranlib14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ranlib14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/gcc-ranlib14"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ranlib14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ranlib14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Python/Python310/gcc-ranlib14"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ranlib14.com"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ranlib14.exe"
+      - "C:/Users/berke/AppData/Local/Microsoft/WindowsApps/gcc-ranlib14"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib14"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ranlib14.com"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ranlib14.exe"
+      - "C:/Users/berke/AppData/Local/Programs/Ollama/gcc-ranlib14"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ranlib14.com"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ranlib14.exe"
+      - "C:/Users/berke/AppData/Roaming/npm/gcc-ranlib14"
+      - "C:/dev/vcpkg/gcc-ranlib14.com"
+      - "C:/dev/vcpkg/gcc-ranlib14.exe"
+      - "C:/dev/vcpkg/gcc-ranlib14"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ranlib14.com"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ranlib14.exe"
+      - "C:/Users/berke/AppData/Local/PowerToys/DSCModules/gcc-ranlib14"
+      - "C:/Program Files/bin/gcc-ranlib14.com"
+      - "C:/Program Files/bin/gcc-ranlib14.exe"
+      - "C:/Program Files/bin/gcc-ranlib14"
+      - "C:/Program Files/sbin/gcc-ranlib14.com"
+      - "C:/Program Files/sbin/gcc-ranlib14.exe"
+      - "C:/Program Files/sbin/gcc-ranlib14"
+      - "C:/Program Files/gcc-ranlib14.com"
+      - "C:/Program Files/gcc-ranlib14.exe"
+      - "C:/Program Files/gcc-ranlib14"
+      - "C:/Program Files (x86)/bin/gcc-ranlib14.com"
+      - "C:/Program Files (x86)/bin/gcc-ranlib14.exe"
+      - "C:/Program Files (x86)/bin/gcc-ranlib14"
+      - "C:/Program Files (x86)/sbin/gcc-ranlib14.com"
+      - "C:/Program Files (x86)/sbin/gcc-ranlib14.exe"
+      - "C:/Program Files (x86)/sbin/gcc-ranlib14"
+      - "C:/Program Files (x86)/gcc-ranlib14.com"
+      - "C:/Program Files (x86)/gcc-ranlib14.exe"
+      - "C:/Program Files (x86)/gcc-ranlib14"
+      - "C:/Program Files/CMake/bin/gcc-ranlib14.com"
+      - "C:/Program Files/CMake/bin/gcc-ranlib14.exe"
+      - "C:/Program Files/CMake/bin/gcc-ranlib14"
+      - "C:/Program Files/CMake/sbin/gcc-ranlib14.com"
+      - "C:/Program Files/CMake/sbin/gcc-ranlib14.exe"
+      - "C:/Program Files/CMake/sbin/gcc-ranlib14"
+      - "C:/Program Files/CMake/gcc-ranlib14.com"
+      - "C:/Program Files/CMake/gcc-ranlib14.exe"
+      - "C:/Program Files/CMake/gcc-ranlib14"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ranlib14.com"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ranlib14.exe"
+      - "C:/Program Files (x86)/VoxelEngine/bin/gcc-ranlib14"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ranlib14.com"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ranlib14.exe"
+      - "C:/Program Files (x86)/VoxelEngine/sbin/gcc-ranlib14"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ranlib14.com"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ranlib14.exe"
+      - "C:/Program Files (x86)/VoxelEngine/gcc-ranlib14"
+      - "C:/msys64/mingw64/bin/gcc-ranlib.com"
+    found: "C:/msys64/mingw64/bin/gcc-ranlib.exe"
+    search_context:
+      ENV{PATH}:
+        - "c:\\Users\\berke\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\berke\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.16.8-hotspot\\bin"
+        - "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\java8path"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Docker\\Docker\\resources\\bin"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Tailscale\\"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Microsoft\\jdk-17.0.12.7-hotspot\\bin"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\berke\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\msys64\\mingw64\\bin"
+        - "C:\\Users\\berke\\AppData\\Local\\Programs\\Ollama"
+        - "C:\\Users\\berke\\AppData\\Roaming\\npm"
+        - "C:\\dev\\vcpkg"
+        - "C:\\Users\\berke\\AppData\\Local\\PowerToys\\DSCModules\\"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/VoxelEngine"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/VoxelEngine"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "build/_deps/glfw-src/CMakeLists.txt:3 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-pozssx"
+      binary: "C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-pozssx"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-pozssx'
+        
+        Run Build Command(s): C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/ninja.exe -v cmTC_370e0
+        [1/2] C:\\msys64\\mingw64\\bin\\cc.exe   -v -o CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj -c "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c"
+        Using built-in specs.
+        COLLECT_GCC=C:\\msys64\\mingw64\\bin\\cc.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../gcc-14.2.0/configure --prefix=/mingw64 --with-local-prefix=/mingw64/local --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --with-native-system-header-dir=/mingw64/include --libexecdir=/mingw64/lib --enable-bootstrap --enable-checking=release --with-arch=nocona --with-tune=generic --enable-languages=c,lto,c++,fortran,ada,objc,obj-c++,rust,jit --enable-shared --enable-static --enable-libatomic --enable-threads=posix --enable-graphite --enable-fully-dynamic-string --enable-libstdcxx-filesystem-ts --enable-libstdcxx-time --disable-libstdcxx-pch --enable-lto --enable-libgomp --disable-libssp --disable-multilib --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-libiconv --with-system-zlib --with-gmp=/mingw64 --with-mpfr=/mingw64 --with-mpc=/mingw64 --with-isl=/mingw64 --with-pkgversion='Rev2, Built by MSYS2 project' --with-bugurl=https://github.com/msys2/MINGW-packages/issues --with-gnu-as --with-gnu-ld --disable-libstdcxx-debug --enable-plugin --with-boot-ldflags=-static-libstdc++ --with-stage1-ldflags=-static-libstdc++
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 14.2.0 (Rev2, Built by MSYS2 project) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_370e0.dir/'
+         C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/cc1.exe -quiet -v -iprefix C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/ -D_REENTRANT C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_370e0.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=nocona -version -o C:\\Users\\berke\\AppData\\Local\\Temp\\cciAGsRT.s
+        GNU C17 (Rev2, Built by MSYS2 project) version 14.2.0 (x86_64-w64-mingw32)
+        	compiled by GNU C version 14.2.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.27-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"
+        ignoring duplicate directory "C:/msys64/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/14.2.0/include"
+        ignoring nonexistent directory "D:/a/msys64/mingw64/include"
+        ignoring nonexistent directory "/mingw64/include"
+        ignoring duplicate directory "C:/msys64/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"
+        ignoring nonexistent directory "C:/msys64/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"
+        ignoring nonexistent directory "D:/a/msys64/mingw64/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include
+         C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include
+         C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed
+        End of search list.
+        Compiler executable checksum: 99398b387f3f4f8d1abcd1f3ed1868a1
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_370e0.dir/'
+         C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj C:\\Users\\berke\\AppData\\Local\\Temp\\cciAGsRT.s
+        GNU assembler version 2.43.1 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.43.1
+        COMPILER_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/;C:/msys64/mingw64/bin/../lib/gcc/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/
+        LIBRARY_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/;C:/msys64/mingw64/bin/../lib/gcc/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.'
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\cc.exe  -v -Wl,-v CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj -o cmTC_370e0.exe -Wl,--out-implib,libcmTC_370e0.dll.a -Wl,--major-image-version,0,--minor-image-version,0   && cd ."
+        Using built-in specs.
+        COLLECT_GCC=C:\\msys64\\mingw64\\bin\\cc.exe
+        COLLECT_LTO_WRAPPER=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/lto-wrapper.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../gcc-14.2.0/configure --prefix=/mingw64 --with-local-prefix=/mingw64/local --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --with-native-system-header-dir=/mingw64/include --libexecdir=/mingw64/lib --enable-bootstrap --enable-checking=release --with-arch=nocona --with-tune=generic --enable-languages=c,lto,c++,fortran,ada,objc,obj-c++,rust,jit --enable-shared --enable-static --enable-libatomic --enable-threads=posix --enable-graphite --enable-fully-dynamic-string --enable-libstdcxx-filesystem-ts --enable-libstdcxx-time --disable-libstdcxx-pch --enable-lto --enable-libgomp --disable-libssp --disable-multilib --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-libiconv --with-system-zlib --with-gmp=/mingw64 --with-mpfr=/mingw64 --with-mpc=/mingw64 --with-isl=/mingw64 --with-pkgversion='Rev2, Built by MSYS2 project' --with-bugurl=https://github.com/msys2/MINGW-packages/issues --with-gnu-as --with-gnu-ld --disable-libstdcxx-debug --enable-plugin --with-boot-ldflags=-static-libstdc++ --with-stage1-ldflags=-static-libstdc++
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 14.2.0 (Rev2, Built by MSYS2 project) 
+        COMPILER_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/;C:/msys64/mingw64/bin/../lib/gcc/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/
+        LIBRARY_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/;C:/msys64/mingw64/bin/../lib/gcc/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/;C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_370e0.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_370e0.'
+         C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/collect2.exe -plugin C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\berke\\AppData\\Local\\Temp\\ccmOlre0.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_370e0.exe C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/crt2.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LC:/msys64/mingw64/bin/../lib/gcc -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_370e0.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/default-manifest.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o
+        collect2 version 14.2.0
+        C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\berke\\AppData\\Local\\Temp\\ccmOlre0.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_370e0.exe C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/crt2.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LC:/msys64/mingw64/bin/../lib/gcc -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_370e0.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/default-manifest.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o
+        GNU ld (GNU Binutils) 2.43.1
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_370e0.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_370e0.'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "build/_deps/glfw-src/CMakeLists.txt:3 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include]
+          add: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include]
+          add: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed]
+        end of search list found
+        collapse include dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include] ==> [C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include]
+        collapse include dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include] ==> [C:/msys64/mingw64/include]
+        collapse include dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed] ==> [C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed]
+        implicit include dirs: [C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include;C:/msys64/mingw64/include;C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "build/_deps/glfw-src/CMakeLists.txt:3 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: 'C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-pozssx']
+        ignore line: []
+        ignore line: [Run Build Command(s): C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/ninja.exe -v cmTC_370e0]
+        ignore line: [[1/2] C:\\msys64\\mingw64\\bin\\cc.exe   -v -o CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj -c "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c"]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=C:\\msys64\\mingw64\\bin\\cc.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        ignore line: [Configured with: ../gcc-14.2.0/configure --prefix=/mingw64 --with-local-prefix=/mingw64/local --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --with-native-system-header-dir=/mingw64/include --libexecdir=/mingw64/lib --enable-bootstrap --enable-checking=release --with-arch=nocona --with-tune=generic --enable-languages=c,lto,c++,fortran,ada,objc,obj-c++,rust,jit --enable-shared --enable-static --enable-libatomic --enable-threads=posix --enable-graphite --enable-fully-dynamic-string --enable-libstdcxx-filesystem-ts --enable-libstdcxx-time --disable-libstdcxx-pch --enable-lto --enable-libgomp --disable-libssp --disable-multilib --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-libiconv --with-system-zlib --with-gmp=/mingw64 --with-mpfr=/mingw64 --with-mpc=/mingw64 --with-isl=/mingw64 --with-pkgversion='Rev2, Built by MSYS2 project' --with-bugurl=https://github.com/msys2/MINGW-packages/issues --with-gnu-as --with-gnu-ld --disable-libstdcxx-debug --enable-plugin --with-boot-ldflags=-static-libstdc++ --with-stage1-ldflags=-static-libstdc++]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 14.2.0 (Rev2  Built by MSYS2 project) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_370e0.dir/']
+        ignore line: [ C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/cc1.exe -quiet -v -iprefix C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/ -D_REENTRANT C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_370e0.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=nocona -version -o C:\\Users\\berke\\AppData\\Local\\Temp\\cciAGsRT.s]
+        ignore line: [GNU C17 (Rev2  Built by MSYS2 project) version 14.2.0 (x86_64-w64-mingw32)]
+        ignore line: [	compiled by GNU C version 14.2.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.27-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"]
+        ignore line: [ignoring duplicate directory "C:/msys64/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/14.2.0/include"]
+        ignore line: [ignoring nonexistent directory "D:/a/msys64/mingw64/include"]
+        ignore line: [ignoring nonexistent directory "/mingw64/include"]
+        ignore line: [ignoring duplicate directory "C:/msys64/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"]
+        ignore line: [ignoring nonexistent directory "C:/msys64/mingw64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"]
+        ignore line: [ignoring nonexistent directory "D:/a/msys64/mingw64/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include]
+        ignore line: [ C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include]
+        ignore line: [ C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: 99398b387f3f4f8d1abcd1f3ed1868a1]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_370e0.dir/']
+        ignore line: [ C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj C:\\Users\\berke\\AppData\\Local\\Temp\\cciAGsRT.s]
+        ignore line: [GNU assembler version 2.43.1 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.43.1]
+        ignore line: [COMPILER_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/]
+        ignore line: [LIBRARY_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.']
+        ignore line: [[2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\cc.exe  -v -Wl -v CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj -o cmTC_370e0.exe -Wl --out-implib libcmTC_370e0.dll.a -Wl --major-image-version 0 --minor-image-version 0   && cd ."]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=C:\\msys64\\mingw64\\bin\\cc.exe]
+        ignore line: [COLLECT_LTO_WRAPPER=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/lto-wrapper.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        ignore line: [Configured with: ../gcc-14.2.0/configure --prefix=/mingw64 --with-local-prefix=/mingw64/local --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --with-native-system-header-dir=/mingw64/include --libexecdir=/mingw64/lib --enable-bootstrap --enable-checking=release --with-arch=nocona --with-tune=generic --enable-languages=c,lto,c++,fortran,ada,objc,obj-c++,rust,jit --enable-shared --enable-static --enable-libatomic --enable-threads=posix --enable-graphite --enable-fully-dynamic-string --enable-libstdcxx-filesystem-ts --enable-libstdcxx-time --disable-libstdcxx-pch --enable-lto --enable-libgomp --disable-libssp --disable-multilib --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-libiconv --with-system-zlib --with-gmp=/mingw64 --with-mpfr=/mingw64 --with-mpc=/mingw64 --with-isl=/mingw64 --with-pkgversion='Rev2, Built by MSYS2 project' --with-bugurl=https://github.com/msys2/MINGW-packages/issues --with-gnu-as --with-gnu-ld --disable-libstdcxx-debug --enable-plugin --with-boot-ldflags=-static-libstdc++ --with-stage1-ldflags=-static-libstdc++]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 14.2.0 (Rev2  Built by MSYS2 project) ]
+        ignore line: [COMPILER_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/]
+        ignore line: [LIBRARY_PATH=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_370e0.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_370e0.']
+        link line: [ C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/collect2.exe -plugin C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\berke\\AppData\\Local\\Temp\\ccmOlre0.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_370e0.exe C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/crt2.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LC:/msys64/mingw64/bin/../lib/gcc -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_370e0.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/default-manifest.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o]
+          arg [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/collect2.exe] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/liblto_plugin.dll] ==> ignore
+          arg [-plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/lto-wrapper.exe] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\berke\\AppData\\Local\\Temp\\ccmOlre0.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_eh] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+          arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+          arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_eh] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [-m] ==> ignore
+          arg [i386pep] ==> ignore
+          arg [-Bdynamic] ==> search dynamic
+          arg [-o] ==> ignore
+          arg [cmTC_370e0.exe] ==> ignore
+          arg [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/crt2.o] ==> obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/crt2.o]
+          arg [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o] ==> obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o]
+          arg [-LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0] ==> dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0]
+          arg [-LC:/msys64/mingw64/bin/../lib/gcc] ==> dir [C:/msys64/mingw64/bin/../lib/gcc]
+          arg [-LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib]
+          arg [-LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib] ==> dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib]
+          arg [-LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib] ==> dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib]
+          arg [-LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../..] ==> dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../..]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj] ==> ignore
+          arg [--out-implib] ==> ignore
+          arg [libcmTC_370e0.dll.a] ==> ignore
+          arg [--major-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [--minor-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lgcc_eh] ==> lib [gcc_eh]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-lpthread] ==> lib [pthread]
+          arg [-ladvapi32] ==> lib [advapi32]
+          arg [-lshell32] ==> lib [shell32]
+          arg [-luser32] ==> lib [user32]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lgcc_eh] ==> lib [gcc_eh]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/default-manifest.o] ==> obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/default-manifest.o]
+          arg [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o] ==> obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o]
+        ignore line: [collect2 version 14.2.0]
+        ignore line: [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\berke\\AppData\\Local\\Temp\\ccmOlre0.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_370e0.exe C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/crt2.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LC:/msys64/mingw64/bin/../lib/gcc -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_370e0.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_370e0.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/default-manifest.o C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o]
+        linker tool for 'C': C:/msys64/mingw64/x86_64-w64-mingw32/bin/ld.exe
+        remove lib [gcc_eh]
+        remove lib [msvcrt]
+        remove lib [gcc_eh]
+        remove lib [msvcrt]
+        collapse obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/crt2.o] ==> [C:/msys64/mingw64/lib/crt2.o]
+        collapse obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o] ==> [C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o]
+        collapse obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/default-manifest.o] ==> [C:/msys64/mingw64/lib/default-manifest.o]
+        collapse obj [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o] ==> [C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o]
+        collapse library dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0] ==> [C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0]
+        collapse library dir [C:/msys64/mingw64/bin/../lib/gcc] ==> [C:/msys64/mingw64/lib/gcc]
+        collapse library dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> [C:/msys64/mingw64/x86_64-w64-mingw32/lib]
+        collapse library dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib] ==> [C:/msys64/mingw64/lib]
+        collapse library dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib] ==> [C:/msys64/mingw64/x86_64-w64-mingw32/lib]
+        collapse library dir [C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../..] ==> [C:/msys64/mingw64/lib]
+        implicit libs: [mingw32;gcc;mingwex;kernel32;pthread;advapi32;shell32;user32;kernel32;mingw32;gcc;mingwex;kernel32]
+        implicit objs: [C:/msys64/mingw64/lib/crt2.o;C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o;C:/msys64/mingw64/lib/default-manifest.o;C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o]
+        implicit dirs: [C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0;C:/msys64/mingw64/lib/gcc;C:/msys64/mingw64/x86_64-w64-mingw32/lib;C:/msys64/mingw64/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "build/_deps/glfw-src/CMakeLists.txt:3 (project)"
+    message: |
+      Running the C compiler's linker: "C:/msys64/mingw64/x86_64-w64-mingw32/bin/ld.exe" "-v"
+      GNU ld (GNU Binutils) 2.43.1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake:103 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake:97 (check_c_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "build/_deps/glfw-src/CMakeLists.txt:61 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-x9z7bl"
+      binary: "C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-x9z7bl"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-x9z7bl'
+        
+        Run Build Command(s): C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/ninja.exe -v cmTC_1b667
+        [1/2] C:\\msys64\\mingw64\\bin\\cc.exe -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_1b667.dir/src.c.obj -c C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-x9z7bl/src.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\cc.exe   CMakeFiles/cmTC_1b667.dir/src.c.obj -o cmTC_1b667.exe -Wl,--out-implib,libcmTC_1b667.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake:165 (try_compile)"
+      - "build/_deps/glfw-src/CMakeLists.txt:110 (check_include_file)"
+    checks:
+      - "Looking for dinput.h"
+    directories:
+      source: "C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-ct5hls"
+      binary: "C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-ct5hls"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/CMake/modules"
+    buildResult:
+      variable: "DINPUT_H_FOUND"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-ct5hls'
+        
+        Run Build Command(s): C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/ninja.exe -v cmTC_6a58f
+        [1/2] C:\\msys64\\mingw64\\bin\\cc.exe    -o CMakeFiles/cmTC_6a58f.dir/CheckIncludeFile.c.obj -c C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-ct5hls/CheckIncludeFile.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\cc.exe   CMakeFiles/cmTC_6a58f.dir/CheckIncludeFile.c.obj -o cmTC_6a58f.exe -Wl,--out-implib,libcmTC_6a58f.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake:165 (try_compile)"
+      - "build/_deps/glfw-src/CMakeLists.txt:111 (check_include_file)"
+    checks:
+      - "Looking for xinput.h"
+    directories:
+      source: "C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-o91x9y"
+      binary: "C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-o91x9y"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/CMake/modules"
+    buildResult:
+      variable: "XINPUT_H_FOUND"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-o91x9y'
+        
+        Run Build Command(s): C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/ninja.exe -v cmTC_3d5ca
+        [1/2] C:\\msys64\\mingw64\\bin\\cc.exe    -o CMakeFiles/cmTC_3d5ca.dir/CheckIncludeFile.c.obj -c C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-o91x9y/CheckIncludeFile.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\cc.exe   CMakeFiles/cmTC_3d5ca.dir/CheckIncludeFile.c.obj -o cmTC_3d5ca.exe -Wl,--out-implib,libcmTC_3d5ca.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "build/_deps/glfw-src/CMakeLists.txt:121 (check_c_compiler_flag)"
+    checks:
+      - "Performing Test _GLFW_HAS_DEP"
+    directories:
+      source: "C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-bk0xzd"
+      binary: "C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-bk0xzd"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/CMake/modules"
+    buildResult:
+      variable: "_GLFW_HAS_DEP"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-bk0xzd'
+        
+        Run Build Command(s): C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/ninja.exe -v cmTC_79013
+        [1/2] C:\\msys64\\mingw64\\bin\\cc.exe -D_GLFW_HAS_DEP  -Wl,--nxcompat -o CMakeFiles/cmTC_79013.dir/src.c.obj -c C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-bk0xzd/src.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\cc.exe -Wl,--nxcompat  CMakeFiles/cmTC_79013.dir/src.c.obj -o cmTC_79013.exe -Wl,--out-implib,libcmTC_79013.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "build/_deps/glfw-src/CMakeLists.txt:128 (check_c_compiler_flag)"
+    checks:
+      - "Performing Test _GLFW_HAS_ASLR"
+    directories:
+      source: "C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-qztc2z"
+      binary: "C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-qztc2z"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/CMake/modules"
+    buildResult:
+      variable: "_GLFW_HAS_ASLR"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-qztc2z'
+        
+        Run Build Command(s): C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/ninja.exe -v cmTC_9aad8
+        [1/2] C:\\msys64\\mingw64\\bin\\cc.exe -D_GLFW_HAS_ASLR  -Wl,--dynamicbase -o CMakeFiles/cmTC_9aad8.dir/src.c.obj -c C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-qztc2z/src.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\cc.exe -Wl,--dynamicbase  CMakeFiles/cmTC_9aad8.dir/src.c.obj -o cmTC_9aad8.exe -Wl,--out-implib,libcmTC_9aad8.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "build/_deps/glfw-src/CMakeLists.txt:135 (check_c_compiler_flag)"
+    checks:
+      - "Performing Test _GLFW_HAS_64ASLR"
+    directories:
+      source: "C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-3s0zox"
+      binary: "C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-3s0zox"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/CMake/modules"
+    buildResult:
+      variable: "_GLFW_HAS_64ASLR"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-3s0zox'
+        
+        Run Build Command(s): C:/Users/berke/AppData/Local/Programs/Python/Python310/Scripts/ninja.exe -v cmTC_3779b
+        [1/2] C:\\msys64\\mingw64\\bin\\cc.exe -D_GLFW_HAS_64ASLR  -Wl,--high-entropy-va -o CMakeFiles/cmTC_3779b.dir/src.c.obj -c C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/CMakeScratch/TryCompile-3s0zox/src.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\cc.exe -Wl,--high-entropy-va  CMakeFiles/cmTC_3779b.dir/src.c.obj -o cmTC_3779b.exe -Wl,--out-implib,libcmTC_3779b.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+...

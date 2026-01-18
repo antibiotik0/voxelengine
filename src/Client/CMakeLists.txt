@@ -1,12 +1,15 @@
 # =============================================================================
 # VOXEL ENGINE - CLIENT MODULE (Renderer)
 # Contains: OpenGL 4.5 renderer, mesh generation, input handling, window
-# Dependencies: Shared + Server modules, OpenGL, GLFW (future)
+# Dependencies: Shared + Server modules, OpenGL, GLFW, glad
 # =============================================================================
 
 add_library(VoxelClient STATIC
-    # Placeholder source - will be populated in future phases
-    ${CMAKE_CURRENT_SOURCE_DIR}/client_stub.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/MeshGenerator.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Camera.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Shader.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Window.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Renderer.cpp
 )
 add_library(Voxel::Client ALIAS VoxelClient)
 
@@ -20,12 +23,9 @@ target_link_libraries(VoxelClient
         Voxel::Server
     PRIVATE
         voxel_compile_options
+        glad
+        glfw
 )
-
-# Future: OpenGL, GLFW, and other rendering dependencies
-# find_package(OpenGL REQUIRED)
-# find_package(glfw3 REQUIRED)
-# target_link_libraries(VoxelClient PRIVATE OpenGL::GL glfw)
 
 # Main executable
 add_executable(VoxelEngineApp

@@ -1,5 +1,14 @@
 C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/edit_cache.dir
 C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/rebuild_cache.dir
+C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/CMakeFiles/edit_cache.dir
+C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/CMakeFiles/rebuild_cache.dir
+C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src/CMakeFiles/update_mappings.dir
+C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src/CMakeFiles/glfw.dir
+C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src/CMakeFiles/edit_cache.dir
+C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src/CMakeFiles/rebuild_cache.dir
+C:/Users/berke/Desktop/voxelengine/build/external/glad/CMakeFiles/glad.dir
+C:/Users/berke/Desktop/voxelengine/build/external/glad/CMakeFiles/edit_cache.dir
+C:/Users/berke/Desktop/voxelengine/build/external/glad/CMakeFiles/rebuild_cache.dir
 C:/Users/berke/Desktop/voxelengine/build/src/Shared/CMakeFiles/edit_cache.dir
 C:/Users/berke/Desktop/voxelengine/build/src/Shared/CMakeFiles/rebuild_cache.dir
 C:/Users/berke/Desktop/voxelengine/build/src/Server/CMakeFiles/VoxelServer.dir
