@@ -46,14 +46,17 @@ vsync = true
 msaa_samples = 4
 
 [input]
-# Mouse sensitivity
-mouse_sensitivity = 0.1
+# Mouse sensitivity (higher = faster)
+mouse_sensitivity = 1.0
 
 # Invert Y axis
 invert_y = false
 
 # Key repeat delay (ms)
 key_repeat_delay = 500
+
+# Player reach distance (blocks) for block selection
+player_reach = 5.0
 
 [performance]
 # Mesh generation threads

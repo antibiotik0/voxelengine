@@ -16,5 +16,6 @@ C:/Users/berke/Desktop/voxelengine/build/src/Server/CMakeFiles/edit_cache.dir
 C:/Users/berke/Desktop/voxelengine/build/src/Server/CMakeFiles/rebuild_cache.dir
 C:/Users/berke/Desktop/voxelengine/build/src/Client/CMakeFiles/VoxelClient.dir
 C:/Users/berke/Desktop/voxelengine/build/src/Client/CMakeFiles/VoxelEngineApp.dir
+C:/Users/berke/Desktop/voxelengine/build/src/Client/CMakeFiles/VoxelDebugApp.dir
 C:/Users/berke/Desktop/voxelengine/build/src/Client/CMakeFiles/edit_cache.dir
 C:/Users/berke/Desktop/voxelengine/build/src/Client/CMakeFiles/rebuild_cache.dir

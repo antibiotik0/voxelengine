@@ -1,0 +1,52 @@
+# --- Build Outputs ---
+# Ignore the entire build directory (standard practice)
+/[Bb]uild/
+/out/
+/bin/
+/lib/
+
+# --- CMake Artifacts ---
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+install_manifest.txt
+Makefile
+# For Windows/MSVC
+*.sln
+*.vcxproj
+*.filters
+
+# --- Compiled Files ---
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.pdb
+
+# --- IDE Specifics ---
+# Visual Studio
+.vs/
+*.user
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# CLion / JetBrains
+.idea/
+cmake-build-*/
+
+# --- OS Generated ---
+.DS_Store
+Thumbs.db
+
+# --- Project Specific ---
+# Ignore the final executable if it's generated in the root
+/voxelengine

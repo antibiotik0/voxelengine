@@ -3,6 +3,7 @@
 // =============================================================================
 
 #include "Client/Shader.hpp"
+#include "Client/Logger.hpp"
 
 #include <glad/glad.h>
 
@@ -57,18 +58,26 @@ bool Shader::compile(std::string_view vertex_source, std::string_view fragment_s
     destroy();
     m_error.clear();
 
+    LOG("Shader", "Compiling shaders...");
+    LOG("Shader", "Vertex shader size: ", vertex_source.size(), " chars");
+    LOG("Shader", "Fragment shader size: ", fragment_source.size(), " chars");
+
     // Compile vertex shader
     std::uint32_t vertex_shader = compile_shader(GL_VERTEX_SHADER, vertex_source);
     if (vertex_shader == 0) {
+        LOG("Shader", "ERROR: Vertex shader compilation failed: ", m_error);
         return false;
     }
+    LOG("Shader", "Vertex shader compiled: ", vertex_shader);
 
     // Compile fragment shader
     std::uint32_t fragment_shader = compile_shader(GL_FRAGMENT_SHADER, fragment_source);
     if (fragment_shader == 0) {
+        LOG("Shader", "ERROR: Fragment shader compilation failed: ", m_error);
         glDeleteShader(vertex_shader);
         return false;
     }
+    LOG("Shader", "Fragment shader compiled: ", fragment_shader);
 
     // Create program and link
     m_program = glCreateProgram();
@@ -85,12 +94,16 @@ bool Shader::compile(std::string_view vertex_source, std::string_view fragment_s
         m_error.resize(static_cast<std::size_t>(log_length));
         glGetProgramInfoLog(m_program, log_length, nullptr, m_error.data());
 
+        LOG("Shader", "ERROR: Program linking failed: ", m_error);
+
         glDeleteShader(vertex_shader);
         glDeleteShader(fragment_shader);
         glDeleteProgram(m_program);
         m_program = 0;
         return false;
     }
+
+    LOG("Shader", "Program linked successfully: ", m_program);
 
     // Clean up shaders (they're linked into the program now)
     glDetachShader(m_program, vertex_shader);

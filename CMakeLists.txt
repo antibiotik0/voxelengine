@@ -100,11 +100,10 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
         -O0
         -g3
         -fno-omit-frame-pointer
-        -fsanitize=address,undefined
         -D_DEBUG
     )
     set(VOXEL_DEBUG_LINK_FLAGS
-        -fsanitize=address,undefined
+        # Sanitizers disabled on Windows/MinGW
     )
 endif()
 

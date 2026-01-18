@@ -14,11 +14,11 @@ namespace voxel::client {
 // Optimized for cache efficiency and VRAM bandwidth
 //
 // data1 layout (32 bits):
-//   [Bits  0-5 ]: Position X (0-63, local chunk coordinate)
-//   [Bits  6-11]: Position Y (0-63, local chunk coordinate)
-//   [Bits 12-17]: Position Z (0-63, local chunk coordinate)
-//   [Bits 18-20]: Normal index (0-5 for ±X, ±Y, ±Z)
-//   [Bits 21-31]: UV/Texture index (0-2047)
+//   [Bits  0-6 ]: Position X (0-64, local chunk coordinate + edge)
+//   [Bits  7-13]: Position Y (0-64, local chunk coordinate + edge)
+//   [Bits 14-20]: Position Z (0-64, local chunk coordinate + edge)
+//   [Bits 21-23]: Normal index (0-5 for ±X, ±Y, ±Z)
+//   [Bits 24-31]: UV/Texture index low 8 bits
 //
 // data2 layout (32 bits):
 //   [Bits  0-15]: Voxel Type ID
@@ -29,16 +29,16 @@ struct PackedVertex {
     std::uint32_t data1;
     std::uint32_t data2;
 
-    // Bit positions for data1
+    // Bit positions for data1 (7-bit positions for 0-64 range)
     static constexpr std::uint32_t POS_X_SHIFT = 0;
-    static constexpr std::uint32_t POS_Y_SHIFT = 6;
-    static constexpr std::uint32_t POS_Z_SHIFT = 12;
-    static constexpr std::uint32_t NORMAL_SHIFT = 18;
-    static constexpr std::uint32_t UV_INDEX_SHIFT = 21;
+    static constexpr std::uint32_t POS_Y_SHIFT = 7;
+    static constexpr std::uint32_t POS_Z_SHIFT = 14;
+    static constexpr std::uint32_t NORMAL_SHIFT = 21;
+    static constexpr std::uint32_t UV_INDEX_SHIFT = 24;
 
-    static constexpr std::uint32_t POS_MASK = 0x3F;      // 6 bits
+    static constexpr std::uint32_t POS_MASK = 0x7F;      // 7 bits (0-127)
     static constexpr std::uint32_t NORMAL_MASK = 0x07;   // 3 bits
-    static constexpr std::uint32_t UV_INDEX_MASK = 0x7FF; // 11 bits
+    static constexpr std::uint32_t UV_INDEX_MASK = 0xFF; // 8 bits (reduced)
 
     // Bit positions for data2
     static constexpr std::uint32_t VOXEL_ID_SHIFT = 0;

@@ -35,8 +35,24 @@ add_executable(VoxelEngineApp
 target_link_libraries(VoxelEngineApp PRIVATE
     Voxel::Client
     voxel_compile_options
+    glad
 )
 
 set_target_properties(VoxelEngineApp PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+)
+
+# Debug single-block test executable
+add_executable(VoxelDebugApp
+    ${CMAKE_CURRENT_SOURCE_DIR}/main_debug.cpp
+)
+
+target_link_libraries(VoxelDebugApp PRIVATE
+    Voxel::Client
+    voxel_compile_options
+    glad
+)
+
+set_target_properties(VoxelDebugApp PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
 )

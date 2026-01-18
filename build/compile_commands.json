@@ -139,8 +139,14 @@
 },
 {
   "directory": "C:/Users/berke/Desktop/voxelengine/build",
-  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/berke/Desktop/voxelengine/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG -o src\\Client\\CMakeFiles\\VoxelEngineApp.dir\\main.cpp.obj -c C:\\Users\\berke\\Desktop\\voxelengine\\src\\Client\\main.cpp",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG -o src\\Client\\CMakeFiles\\VoxelEngineApp.dir\\main.cpp.obj -c C:\\Users\\berke\\Desktop\\voxelengine\\src\\Client\\main.cpp",
   "file": "C:/Users/berke/Desktop/voxelengine/src/Client/main.cpp",
   "output": "C:/Users/berke/Desktop/voxelengine/build/src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/berke/Desktop/voxelengine/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG -o src\\Client\\CMakeFiles\\VoxelDebugApp.dir\\main_debug.cpp.obj -c C:\\Users\\berke\\Desktop\\voxelengine\\src\\Client\\main_debug.cpp",
+  "file": "C:/Users/berke/Desktop/voxelengine/src/Client/main_debug.cpp",
+  "output": "C:/Users/berke/Desktop/voxelengine/build/src/Client/CMakeFiles/VoxelDebugApp.dir/main_debug.cpp.obj"
 }
 ]

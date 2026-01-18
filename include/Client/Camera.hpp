@@ -114,8 +114,8 @@ struct Mat4 {
         m(0, 0) = 1.0f / (aspect * tan_half_fov);
         m(1, 1) = 1.0f / tan_half_fov;
         m(2, 2) = -(far + near) / (far - near);
-        m(2, 3) = -1.0f;
-        m(3, 2) = -(2.0f * far * near) / (far - near);
+        m(3, 2) = -1.0f;                              // Perspective divide: w = -z
+        m(2, 3) = -(2.0f * far * near) / (far - near); // Translation in z
 
         return m;
     }
@@ -126,12 +126,26 @@ struct Mat4 {
         const Vec3 u = Vec3::cross(s, f);
 
         Mat4 m;
-        m(0, 0) = s.x;  m(0, 1) = s.y;  m(0, 2) = s.z;  m(0, 3) = 0.0f;
-        m(1, 0) = u.x;  m(1, 1) = u.y;  m(1, 2) = u.z;  m(1, 3) = 0.0f;
-        m(2, 0) = -f.x; m(2, 1) = -f.y; m(2, 2) = -f.z; m(2, 3) = 0.0f;
-        m(3, 0) = -Vec3::dot(s, eye);
-        m(3, 1) = -Vec3::dot(u, eye);
-        m(3, 2) = Vec3::dot(f, eye);
+        // Column-major layout: m(row, col) maps to data[col*4 + row]
+        // Column 0
+        m(0, 0) = s.x;
+        m(1, 0) = u.x;
+        m(2, 0) = -f.x;
+        m(3, 0) = 0.0f;
+        // Column 1
+        m(0, 1) = s.y;
+        m(1, 1) = u.y;
+        m(2, 1) = -f.y;
+        m(3, 1) = 0.0f;
+        // Column 2
+        m(0, 2) = s.z;
+        m(1, 2) = u.z;
+        m(2, 2) = -f.z;
+        m(3, 2) = 0.0f;
+        // Column 3 (translation)
+        m(0, 3) = -Vec3::dot(s, eye);
+        m(1, 3) = -Vec3::dot(u, eye);
+        m(2, 3) = Vec3::dot(f, eye);
         m(3, 3) = 1.0f;
 
         return m;

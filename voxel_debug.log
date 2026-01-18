@@ -1,0 +1,162 @@
+=== VOXEL ENGINE LOG ===
+
+[Main] === VOXEL ENGINE - SINGLE BLOCK DEBUG ===
+[Main] PackedVertex size: 8 bytes
+[Main] GLFW initialized
+[Main] Window created: 1280x720
+[OpenGL] Version: 4.5.0 NVIDIA 591.44
+[OpenGL] Renderer: NVIDIA GeForce GTX 1650/PCIe/SSE2
+[OpenGL] Vendor: NVIDIA Corporation
+----------------------------------------
+[Renderer] Initializing...
+[Shader] Compiling shaders...
+[Shader] Vertex shader size: 1930 chars
+[Shader] Fragment shader size: 1626 chars
+[Shader] Vertex shader compiled: 1
+[Shader] Fragment shader compiled: 2
+[Shader] Program linked successfully: 3
+[Renderer] Initialized successfully
+----------------------------------------
+[Mesh] Creating single cube mesh...
+[Mesh] Creating single cube at position (0, 0, 0)
+[Mesh] Adding +Y face (top)
+[Mesh] Adding -Y face (bottom)
+[Mesh] Adding +X face
+[Mesh] Adding -X face
+[Mesh] Adding +Z face
+[Mesh] Adding -Z face
+[Mesh] Total vertices: 24
+[Mesh] Total indices: 36
+----------------------------------------
+[Mesh] Vertex data dump:
+[Mesh] V0: pos=(0,1,0) normal=3 voxelId=3 data1=0x600080 data2=0xff0003
+[Mesh] V1: pos=(1,1,0) normal=3 voxelId=3 data1=0x1600081 data2=0xff0003
+[Mesh] V2: pos=(1,1,1) normal=3 voxelId=3 data1=0x2604081 data2=0xff0003
+[Mesh] V3: pos=(0,1,1) normal=3 voxelId=3 data1=0x3604080 data2=0xff0003
+[Mesh] V4: pos=(0,0,0) normal=2 voxelId=3 data1=0x400000 data2=0xff0003
+[Mesh] V5: pos=(0,0,1) normal=2 voxelId=3 data1=0x1404000 data2=0xff0003
+[Mesh] V6: pos=(1,0,1) normal=2 voxelId=3 data1=0x2404001 data2=0xff0003
+[Mesh] V7: pos=(1,0,0) normal=2 voxelId=3 data1=0x3400001 data2=0xff0003
+[Mesh] V8: pos=(1,0,0) normal=1 voxelId=3 data1=0x200001 data2=0xff0003
+[Mesh] V9: pos=(1,0,1) normal=1 voxelId=3 data1=0x1204001 data2=0xff0003
+[Mesh] V10: pos=(1,1,1) normal=1 voxelId=3 data1=0x2204081 data2=0xff0003
+[Mesh] V11: pos=(1,1,0) normal=1 voxelId=3 data1=0x3200081 data2=0xff0003
+[Mesh] V12: pos=(0,0,0) normal=0 voxelId=3 data1=0x0 data2=0xff0003
+[Mesh] V13: pos=(0,1,0) normal=0 voxelId=3 data1=0x1000080 data2=0xff0003
+[Mesh] V14: pos=(0,1,1) normal=0 voxelId=3 data1=0x2004080 data2=0xff0003
+[Mesh] V15: pos=(0,0,1) normal=0 voxelId=3 data1=0x3004000 data2=0xff0003
+[Mesh] V16: pos=(0,0,1) normal=5 voxelId=3 data1=0xa04000 data2=0xff0003
+[Mesh] V17: pos=(0,1,1) normal=5 voxelId=3 data1=0x1a04080 data2=0xff0003
+[Mesh] V18: pos=(1,1,1) normal=5 voxelId=3 data1=0x2a04081 data2=0xff0003
+[Mesh] V19: pos=(1,0,1) normal=5 voxelId=3 data1=0x3a04001 data2=0xff0003
+[Mesh] V20: pos=(0,0,0) normal=4 voxelId=3 data1=0x800000 data2=0xff0003
+[Mesh] V21: pos=(1,0,0) normal=4 voxelId=3 data1=0x1800001 data2=0xff0003
+[Mesh] V22: pos=(1,1,0) normal=4 voxelId=3 data1=0x2800081 data2=0xff0003
+[Mesh] V23: pos=(0,1,0) normal=4 voxelId=3 data1=0x3800080 data2=0xff0003
+----------------------------------------
+[Mesh] Index data dump:
+[Mesh] Triangle 0: 0, 1, 2
+[Mesh] Triangle 1: 0, 2, 3
+[Mesh] Triangle 2: 4, 5, 6
+[Mesh] Triangle 3: 4, 6, 7
+[Mesh] Triangle 4: 8, 9, 10
+[Mesh] Triangle 5: 8, 10, 11
+[Mesh] Triangle 6: 12, 13, 14
+[Mesh] Triangle 7: 12, 14, 15
+[Mesh] Triangle 8: 16, 17, 18
+[Mesh] Triangle 9: 16, 18, 19
+[Mesh] Triangle 10: 20, 21, 22
+[Mesh] Triangle 11: 20, 22, 23
+----------------------------------------
+[GPU] Uploading mesh to GPU...
+[Upload] Uploading mesh for chunk (0,0,0)
+[Upload]   Vertices: 24 Indices: 36
+[VAO] Creating VAO for 24 vertices, 36 indices
+[VAO] Created VAO: 1
+[VAO] Created VBO: 2 size=192 bytes
+[VAO]   V0 data1=0x600080 data2=0xff0003
+[VAO]   V1 data1=0x1600081 data2=0xff0003
+[VAO]   V2 data1=0x2604081 data2=0xff0003
+[VAO]   V3 data1=0x3604080 data2=0xff0003
+[VAO] Created EBO: 3 size=144 bytes
+[VAO] First indices: 0, 1, 2, 0, 2, 3
+[VAO] Attrib 0: IFormat size=1 type=UINT offset=0
+[VAO] Attrib 1: IFormat size=1 type=UINT offset=4
+[VAO] Bound VBO to binding point 0, stride=8
+[VAO] Bound EBO to VAO
+[VAO] VAO creation successful
+[Upload]   Upload successful: VAO=1 VBO=2 EBO=3
+[GPU] Mesh uploaded successfully
+[GPU] Total vertices: 24
+[GPU] Total indices: 36
+----------------------------------------
+[Camera] Setting up camera...
+[Camera] Position: (3, 2, 3)
+[Camera] Near: 0.1, Far: 100.0, FOV: 70
+[Camera] View Matrix:
+  [  0.7071,   0.0000,  -0.7071,  -0.0000]
+  [ -0.2418,   0.9397,  -0.2418,  -0.4283]
+  [  0.6645,   0.3420,   0.6645,  -4.6708]
+  [  0.0000,   0.0000,   0.0000,   1.0000]
+[Camera] Projection Matrix:
+  [  0.8033,   0.0000,   0.0000,   0.0000]
+  [  0.0000,   1.4281,   0.0000,   0.0000]
+  [  0.0000,   0.0000,  -1.0020,  -0.2002]
+  [  0.0000,   0.0000,  -1.0000,   0.0000]
+[Camera] ViewProjection Matrix:
+  [  0.5680,   0.0000,  -0.5680,   0.0000]
+  [ -0.3454,   1.3420,  -0.3454,  -0.6117]
+  [ -0.6658,  -0.3427,  -0.6658,   4.4800]
+  [ -0.6645,  -0.3420,  -0.6645,   4.6708]
+----------------------------------------
+[Test] Testing vertex transformation through VP matrix...
+[Test] Vertex (0,1,0) -> Clip: (0, 0.730321, 4.13726, 4.3288)
+[Test] Vertex (0,1,0) -> NDC: (0, 0.168712, 0.955754)
+[Test] In frustum: YES
+[Main] Mouse captured
+----------------------------------------
+[Frame] === FRAME 0 ===
+[Frame] begin_frame called, cleared to sky blue
+[Frame] Camera position: (3, 2, 3)
+[Frame] Current VP Matrix:
+  [  0.5680,   0.0000,  -0.5680,   0.0000]
+  [ -0.3454,   1.3420,  -0.3454,  -0.6117]
+  [ -0.6658,  -0.3427,  -0.6658,   4.4800]
+  [ -0.6645,  -0.3420,  -0.6645,   4.6708]
+[Render] Shader program ID: 3
+[Render] Chunk (0,0,0):
+[Render]   VAO=1 VBO=2 EBO=3
+[Render]   Vertices=24 Indices=36
+[Render]   Offset=(0,0,0)
+[Render]   Render origin=(0,0,0)
+[Render]   Bound VAO: 1 (expected 1)
+[Render]   Bound EBO: 3 (expected 3)
+[Render]   Draw call succeeded
+[Render] Total draw calls: 1
+[Frame] render_chunks called, draw calls: 1
+[Frame] Frame complete
+----------------------------------------
+[Frame] === FRAME 1 ===
+[Frame] begin_frame called, cleared to sky blue
+[Frame] Camera position: (3, 2, 3)
+[Frame] Current VP Matrix:
+  [  0.5680,   0.0000,  -0.5680,   0.0000]
+  [ -0.3454,   1.3420,  -0.3454,  -0.6117]
+  [ -0.6658,  -0.3427,  -0.6658,   4.4800]
+  [ -0.6645,  -0.3420,  -0.6645,   4.6708]
+[Frame] render_chunks called, draw calls: 1
+[Frame] Frame complete
+----------------------------------------
+[Frame] === FRAME 2 ===
+[Frame] begin_frame called, cleared to sky blue
+[Frame] Camera position: (3, 2, 3)
+[Frame] Current VP Matrix:
+  [  0.5680,   0.0000,  -0.5680,   0.0000]
+  [ -0.3454,   1.3420,  -0.3454,  -0.6117]
+  [ -0.6658,  -0.3427,  -0.6658,   4.4800]
+  [ -0.6645,  -0.3420,  -0.6645,   4.6708]
+[Frame] render_chunks called, draw calls: 1
+[Frame] Frame complete
+----------------------------------------
+[Main] Shutting down...
+[Main] === SHUTDOWN COMPLETE ===

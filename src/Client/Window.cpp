@@ -9,6 +9,63 @@
 
 #include <iostream>
 
+// =============================================================================
+// OPENGL DEBUG CALLBACK
+// =============================================================================
+#ifndef NDEBUG
+static void APIENTRY gl_debug_callback(
+    GLenum source,
+    GLenum type,
+    GLuint id,
+    GLenum severity,
+    [[maybe_unused]] GLsizei length,
+    const GLchar* message,
+    [[maybe_unused]] const void* user_param)
+{
+    // Ignore non-significant notifications
+    if (severity == GL_DEBUG_SEVERITY_NOTIFICATION) {
+        return;
+    }
+
+    const char* source_str = "Unknown";
+    switch (source) {
+        case GL_DEBUG_SOURCE_API:             source_str = "API"; break;
+        case GL_DEBUG_SOURCE_WINDOW_SYSTEM:   source_str = "Window System"; break;
+        case GL_DEBUG_SOURCE_SHADER_COMPILER: source_str = "Shader Compiler"; break;
+        case GL_DEBUG_SOURCE_THIRD_PARTY:     source_str = "Third Party"; break;
+        case GL_DEBUG_SOURCE_APPLICATION:     source_str = "Application"; break;
+        case GL_DEBUG_SOURCE_OTHER:           source_str = "Other"; break;
+    }
+
+    const char* type_str = "Unknown";
+    switch (type) {
+        case GL_DEBUG_TYPE_ERROR:               type_str = "Error"; break;
+        case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR: type_str = "Deprecated"; break;
+        case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR:  type_str = "Undefined Behavior"; break;
+        case GL_DEBUG_TYPE_PORTABILITY:         type_str = "Portability"; break;
+        case GL_DEBUG_TYPE_PERFORMANCE:         type_str = "Performance"; break;
+        case GL_DEBUG_TYPE_MARKER:              type_str = "Marker"; break;
+        case GL_DEBUG_TYPE_OTHER:               type_str = "Other"; break;
+    }
+
+    const char* severity_str = "Unknown";
+    switch (severity) {
+        case GL_DEBUG_SEVERITY_HIGH:         severity_str = "HIGH"; break;
+        case GL_DEBUG_SEVERITY_MEDIUM:       severity_str = "MEDIUM"; break;
+        case GL_DEBUG_SEVERITY_LOW:          severity_str = "LOW"; break;
+        case GL_DEBUG_SEVERITY_NOTIFICATION: severity_str = "NOTIFICATION"; break;
+    }
+
+    std::cerr << "[GL " << severity_str << "][" << source_str << "][" << type_str << "] "
+              << "(ID: " << id << ") " << message << "\n";
+
+    // Break on high severity errors in debug builds
+    if (severity == GL_DEBUG_SEVERITY_HIGH && type == GL_DEBUG_TYPE_ERROR) {
+        std::cerr << "  ^^^ CRITICAL GL ERROR ^^^\n";
+    }
+}
+#endif
+
 namespace voxel::client {
 
 // =============================================================================
@@ -107,6 +164,14 @@ bool Window::create(std::int32_t width, std::int32_t height, std::string_view ti
     std::cout << "[Window] Renderer: " << glGetString(GL_RENDERER) << "\n";
     std::cout << "[Window] Vendor: " << glGetString(GL_VENDOR) << "\n";
 
+    // Enable debug output in debug builds
+#ifndef NDEBUG
+    glEnable(GL_DEBUG_OUTPUT);
+    glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+    glDebugMessageCallback(gl_debug_callback, nullptr);
+    std::cout << "[Window] OpenGL debug output enabled\n";
+#endif
+
     // Check for OpenGL 4.5 support
     GLint major, minor;
     glGetIntegerv(GL_MAJOR_VERSION, &major);
@@ -134,6 +199,7 @@ bool Window::create(std::int32_t width, std::int32_t height, std::string_view ti
 
     // Default OpenGL state
     glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
     glFrontFace(GL_CCW);

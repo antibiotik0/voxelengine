@@ -10,12 +10,14 @@ PFNGLCLEARCOLORPROC glClearColor = 0;
 PFNGLVIEWPORTPROC glViewport = 0;
 PFNGLENABLEPROC glEnable = 0;
 PFNGLDISABLEPROC glDisable = 0;
+PFNGLDEPTHFUNCPROC glDepthFunc = 0;
 PFNGLCULLFACEPROC glCullFace = 0;
 PFNGLFRONTFACEPROC glFrontFace = 0;
 PFNGLPOLYGONMODEPROC glPolygonMode = 0;
 PFNGLGETSTRINGPROC glGetString = 0;
 PFNGLGETINTEGERVPROC glGetIntegerv = 0;
 PFNGLBLENDFUNCPROC glBlendFunc = 0;
+PFNGLGETERRORPROC glGetError = 0;
 
 PFNGLCREATEBUFFERSPROC glCreateBuffers = 0;
 PFNGLDELETEBUFFERSPROC glDeleteBuffers = 0;
@@ -71,6 +73,17 @@ PFNGLCLIENTWAITSYNCPROC glClientWaitSync = 0;
 
 PFNGLDEBUGMESSAGECALLBACKPROC glDebugMessageCallback = 0;
 
+// Texture functions
+PFNGLCREATETEXTURESPROC glCreateTextures = 0;
+PFNGLDELETETEXTURESPROC glDeleteTextures = 0;
+PFNGLBINDTEXTUREPROC glBindTexture = 0;
+PFNGLBINDTEXTUREUNITPROC glBindTextureUnit = 0;
+PFNGLTEXTURESTORAGE2DPROC glTextureStorage2D = 0;
+PFNGLTEXTURESUBIMAGE2DPROC glTextureSubImage2D = 0;
+PFNGLTEXTUREPARAMETERIPROC glTextureParameteri = 0;
+PFNGLGENERATETEXTUREMIPMAPPROC glGenerateTextureMipmap = 0;
+PFNGLACTIVETEXTUREPROC glActiveTexture = 0;
+
 static void* get_proc(GLADloadproc load, const char* name) {
     void* result = load(name);
     return result;
@@ -82,12 +95,14 @@ int gladLoadGLLoader(GLADloadproc load) {
     glViewport = (PFNGLVIEWPORTPROC)get_proc(load, "glViewport");
     glEnable = (PFNGLENABLEPROC)get_proc(load, "glEnable");
     glDisable = (PFNGLDISABLEPROC)get_proc(load, "glDisable");
+    glDepthFunc = (PFNGLDEPTHFUNCPROC)get_proc(load, "glDepthFunc");
     glCullFace = (PFNGLCULLFACEPROC)get_proc(load, "glCullFace");
     glFrontFace = (PFNGLFRONTFACEPROC)get_proc(load, "glFrontFace");
     glPolygonMode = (PFNGLPOLYGONMODEPROC)get_proc(load, "glPolygonMode");
     glGetString = (PFNGLGETSTRINGPROC)get_proc(load, "glGetString");
     glGetIntegerv = (PFNGLGETINTEGERVPROC)get_proc(load, "glGetIntegerv");
     glBlendFunc = (PFNGLBLENDFUNCPROC)get_proc(load, "glBlendFunc");
+    glGetError = (PFNGLGETERRORPROC)get_proc(load, "glGetError");
 
     glCreateBuffers = (PFNGLCREATEBUFFERSPROC)get_proc(load, "glCreateBuffers");
     glDeleteBuffers = (PFNGLDELETEBUFFERSPROC)get_proc(load, "glDeleteBuffers");
@@ -142,6 +157,17 @@ int gladLoadGLLoader(GLADloadproc load) {
     glClientWaitSync = (PFNGLCLIENTWAITSYNCPROC)get_proc(load, "glClientWaitSync");
 
     glDebugMessageCallback = (PFNGLDEBUGMESSAGECALLBACKPROC)get_proc(load, "glDebugMessageCallback");
+
+    // Texture functions
+    glCreateTextures = (PFNGLCREATETEXTURESPROC)get_proc(load, "glCreateTextures");
+    glDeleteTextures = (PFNGLDELETETEXTURESPROC)get_proc(load, "glDeleteTextures");
+    glBindTexture = (PFNGLBINDTEXTUREPROC)get_proc(load, "glBindTexture");
+    glBindTextureUnit = (PFNGLBINDTEXTUREUNITPROC)get_proc(load, "glBindTextureUnit");
+    glTextureStorage2D = (PFNGLTEXTURESTORAGE2DPROC)get_proc(load, "glTextureStorage2D");
+    glTextureSubImage2D = (PFNGLTEXTURESUBIMAGE2DPROC)get_proc(load, "glTextureSubImage2D");
+    glTextureParameteri = (PFNGLTEXTUREPARAMETERIPROC)get_proc(load, "glTextureParameteri");
+    glGenerateTextureMipmap = (PFNGLGENERATETEXTUREMIPMAPPROC)get_proc(load, "glGenerateTextureMipmap");
+    glActiveTexture = (PFNGLACTIVETEXTUREPROC)get_proc(load, "glActiveTexture");
 
     // Check required functions
     if (!glClear || !glClearColor || !glCreateBuffers || !glCreateVertexArrays ||

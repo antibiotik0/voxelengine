@@ -106,41 +106,41 @@ flat out uint v_VoxelID;
 out float v_Light;
 out float v_AO;
 
-// Decode normal from 3-bit index
-const vec3 NORMALS[6] = vec3[6](
-    vec3(-1.0, 0.0, 0.0),  // NEG_X
-    vec3( 1.0, 0.0, 0.0),  // POS_X
-    vec3( 0.0,-1.0, 0.0),  // NEG_Y
-    vec3( 0.0, 1.0, 0.0),  // POS_Y
-    vec3( 0.0, 0.0,-1.0),  // NEG_Z
-    vec3( 0.0, 0.0, 1.0)   // POS_Z
-);
-
 void main() {
-    // Unpack data1: position (18 bits), normal (3 bits), uv_index (11 bits)
-    uint pos_x = (data1 >> 0) & 0x3Fu;
-    uint pos_y = (data1 >> 6) & 0x3Fu;
-    uint pos_z = (data1 >> 12) & 0x3Fu;
-    uint normal_idx = (data1 >> 18) & 0x07u;
-    uint uv_index = (data1 >> 21) & 0x7FFu;
+    // Unpack data1: x(7) | y(7) | z(7) | normal(3) | uv_index(8)
+    uint x = data1 & 0x7Fu;                    // bits 0-6
+    uint y = (data1 >> 7u) & 0x7Fu;            // bits 7-13
+    uint z = (data1 >> 14u) & 0x7Fu;           // bits 14-20
+    uint normalIdx = (data1 >> 21u) & 0x7u;    // bits 21-23
+    uint uvIndex = (data1 >> 24u) & 0xFFu;     // bits 24-31
 
-    // Unpack data2: voxel_id (16 bits), light (8 bits), ao (8 bits)
-    uint voxel_id = (data2 >> 0) & 0xFFFFu;
-    uint light = (data2 >> 16) & 0xFFu;
-    uint ao = (data2 >> 24) & 0xFFu;
+    // Unpack data2: voxel_id(16) | light(8) | ao(8)
+    uint voxelId = data2 & 0xFFFFu;            // bits 0-15
+    uint light = (data2 >> 16u) & 0xFFu;       // bits 16-23
+    uint ao = (data2 >> 24u) & 0xFFu;          // bits 24-31
 
-    // Calculate world position relative to render origin
-    vec3 local_pos = vec3(float(pos_x), float(pos_y), float(pos_z));
-    vec3 world_pos = local_pos + u_ChunkOffset;
+    // Calculate world position (local + chunk offset)
+    vec3 localPos = vec3(float(x), float(y), float(z));
+    vec3 worldPos = localPos + u_ChunkOffset;
 
-    // Output position
-    gl_Position = u_ViewProjection * vec4(world_pos, 1.0);
+    // Transform to clip space
+    gl_Position = u_ViewProjection * vec4(worldPos, 1.0);
+
+    // Decode normal from 3-bit index
+    const vec3 NORMALS[6] = vec3[6](
+        vec3(-1.0, 0.0, 0.0),  // 0: -X
+        vec3( 1.0, 0.0, 0.0),  // 1: +X
+        vec3( 0.0,-1.0, 0.0),  // 2: -Y
+        vec3( 0.0, 1.0, 0.0),  // 3: +Y
+        vec3( 0.0, 0.0,-1.0),  // 4: -Z
+        vec3( 0.0, 0.0, 1.0)   // 5: +Z
+    );
 
     // Pass to fragment shader
-    v_Position = world_pos;
-    v_Normal = NORMALS[normal_idx];
-    v_TexCoord = vec2(0.0); // TODO: Calculate from uv_index
-    v_VoxelID = voxel_id;
+    v_Position = worldPos;
+    v_Normal = NORMALS[min(normalIdx, 5u)];
+    v_TexCoord = vec2(float(uvIndex % 16u), float(uvIndex / 16u));  // Simple UV from index
+    v_VoxelID = voxelId;
     v_Light = float(light) / 255.0;
     v_AO = float(ao) / 255.0;
 }
@@ -177,30 +177,53 @@ vec3 get_voxel_color(uint voxel_id) {
 }
 
 void main() {
-    vec3 base_color = get_voxel_color(v_VoxelID);
+    // Get base color from voxel type
+    vec3 baseColor = get_voxel_color(v_VoxelID);
 
     // Simple directional lighting
-    vec3 light_dir = normalize(vec3(0.5, 1.0, 0.3));
-    float diffuse = max(dot(v_Normal, light_dir), 0.0);
+    vec3 lightDir = normalize(vec3(0.5, 1.0, 0.3));
+    float diffuse = max(dot(v_Normal, lightDir), 0.0);
     float ambient = 0.4;
+    float lighting = ambient + diffuse * 0.6;
 
-    // Apply lighting and AO
-    float light_factor = ambient + diffuse * 0.6;
-    light_factor *= (1.0 - v_AO * 0.3);  // AO darkening
-    light_factor *= (0.5 + v_Light * 0.5);  // Block light
+    // Apply ambient occlusion (v_AO is 0-1 where higher = more occlusion)
+    float aoFactor = 1.0 - v_AO * 0.5;
 
-    vec3 final_color = base_color * light_factor;
+    // Apply light level
+    float lightFactor = max(v_Light, 0.2);  // Minimum light to see something
 
-    // Apply face-based shading for visual depth
-    if (abs(v_Normal.y) > 0.5) {
-        final_color *= (v_Normal.y > 0.0) ? 1.0 : 0.6;  // Top bright, bottom dark
-    } else if (abs(v_Normal.x) > 0.5) {
-        final_color *= 0.8;  // X faces slightly darker
-    } else {
-        final_color *= 0.9;  // Z faces medium
-    }
+    // Final color
+    vec3 finalColor = baseColor * lighting * aoFactor * lightFactor;
+    FragColor = vec4(finalColor, 1.0);
+}
+)glsl";
 
-    FragColor = vec4(final_color, 1.0);
+// =============================================================================
+// BLOCK HIGHLIGHT SHADER (wireframe box)
+// =============================================================================
+constexpr const char* HIGHLIGHT_VERTEX_SHADER = R"glsl(
+#version 450 core
+
+layout(location = 0) in vec3 a_Position;
+
+layout(location = 0) uniform mat4 u_ViewProjection;
+layout(location = 1) uniform vec3 u_BlockPosition;  // Block world position
+
+void main() {
+    // Scale slightly larger than 1x1x1 to avoid z-fighting
+    vec3 worldPos = a_Position * 1.002 + u_BlockPosition;
+    gl_Position = u_ViewProjection * vec4(worldPos, 1.0);
+}
+)glsl";
+
+constexpr const char* HIGHLIGHT_FRAGMENT_SHADER = R"glsl(
+#version 450 core
+
+out vec4 FragColor;
+
+void main() {
+    // Black outline
+    FragColor = vec4(0.0, 0.0, 0.0, 1.0);
 }
 )glsl";
 

@@ -139,6 +139,7 @@ typedef void (APIENTRY *GLDEBUGPROC)(GLenum source, GLenum type, GLuint id, GLen
 
 // Depth
 #define GL_DEPTH_TEST 0x0B71
+#define GL_LESS 0x0201
 #define GL_DEPTH_BUFFER_BIT 0x00000100
 #define GL_COLOR_BUFFER_BIT 0x00004000
 #define GL_STENCIL_BUFFER_BIT 0x00000400
@@ -161,6 +162,10 @@ typedef void (APIENTRY *GLDEBUGPROC)(GLenum source, GLenum type, GLuint id, GLen
 #define GL_SHADING_LANGUAGE_VERSION 0x8B8C
 #define GL_MAJOR_VERSION 0x821B
 #define GL_MINOR_VERSION 0x821C
+#define GL_CURRENT_PROGRAM 0x8B8D
+#define GL_VERTEX_ARRAY_BINDING 0x85B5
+#define GL_ELEMENT_ARRAY_BUFFER_BINDING 0x8895
+#define GL_NO_ERROR 0
 
 // Textures
 #define GL_TEXTURE_2D 0x0DE1
@@ -198,6 +203,27 @@ typedef void (APIENTRY *GLDEBUGPROC)(GLenum source, GLenum type, GLuint id, GLen
 #define GL_SYNC_FLUSH_COMMANDS_BIT 0x00000001
 #define GL_ALREADY_SIGNALED 0x911A
 #define GL_TIMEOUT_EXPIRED 0x911B
+
+// Debug output
+#define GL_DEBUG_OUTPUT 0x92E0
+#define GL_DEBUG_OUTPUT_SYNCHRONOUS 0x8242
+#define GL_DEBUG_SOURCE_API 0x8246
+#define GL_DEBUG_SOURCE_WINDOW_SYSTEM 0x8247
+#define GL_DEBUG_SOURCE_SHADER_COMPILER 0x8248
+#define GL_DEBUG_SOURCE_THIRD_PARTY 0x8249
+#define GL_DEBUG_SOURCE_APPLICATION 0x824A
+#define GL_DEBUG_SOURCE_OTHER 0x824B
+#define GL_DEBUG_TYPE_ERROR 0x824C
+#define GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR 0x824D
+#define GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR 0x824E
+#define GL_DEBUG_TYPE_PORTABILITY 0x824F
+#define GL_DEBUG_TYPE_PERFORMANCE 0x8250
+#define GL_DEBUG_TYPE_MARKER 0x8268
+#define GL_DEBUG_TYPE_OTHER 0x8251
+#define GL_DEBUG_SEVERITY_HIGH 0x9146
+#define GL_DEBUG_SEVERITY_MEDIUM 0x9147
+#define GL_DEBUG_SEVERITY_LOW 0x9148
+#define GL_DEBUG_SEVERITY_NOTIFICATION 0x826B
 #define GL_CONDITION_SATISFIED 0x911C
 #define GL_WAIT_FAILED 0x911D
 
@@ -211,6 +237,7 @@ typedef void (APIENTRY *PFNGLCLEARCOLORPROC)(GLfloat red, GLfloat green, GLfloat
 typedef void (APIENTRY *PFNGLVIEWPORTPROC)(GLint x, GLint y, GLsizei width, GLsizei height);
 typedef void (APIENTRY *PFNGLENABLEPROC)(GLenum cap);
 typedef void (APIENTRY *PFNGLDISABLEPROC)(GLenum cap);
+typedef void (APIENTRY *PFNGLDEPTHFUNCPROC)(GLenum func);
 typedef void (APIENTRY *PFNGLCULLFACEPROC)(GLenum mode);
 typedef void (APIENTRY *PFNGLFRONTFACEPROC)(GLenum mode);
 typedef void (APIENTRY *PFNGLPOLYGONMODEPROC)(GLenum face, GLenum mode);
@@ -282,18 +309,34 @@ typedef void (APIENTRY *PFNGLDEBUGMESSAGECALLBACKPROC)(GLDEBUGPROC callback, con
 // Blending
 typedef void (APIENTRY *PFNGLBLENDFUNCPROC)(GLenum sfactor, GLenum dfactor);
 
+// Error handling
+typedef GLenum (APIENTRY *PFNGLGETERRORPROC)(void);
+
+// Textures
+typedef void (APIENTRY *PFNGLCREATETEXTURESPROC)(GLenum target, GLsizei n, GLuint* textures);
+typedef void (APIENTRY *PFNGLDELETETEXTURESPROC)(GLsizei n, const GLuint* textures);
+typedef void (APIENTRY *PFNGLBINDTEXTUREPROC)(GLenum target, GLuint texture);
+typedef void (APIENTRY *PFNGLBINDTEXTUREUNITPROC)(GLuint unit, GLuint texture);
+typedef void (APIENTRY *PFNGLTEXTURESTORAGE2DPROC)(GLuint texture, GLsizei levels, GLenum internalformat, GLsizei width, GLsizei height);
+typedef void (APIENTRY *PFNGLTEXTURESUBIMAGE2DPROC)(GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, const void* pixels);
+typedef void (APIENTRY *PFNGLTEXTUREPARAMETERIPROC)(GLuint texture, GLenum pname, GLint param);
+typedef void (APIENTRY *PFNGLGENERATETEXTUREMIPMAPPROC)(GLuint texture);
+typedef void (APIENTRY *PFNGLACTIVETEXTUREPROC)(GLenum texture);
+
 // Function pointer declarations
 extern PFNGLCLEARPROC glClear;
 extern PFNGLCLEARCOLORPROC glClearColor;
 extern PFNGLVIEWPORTPROC glViewport;
 extern PFNGLENABLEPROC glEnable;
 extern PFNGLDISABLEPROC glDisable;
+extern PFNGLDEPTHFUNCPROC glDepthFunc;
 extern PFNGLCULLFACEPROC glCullFace;
 extern PFNGLFRONTFACEPROC glFrontFace;
 extern PFNGLPOLYGONMODEPROC glPolygonMode;
 extern PFNGLGETSTRINGPROC glGetString;
 extern PFNGLGETINTEGERVPROC glGetIntegerv;
 extern PFNGLBLENDFUNCPROC glBlendFunc;
+extern PFNGLGETERRORPROC glGetError;
 
 extern PFNGLCREATEBUFFERSPROC glCreateBuffers;
 extern PFNGLDELETEBUFFERSPROC glDeleteBuffers;
@@ -348,6 +391,17 @@ extern PFNGLDELETESYNCPROC glDeleteSync;
 extern PFNGLCLIENTWAITSYNCPROC glClientWaitSync;
 
 extern PFNGLDEBUGMESSAGECALLBACKPROC glDebugMessageCallback;
+
+// Texture functions
+extern PFNGLCREATETEXTURESPROC glCreateTextures;
+extern PFNGLDELETETEXTURESPROC glDeleteTextures;
+extern PFNGLBINDTEXTUREPROC glBindTexture;
+extern PFNGLBINDTEXTUREUNITPROC glBindTextureUnit;
+extern PFNGLTEXTURESTORAGE2DPROC glTextureStorage2D;
+extern PFNGLTEXTURESUBIMAGE2DPROC glTextureSubImage2D;
+extern PFNGLTEXTUREPARAMETERIPROC glTextureParameteri;
+extern PFNGLGENERATETEXTUREMIPMAPPROC glGenerateTextureMipmap;
+extern PFNGLACTIVETEXTUREPROC glActiveTexture;
 
 // Loader function (call with glfwGetProcAddress)
 typedef void* (*GLADloadproc)(const char* name);

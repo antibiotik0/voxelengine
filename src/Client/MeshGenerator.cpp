@@ -7,6 +7,7 @@
 
 #include <algorithm>
 #include <cstring>
+#include <iostream>
 
 namespace voxel::client {
 

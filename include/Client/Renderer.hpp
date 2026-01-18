@@ -148,12 +148,15 @@ public:
     // DEBUG / VISUALIZATION
     // =============================================================================
 
-    void set_wireframe(bool enabled);
+    // Render a wireframe box around a block position
+    void render_block_highlight(std::int32_t block_x, std::int32_t block_y, std::int32_t block_z);
+
     void set_cull_face(bool enabled);
 
 private:
     bool create_chunk_vao(ChunkGPUData& gpu_data, const ChunkMesh& mesh);
     void destroy_chunk_data(ChunkGPUData& data);
+    bool create_highlight_resources();
 
     // Build indirect draw commands for visible chunks
     void build_draw_batch(DrawBatch& batch, const math::Vec3& camera_pos);
@@ -163,6 +166,11 @@ private:
 
     // Shaders
     Shader m_chunk_shader;
+    Shader m_highlight_shader;
+
+    // Block highlight resources
+    std::uint32_t m_highlight_vao = 0;
+    std::uint32_t m_highlight_vbo = 0;
 
     // Camera state
     math::Mat4 m_view_matrix;
@@ -182,8 +190,8 @@ private:
     std::size_t m_total_indices = 0;
     std::size_t m_draw_calls = 0;
 
-    // Render state
-    bool m_wireframe = false;
+    // Default texture (1x1 white)
+    std::uint32_t m_default_texture = 0;
 };
 
 } // namespace voxel::client

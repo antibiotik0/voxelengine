@@ -203,9 +203,7 @@ void Camera::process_keyboard(Direction direction, float delta_time) {
 }
 
 void Camera::process_mouse(float x_offset, float y_offset, bool constrain_pitch) {
-    x_offset *= m_sensitivity;
-    y_offset *= m_sensitivity;
-
+    // Sensitivity is now applied by the caller
     m_yaw += x_offset;
     m_pitch += y_offset;
 
