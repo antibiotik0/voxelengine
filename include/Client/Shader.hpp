@@ -128,17 +128,33 @@ void main() {
     // Calculate world position (local + chunk offset)
     vec3 localPos = vec3(float(x), float(y), float(z));
     
-    // Apply fluid height offset for top faces (+Y normal, index 3)
+    // Apply fluid height offset for water/lava blocks
     // Fluid level meanings:
     //   Level 8 = source block (full height, no offset)
     //   Level 0 = treated as source (full height)
     //   Level 1-7 = flowing water distance from source
     //     Level 1 = closest to source (high water: 7/8 height)
     //     Level 7 = furthest from source (low water: 1/8 height)
-    if (normalIdx == 3u && fluidLevel > 0u && fluidLevel < 8u) {
-        // Invert: flowing level 1 = 7/8 height, level 7 = 1/8 height
+    if (fluidLevel > 0u && fluidLevel < 8u) {
+        // Calculate how much to lower the water surface
         float fluidHeight = float(8u - fluidLevel) / 8.0;
-        localPos.y -= (1.0 - fluidHeight);
+        float heightOffset = 1.0 - fluidHeight;
+        
+        // For TOP faces (+Y, normalIdx == 3): lower the entire face
+        if (normalIdx == 3u) {
+            localPos.y -= heightOffset;
+        }
+        // For SIDE faces (X and Z normals): lower only the top vertices
+        // Top vertices have fractional y component (y % 1 == 0 at integer positions)
+        // We detect top vertices by checking if uvV == 0 (top row in UV space)
+        else if (normalIdx != 2u) {  // Not bottom face
+            // Side faces: uvV == 0 means top vertices (after V inversion)
+            // The vertex shader receives UV before interpolation
+            // For side faces with V inverted: v=0 is top, v=h is bottom
+            if (uvV == 0u) {
+                localPos.y -= heightOffset;
+            }
+        }
     }
     // Level 8 or 0: no offset (full block)
     
