@@ -158,10 +158,8 @@ void main() {
     v_Normal = NORMALS[min(normalIdx, 5u)];
     
     // UV coordinates for greedy meshing (can be > 1.0 for GL_REPEAT)
-    // If uvU and uvV are 0, use default 1x1 (corner indices)
-    float u = (uvU == 0u) ? float(gl_VertexID % 2) : float(uvU);
-    float v = (uvV == 0u) ? float((gl_VertexID / 2) % 2) : float(uvV);
-    v_TexCoord = vec2(u, v);
+    // Pass actual UV values - greedy mesh sets these properly
+    v_TexCoord = vec2(float(uvU), float(uvV));
     v_TexLayer = texLayer;  // Flat - no interpolation
     
     v_Light = float(light) / 255.0;
@@ -219,12 +217,12 @@ void main() {
     // Sun direction - from upper-right-front
     vec3 lightDir = normalize(vec3(0.5, 1.0, 0.3));
     
-    // Ambient light constant (never pitch black)
-    float ambient = 0.4;
+    // Ambient light constant (never pitch black) - raised to 0.5
+    float ambient = 0.5;
     
-    // Diffuse lighting: ambient + max(0.0, dot(normal, lightDir)) * 0.6
+    // Diffuse lighting: ambient + max(0.0, dot(normal, lightDir)) * 0.5
     float diffuse = max(0.0, dot(v_Normal, lightDir));
-    float lighting = ambient + diffuse * 0.6;
+    float lighting = ambient + diffuse * 0.5;
 
     // Apply ambient occlusion (v_AO is 0-1 where higher = more occlusion)
     float aoFactor = 1.0 - v_AO * 0.3;

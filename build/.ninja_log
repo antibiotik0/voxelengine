@@ -109,3 +109,11 @@
 60	4161	7905202003073111	src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj	d5fb56354c055731
 3276	4935	7905202035230025	bin/VoxelDebugApp.exe	adc01926196a9f3e
 4161	8596	7905202044086230	bin/VoxelEngineApp.exe	c1389fdde1ebff1b
+36	1984	7905206651938158	src/Client/CMakeFiles/VoxelClient.dir/MeshGenerator.cpp.obj	6ad2f38397b63706
+41	2043	7905206651998272	src/Client/CMakeFiles/VoxelClient.dir/Shader.cpp.obj	ba4b04865ef144f3
+48	3388	7905206652068623	src/Client/CMakeFiles/VoxelClient.dir/Renderer.cpp.obj	91d5b62ba643f711
+3388	3521	7905206685467737	src/Client/libVoxelClient.a	cdb089c4867cb6a2
+64	3693	7905206652211265	src/Client/CMakeFiles/VoxelDebugApp.dir/main_debug.cpp.obj	ea1eef538c105221
+55	4669	7905206652136134	src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj	d5fb56354c055731
+3693	5343	7905206688511512	bin/VoxelDebugApp.exe	adc01926196a9f3e
+4669	9417	7905206698274948	bin/VoxelEngineApp.exe	c1389fdde1ebff1b

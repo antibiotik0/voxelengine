@@ -222,7 +222,8 @@ void MeshGenerator::build_face_masks(
                 const std::uint32_t slice_index = v_coord * SIZE + u_coord;
                 FaceData& face_data = m_face_slices[slice_coord][slice_index];
                 face_data.voxel_type = voxel.type_id();
-                face_data.light = voxel.light_level();
+                // Force full brightness until proper lighting is implemented
+                face_data.light = 255;
                 face_data.ao = 0; // TODO: Calculate AO
                 
                 // Store fluid level for water/lava height lowering
