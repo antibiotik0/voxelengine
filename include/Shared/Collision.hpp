@@ -5,6 +5,7 @@
 #pragma once
 
 #include "Shared/Types.hpp"
+#include "Shared/BlockRegistry.hpp"
 #include <cmath>
 #include <algorithm>
 
@@ -92,6 +93,12 @@ public:
                 for (std::int64_t bz = min_bz; bz <= max_bz; ++bz) {
                     Voxel voxel = get_voxel(bx, by, bz);
                     if (!voxel.is_air()) {
+                        // Check BlockRegistry for collision property
+                        // Fluids and non-solid blocks don't have collision
+                        if (!BlockRegistry::instance().has_collision(voxel.type_id())) {
+                            continue; // Skip fluids and non-solid blocks
+                        }
+                        
                         AABB block = AABB::from_block(bx, by, bz);
                         if (entity.intersects(block)) {
                             return true;

@@ -178,6 +178,8 @@ typedef void (APIENTRY *GLDEBUGPROC)(GLenum source, GLenum type, GLuint id, GLen
 #define GL_NEAREST 0x2600
 #define GL_LINEAR 0x2601
 #define GL_NEAREST_MIPMAP_NEAREST 0x2700
+#define GL_NEAREST_MIPMAP_LINEAR 0x2702
+#define GL_TEXTURE_MAX_ANISOTROPY 0x84FE
 #define GL_LINEAR_MIPMAP_LINEAR 0x2703
 #define GL_CLAMP_TO_EDGE 0x812F
 #define GL_REPEAT 0x2901
@@ -318,8 +320,11 @@ typedef void (APIENTRY *PFNGLDELETETEXTURESPROC)(GLsizei n, const GLuint* textur
 typedef void (APIENTRY *PFNGLBINDTEXTUREPROC)(GLenum target, GLuint texture);
 typedef void (APIENTRY *PFNGLBINDTEXTUREUNITPROC)(GLuint unit, GLuint texture);
 typedef void (APIENTRY *PFNGLTEXTURESTORAGE2DPROC)(GLuint texture, GLsizei levels, GLenum internalformat, GLsizei width, GLsizei height);
+typedef void (APIENTRY *PFNGLTEXTURESTORAGE3DPROC)(GLuint texture, GLsizei levels, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth);
 typedef void (APIENTRY *PFNGLTEXTURESUBIMAGE2DPROC)(GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, const void* pixels);
+typedef void (APIENTRY *PFNGLTEXTURESUBIMAGE3DPROC)(GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void* pixels);
 typedef void (APIENTRY *PFNGLTEXTUREPARAMETERIPROC)(GLuint texture, GLenum pname, GLint param);
+typedef void (APIENTRY *PFNGLTEXTUREPARAMETERFPROC)(GLuint texture, GLenum pname, GLfloat param);
 typedef void (APIENTRY *PFNGLGENERATETEXTUREMIPMAPPROC)(GLuint texture);
 typedef void (APIENTRY *PFNGLACTIVETEXTUREPROC)(GLenum texture);
 
@@ -398,8 +403,11 @@ extern PFNGLDELETETEXTURESPROC glDeleteTextures;
 extern PFNGLBINDTEXTUREPROC glBindTexture;
 extern PFNGLBINDTEXTUREUNITPROC glBindTextureUnit;
 extern PFNGLTEXTURESTORAGE2DPROC glTextureStorage2D;
+extern PFNGLTEXTURESTORAGE3DPROC glTextureStorage3D;
 extern PFNGLTEXTURESUBIMAGE2DPROC glTextureSubImage2D;
+extern PFNGLTEXTURESUBIMAGE3DPROC glTextureSubImage3D;
 extern PFNGLTEXTUREPARAMETERIPROC glTextureParameteri;
+extern PFNGLTEXTUREPARAMETERFPROC glTextureParameterf;
 extern PFNGLGENERATETEXTUREMIPMAPPROC glGenerateTextureMipmap;
 extern PFNGLACTIVETEXTUREPROC glActiveTexture;
 

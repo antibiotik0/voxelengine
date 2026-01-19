@@ -1,4 +1,5 @@
 C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/imgui.dir
+C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/stb_image.dir
 C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/edit_cache.dir
 C:/Users/berke/Desktop/voxelengine/build/CMakeFiles/rebuild_cache.dir
 C:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/CMakeFiles/edit_cache.dir

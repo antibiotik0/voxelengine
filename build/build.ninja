@@ -122,6 +122,40 @@ build libimgui.a: CXX_STATIC_LIBRARY_LINKER__imgui_Release CMakeFiles/imgui.dir/
   TARGET_FILE = libimgui.a
   TARGET_PDB = imgui.a.dbg
 
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target stb_image
+
+
+#############################################
+# Order-only phony target for stb_image
+
+build cmake_object_order_depends_target_stb_image: phony || .
+
+build CMakeFiles/stb_image.dir/external/stb/stb_image.cpp.obj: CXX_COMPILER__stb_image_unscanned_Release C$:/Users/berke/Desktop/voxelengine/external/stb/stb_image.cpp || cmake_object_order_depends_target_stb_image
+  CONFIG = Release
+  DEP_FILE = CMakeFiles\stb_image.dir\external\stb\stb_image.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++20 -w
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/external/stb
+  OBJECT_DIR = CMakeFiles\stb_image.dir
+  OBJECT_FILE_DIR = CMakeFiles\stb_image.dir\external\stb
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target stb_image
+
+
+#############################################
+# Link the static library libstb_image.a
+
+build libstb_image.a: CXX_STATIC_LIBRARY_LINKER__stb_image_Release CMakeFiles/stb_image.dir/external/stb/stb_image.cpp.obj
+  CONFIG = Release
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = CMakeFiles\stb_image.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = libstb_image.a
+  TARGET_PDB = stb_image.a.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -554,13 +588,13 @@ build src/Server/rebuild_cache: phony src/Server/CMakeFiles/rebuild_cache.util
 #############################################
 # Order-only phony target for VoxelClient
 
-build cmake_object_order_depends_target_VoxelClient: phony || cmake_object_order_depends_target_VoxelServer cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui
+build cmake_object_order_depends_target_VoxelClient: phony || cmake_object_order_depends_target_VoxelServer cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui cmake_object_order_depends_target_stb_image
 
 build src/Client/CMakeFiles/VoxelClient.dir/MeshGenerator.cpp.obj: CXX_COMPILER__VoxelClient_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/MeshGenerator.cpp || cmake_object_order_depends_target_VoxelClient
   CONFIG = Release
   DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\MeshGenerator.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
-  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/external/stb
   OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
   OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelClient.dir
 
@@ -568,7 +602,7 @@ build src/Client/CMakeFiles/VoxelClient.dir/Camera.cpp.obj: CXX_COMPILER__VoxelC
   CONFIG = Release
   DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\Camera.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
-  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/external/stb
   OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
   OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelClient.dir
 
@@ -576,7 +610,7 @@ build src/Client/CMakeFiles/VoxelClient.dir/Shader.cpp.obj: CXX_COMPILER__VoxelC
   CONFIG = Release
   DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\Shader.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
-  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/external/stb
   OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
   OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelClient.dir
 
@@ -584,7 +618,7 @@ build src/Client/CMakeFiles/VoxelClient.dir/Window.cpp.obj: CXX_COMPILER__VoxelC
   CONFIG = Release
   DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\Window.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
-  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/external/stb
   OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
   OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelClient.dir
 
@@ -592,7 +626,7 @@ build src/Client/CMakeFiles/VoxelClient.dir/Renderer.cpp.obj: CXX_COMPILER__Voxe
   CONFIG = Release
   DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\Renderer.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
-  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/external/stb
   OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
   OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelClient.dir
 
@@ -604,7 +638,7 @@ build src/Client/CMakeFiles/VoxelClient.dir/Renderer.cpp.obj: CXX_COMPILER__Voxe
 #############################################
 # Link the static library src\Client\libVoxelClient.a
 
-build src/Client/libVoxelClient.a: CXX_STATIC_LIBRARY_LINKER__VoxelClient_Release src/Client/CMakeFiles/VoxelClient.dir/MeshGenerator.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Camera.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Shader.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Window.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Renderer.cpp.obj || _deps/glfw-build/src/libglfw3.a external/glad/libglad.a libimgui.a src/Server/libVoxelServer.a
+build src/Client/libVoxelClient.a: CXX_STATIC_LIBRARY_LINKER__VoxelClient_Release src/Client/CMakeFiles/VoxelClient.dir/MeshGenerator.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Camera.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Shader.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Window.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Renderer.cpp.obj || _deps/glfw-build/src/libglfw3.a external/glad/libglad.a libimgui.a libstb_image.a src/Server/libVoxelServer.a
   CONFIG = Release
   LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
   OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
@@ -620,13 +654,13 @@ build src/Client/libVoxelClient.a: CXX_STATIC_LIBRARY_LINKER__VoxelClient_Releas
 #############################################
 # Order-only phony target for VoxelEngineApp
 
-build cmake_object_order_depends_target_VoxelEngineApp: phony || cmake_object_order_depends_target_VoxelClient cmake_object_order_depends_target_VoxelServer cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui
+build cmake_object_order_depends_target_VoxelEngineApp: phony || cmake_object_order_depends_target_VoxelClient cmake_object_order_depends_target_VoxelServer cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui cmake_object_order_depends_target_stb_image
 
 build src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj: CXX_COMPILER__VoxelEngineApp_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/main.cpp || cmake_object_order_depends_target_VoxelEngineApp
   CONFIG = Release
   DEP_FILE = src\Client\CMakeFiles\VoxelEngineApp.dir\main.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
-  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/external/stb
   OBJECT_DIR = src\Client\CMakeFiles\VoxelEngineApp.dir
   OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelEngineApp.dir
 
@@ -638,11 +672,11 @@ build src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj: CXX_COMPILER__Voxel
 #############################################
 # Link the executable bin\VoxelEngineApp.exe
 
-build bin/VoxelEngineApp.exe: CXX_EXECUTABLE_LINKER__VoxelEngineApp_Release src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj | src/Client/libVoxelClient.a external/glad/libglad.a src/Server/libVoxelServer.a libimgui.a external/glad/libglad.a _deps/glfw-build/src/libglfw3.a || _deps/glfw-build/src/libglfw3.a external/glad/libglad.a libimgui.a src/Client/libVoxelClient.a src/Server/libVoxelServer.a
+build bin/VoxelEngineApp.exe: CXX_EXECUTABLE_LINKER__VoxelEngineApp_Release src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj | src/Client/libVoxelClient.a external/glad/libglad.a src/Server/libVoxelServer.a libimgui.a external/glad/libglad.a libstb_image.a _deps/glfw-build/src/libglfw3.a || _deps/glfw-build/src/libglfw3.a external/glad/libglad.a libimgui.a libstb_image.a src/Client/libVoxelClient.a src/Server/libVoxelServer.a
   CONFIG = Release
   FLAGS = -O3 -DNDEBUG
   LINK_FLAGS = -flto -s
-  LINK_LIBRARIES = src/Client/libVoxelClient.a  external/glad/libglad.a  src/Server/libVoxelServer.a  libimgui.a  external/glad/libglad.a  _deps/glfw-build/src/libglfw3.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = src/Client/libVoxelClient.a  external/glad/libglad.a  src/Server/libVoxelServer.a  libimgui.a  external/glad/libglad.a  libstb_image.a  _deps/glfw-build/src/libglfw3.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = src\Client\CMakeFiles\VoxelEngineApp.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -657,13 +691,13 @@ build bin/VoxelEngineApp.exe: CXX_EXECUTABLE_LINKER__VoxelEngineApp_Release src/
 #############################################
 # Order-only phony target for VoxelDebugApp
 
-build cmake_object_order_depends_target_VoxelDebugApp: phony || cmake_object_order_depends_target_VoxelClient cmake_object_order_depends_target_VoxelServer cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui
+build cmake_object_order_depends_target_VoxelDebugApp: phony || cmake_object_order_depends_target_VoxelClient cmake_object_order_depends_target_VoxelServer cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui cmake_object_order_depends_target_stb_image
 
 build src/Client/CMakeFiles/VoxelDebugApp.dir/main_debug.cpp.obj: CXX_COMPILER__VoxelDebugApp_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/main_debug.cpp || cmake_object_order_depends_target_VoxelDebugApp
   CONFIG = Release
   DEP_FILE = src\Client\CMakeFiles\VoxelDebugApp.dir\main_debug.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
-  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/external/stb
   OBJECT_DIR = src\Client\CMakeFiles\VoxelDebugApp.dir
   OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelDebugApp.dir
 
@@ -675,11 +709,11 @@ build src/Client/CMakeFiles/VoxelDebugApp.dir/main_debug.cpp.obj: CXX_COMPILER__
 #############################################
 # Link the executable bin\VoxelDebugApp.exe
 
-build bin/VoxelDebugApp.exe: CXX_EXECUTABLE_LINKER__VoxelDebugApp_Release src/Client/CMakeFiles/VoxelDebugApp.dir/main_debug.cpp.obj | src/Client/libVoxelClient.a external/glad/libglad.a src/Server/libVoxelServer.a libimgui.a external/glad/libglad.a _deps/glfw-build/src/libglfw3.a || _deps/glfw-build/src/libglfw3.a external/glad/libglad.a libimgui.a src/Client/libVoxelClient.a src/Server/libVoxelServer.a
+build bin/VoxelDebugApp.exe: CXX_EXECUTABLE_LINKER__VoxelDebugApp_Release src/Client/CMakeFiles/VoxelDebugApp.dir/main_debug.cpp.obj | src/Client/libVoxelClient.a external/glad/libglad.a src/Server/libVoxelServer.a libimgui.a external/glad/libglad.a libstb_image.a _deps/glfw-build/src/libglfw3.a || _deps/glfw-build/src/libglfw3.a external/glad/libglad.a libimgui.a libstb_image.a src/Client/libVoxelClient.a src/Server/libVoxelServer.a
   CONFIG = Release
   FLAGS = -O3 -DNDEBUG
   LINK_FLAGS = -flto -s
-  LINK_LIBRARIES = src/Client/libVoxelClient.a  external/glad/libglad.a  src/Server/libVoxelServer.a  libimgui.a  external/glad/libglad.a  _deps/glfw-build/src/libglfw3.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = src/Client/libVoxelClient.a  external/glad/libglad.a  src/Server/libVoxelServer.a  libimgui.a  external/glad/libglad.a  libstb_image.a  _deps/glfw-build/src/libglfw3.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = src\Client\CMakeFiles\VoxelDebugApp.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -740,6 +774,8 @@ build libglad.a: phony external/glad/libglad.a
 
 build libglfw3.a: phony _deps/glfw-build/src/libglfw3.a
 
+build stb_image: phony libstb_image.a
+
 build update_mappings: phony _deps/glfw-build/src/update_mappings
 
 # =============================================================================
@@ -750,7 +786,7 @@ build update_mappings: phony _deps/glfw-build/src/update_mappings
 #############################################
 # Folder: C:/Users/berke/Desktop/voxelengine/build
 
-build all: phony libimgui.a _deps/glfw-build/all external/glad/all src/Shared/all src/Server/all src/Client/all
+build all: phony libimgui.a libstb_image.a _deps/glfw-build/all external/glad/all src/Shared/all src/Server/all src/Client/all
 
 # =============================================================================
 

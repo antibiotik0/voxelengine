@@ -13,10 +13,12 @@
 #   fluid_max_distance - Max horizontal spread (default: 7)
 #   light_emission  - Light level emitted 0-15 (default: 0)
 #   light_filter    - Light blocked 0-15 (default: 15)
-#   texture_top     - Texture index for +Y face
-#   texture_side    - Texture index for ±X, ±Z faces
-#   texture_bottom  - Texture index for -Y face
+#   texture_top     - Texture filename or layer index for +Y face
+#   texture_side    - Texture filename or layer index for ±X, ±Z faces
+#   texture_bottom  - Texture filename or layer index for -Y face
+#   texture_all     - Shorthand for all faces (optional)
 #   render_all_faces - Don't cull internal faces (default: false)
+#   tint_r/g/b/a    - Color tinting 0-255 (default: 255 = no tint)
 
 # =============================================================================
 # CORE BLOCKS
@@ -32,25 +34,21 @@ light_filter = 0
 id = 1
 is_solid = true
 is_transparent = false
-texture_top = 1
-texture_side = 1
-texture_bottom = 1
+texture_all = "stone.png"
 
 [[blocks.dirt]]
 id = 2
 is_solid = true
 is_transparent = false
-texture_top = 2
-texture_side = 2
-texture_bottom = 2
+texture_all = "dirt.png"
 
 [[blocks.grass]]
 id = 3
 is_solid = true
 is_transparent = false
-texture_top = 3
-texture_side = 4
-texture_bottom = 2
+texture_top = "grass_block_top.png"
+texture_side = "grass_block_side.png"
+texture_bottom = "dirt.png"
 
 # =============================================================================
 # FLUIDS
@@ -64,10 +62,12 @@ is_fluid = true
 fluid_viscosity = 4
 fluid_max_distance = 7
 light_filter = 2
-texture_top = 5
-texture_side = 5
-texture_bottom = 5
+texture_all = "water.png"
 render_all_faces = true
+tint_r = 100
+tint_g = 150
+tint_b = 255
+tint_a = 180
 
 [[blocks.lava]]
 id = 10
@@ -78,9 +78,7 @@ fluid_viscosity = 8
 fluid_max_distance = 4
 light_emission = 15
 light_filter = 0
-texture_top = 12
-texture_side = 12
-texture_bottom = 12
+texture_all = "lava.png"
 render_all_faces = true
 
 # =============================================================================
@@ -91,68 +89,60 @@ render_all_faces = true
 id = 5
 is_solid = true
 is_transparent = false
-texture_top = 6
-texture_side = 6
-texture_bottom = 6
+texture_all = "sand.png"
 
 [[blocks.gravel]]
 id = 11
 is_solid = true
 is_transparent = false
-texture_top = 13
-texture_side = 13
-texture_bottom = 13
+texture_all = "gravel.png"
 
 [[blocks.clay]]
 id = 12
 is_solid = true
 is_transparent = false
-texture_top = 14
-texture_side = 14
-texture_bottom = 14
+texture_all = "clay.png"
 
 # =============================================================================
 # WOOD & PLANTS
 # =============================================================================
 
-[[blocks.wood]]
+[[blocks.oak_log]]
 id = 6
 is_solid = true
 is_transparent = false
-texture_top = 7
-texture_side = 8
-texture_bottom = 7
+texture_top = "oak_log_top.png"
+texture_side = "oak_log.png"
+texture_bottom = "oak_log_top.png"
 
-[[blocks.leaves]]
+[[blocks.oak_planks]]
+id = 13
+is_solid = true
+is_transparent = false
+texture_all = "oak_planks.png"
+
+[[blocks.oak_leaves]]
 id = 7
 is_solid = true
 is_transparent = true
 light_filter = 1
-texture_top = 9
-texture_side = 9
-texture_bottom = 9
+texture_all = "oak_leaves.png"
 render_all_faces = true
-
-[[blocks.planks]]
-id = 13
-is_solid = true
-is_transparent = false
-texture_top = 15
-texture_side = 15
-texture_bottom = 15
+tint_r = 80
+tint_g = 160
+tint_b = 80
+tint_a = 255
 
 # =============================================================================
 # SPECIAL BLOCKS
 # =============================================================================
 
-[[blocks.glass]]
+[[blocks.glass_block]]
 id = 8
 is_solid = true
 is_transparent = true
 light_filter = 0
-texture_top = 10
-texture_side = 10
-texture_bottom = 10
+texture_all = "stone.png"
 render_all_faces = true
 
 [[blocks.light]]
@@ -160,22 +150,16 @@ id = 9
 is_solid = true
 is_transparent = false
 light_emission = 15
-texture_top = 11
-texture_side = 11
-texture_bottom = 11
+texture_all = "stone.png"
 
 [[blocks.bedrock]]
 id = 14
 is_solid = true
 is_transparent = false
-texture_top = 16
-texture_side = 16
-texture_bottom = 16
+texture_all = "bedrock.png"
 
 [[blocks.cobblestone]]
 id = 15
 is_solid = true
 is_transparent = false
-texture_top = 17
-texture_side = 17
-texture_bottom = 17
+texture_all = "cobblestone.png"

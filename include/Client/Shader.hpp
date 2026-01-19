@@ -86,11 +86,13 @@ private:
 // =============================================================================
 namespace shaders {
 
-// Chunk rendering shader (packed vertex format)
+// Chunk rendering shader (packed vertex format with texture array)
 constexpr const char* CHUNK_VERTEX_SHADER = R"glsl(
 #version 450 core
 
 // Packed vertex input (8 bytes total)
+// data1: x(7) | y(7) | z(7) | normal(3) | tex_layer(8)
+// data2: uv_u(8) | uv_v(8) | light(8) | ao(8)
 layout(location = 0) in uint data1;
 layout(location = 1) in uint data2;
 
@@ -101,21 +103,21 @@ layout(location = 1) uniform vec3 u_ChunkOffset;  // Chunk position relative to 
 // Outputs to fragment shader
 out vec3 v_Position;
 out vec3 v_Normal;
-out vec2 v_TexCoord;
-flat out uint v_VoxelID;
+out vec3 v_TexCoord;   // UV.xy + layer as z
 out float v_Light;
 out float v_AO;
 
 void main() {
-    // Unpack data1: x(7) | y(7) | z(7) | normal(3) | uv_index(8)
+    // Unpack data1: x(7) | y(7) | z(7) | normal(3) | tex_layer(8)
     uint x = data1 & 0x7Fu;                    // bits 0-6
     uint y = (data1 >> 7u) & 0x7Fu;            // bits 7-13
     uint z = (data1 >> 14u) & 0x7Fu;           // bits 14-20
     uint normalIdx = (data1 >> 21u) & 0x7u;    // bits 21-23
-    uint uvIndex = (data1 >> 24u) & 0xFFu;     // bits 24-31
+    uint texLayer = (data1 >> 24u) & 0xFFu;    // bits 24-31
 
-    // Unpack data2: voxel_id(16) | light(8) | ao(8)
-    uint voxelId = data2 & 0xFFFFu;            // bits 0-15
+    // Unpack data2: uv_u(8) | uv_v(8) | light(8) | ao(8)
+    uint uvU = data2 & 0xFFu;                  // bits 0-7
+    uint uvV = (data2 >> 8u) & 0xFFu;          // bits 8-15
     uint light = (data2 >> 16u) & 0xFFu;       // bits 16-23
     uint ao = (data2 >> 24u) & 0xFFu;          // bits 24-31
 
@@ -139,8 +141,13 @@ void main() {
     // Pass to fragment shader
     v_Position = worldPos;
     v_Normal = NORMALS[min(normalIdx, 5u)];
-    v_TexCoord = vec2(float(uvIndex % 16u), float(uvIndex / 16u));  // Simple UV from index
-    v_VoxelID = voxelId;
+    
+    // UV coordinates for greedy meshing (can be > 1.0 for GL_REPEAT)
+    // If uvU and uvV are 0, use default 1x1 (corner indices)
+    float u = (uvU == 0u) ? float(gl_VertexID % 2) : float(uvU);
+    float v = (uvV == 0u) ? float((gl_VertexID / 2) % 2) : float(uvV);
+    v_TexCoord = vec3(u, v, float(texLayer));
+    
     v_Light = float(light) / 255.0;
     v_AO = float(ao) / 255.0;
 }
@@ -152,33 +159,25 @@ constexpr const char* CHUNK_FRAGMENT_SHADER = R"glsl(
 // Inputs from vertex shader
 in vec3 v_Position;
 in vec3 v_Normal;
-in vec2 v_TexCoord;
-flat in uint v_VoxelID;
+in vec3 v_TexCoord;  // UV.xy + layer as z
 in float v_Light;
 in float v_AO;
 
 // Output color
 out vec4 FragColor;
 
-// Simple color palette for voxel types
-vec3 get_voxel_color(uint voxel_id) {
-    switch (voxel_id) {
-        case 1u: return vec3(0.5, 0.5, 0.5);   // STONE - gray
-        case 2u: return vec3(0.55, 0.35, 0.2); // DIRT - brown
-        case 3u: return vec3(0.3, 0.7, 0.2);   // GRASS - green
-        case 4u: return vec3(0.2, 0.4, 0.8);   // WATER - blue
-        case 5u: return vec3(0.9, 0.85, 0.6);  // SAND - tan
-        case 6u: return vec3(0.6, 0.4, 0.2);   // WOOD - brown
-        case 7u: return vec3(0.2, 0.5, 0.2);   // LEAVES - dark green
-        case 8u: return vec3(0.8, 0.9, 1.0);   // GLASS - light blue
-        case 9u: return vec3(1.0, 1.0, 0.8);   // LIGHT - yellow
-        default: return vec3(1.0, 0.0, 1.0);   // Unknown - magenta
-    }
-}
+// Texture array sampler
+uniform sampler2DArray u_TextureArray;
 
 void main() {
-    // Get base color from voxel type
-    vec3 baseColor = get_voxel_color(v_VoxelID);
+    // Sample from texture array using UV and layer index
+    vec3 texCoord = vec3(v_TexCoord.xy, v_TexCoord.z);
+    vec4 texColor = texture(u_TextureArray, texCoord);
+    
+    // Discard fully transparent pixels
+    if (texColor.a < 0.1) {
+        discard;
+    }
 
     // Simple directional lighting
     vec3 lightDir = normalize(vec3(0.5, 1.0, 0.3));
@@ -193,8 +192,8 @@ void main() {
     float lightFactor = max(v_Light, 0.2);  // Minimum light to see something
 
     // Final color
-    vec3 finalColor = baseColor * lighting * aoFactor * lightFactor;
-    FragColor = vec4(finalColor, 1.0);
+    vec3 finalColor = texColor.rgb * lighting * aoFactor * lightFactor;
+    FragColor = vec4(finalColor, texColor.a);
 }
 )glsl";
 

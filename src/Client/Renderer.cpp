@@ -4,6 +4,7 @@
 
 #include "Client/Renderer.hpp"
 #include "Client/Logger.hpp"
+#include "Shared/BlockRegistry.hpp"
 
 #include <glad/glad.h>
 
@@ -202,6 +203,28 @@ void Renderer::shutdown() {
 }
 
 // =============================================================================
+// TEXTURE LOADING
+// =============================================================================
+
+bool Renderer::load_textures(const std::string& directory) {
+    if (!m_texture_manager.load_from_directory(directory)) {
+        std::cerr << "[Renderer] Failed to load textures from: " << directory << "\n";
+        return false;
+    }
+    
+    // Resolve BlockRegistry texture filenames to layer indices
+    BlockRegistry::instance().resolve_textures([this](std::string_view filename) -> std::int32_t {
+        return m_texture_manager.get_layer(filename);
+    });
+    
+    std::cout << "[Renderer] Loaded " << m_texture_manager.layer_count() << " textures\n";
+    m_texture_manager.list_textures();
+    BlockRegistry::instance().debug_print_textures();
+    
+    return true;
+}
+
+// =============================================================================
 // FRAME
 // =============================================================================
 
@@ -380,6 +403,16 @@ void Renderer::render_chunks() {
 
     // Bind shader
     m_chunk_shader.bind();
+    
+    // Bind texture array to unit 0
+    m_texture_manager.bind(0);
+    
+    // Set u_TextureArray sampler uniform to texture unit 0
+    // (Using glUniform1i since we need to set by name)
+    GLint tex_loc = glGetUniformLocation(m_chunk_shader.id(), "u_TextureArray");
+    if (tex_loc >= 0) {
+        glUniform1i(tex_loc, 0);
+    }
     
     // Debug: Check if shader is valid
     static bool first_shader_check = true;

@@ -428,6 +428,14 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
         terminate_glfw();
         return 1;
     }
+    
+    // Initialize BlockRegistry from config FIRST (before loading textures)
+    BlockRegistry::instance().load("config/blocks.toml");
+    
+    // Load block textures into texture array (and resolve block->texture mapping)
+    if (!app.renderer.load_textures("assets/textures/blocks")) {
+        std::printf("[Warning] Could not load block textures, using default\n");
+    }
 
     // Initialize ImGui
     IMGUI_CHECKVERSION();
@@ -440,9 +448,6 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
     ImGui_ImplOpenGL3_Init("#version 330");
 
     app.debug_overlay.init();
-    
-    // Initialize BlockRegistry from config
-    BlockRegistry::instance().load("config/blocks.toml");
 
     // Create world with superflat generator (using registry for runtime swapping)
     WorldConfig world_config;

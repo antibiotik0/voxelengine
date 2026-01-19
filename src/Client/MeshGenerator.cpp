@@ -1,9 +1,10 @@
 // =============================================================================
 // VOXEL ENGINE - MESH GENERATOR IMPLEMENTATION
-// Greedy Meshing with Face Culling
+// Greedy Meshing with Face Culling and Texture Array support
 // =============================================================================
 
 #include "Client/MeshGenerator.hpp"
+#include "Shared/BlockRegistry.hpp"
 
 #include <algorithm>
 #include <cstring>
@@ -115,7 +116,10 @@ void MeshGenerator::build_face_masks(
                 const std::int32_t ny = static_cast<std::int32_t>(y) + dy;
                 const std::int32_t nz = static_cast<std::int32_t>(z) + dz;
 
-                bool neighbor_opaque = false;
+                bool should_cull = false;
+                
+                // Get current block properties
+                const auto& current_props = BlockRegistry::instance().get(voxel.type_id());
 
                 // Check if neighbor is within chunk
                 if (nx >= 0 && nx < static_cast<std::int32_t>(SIZE) &&
@@ -127,7 +131,24 @@ void MeshGenerator::build_face_masks(
                         static_cast<LocalCoord>(ny),
                         static_cast<LocalCoord>(nz)
                     );
-                    neighbor_opaque = neighbor.is_opaque();
+                    
+                    // Get neighbor properties from BlockRegistry
+                    const auto& neighbor_props = BlockRegistry::instance().get(neighbor.type_id());
+                    
+                    // Cull face if:
+                    // - Neighbor is opaque AND current is not transparent
+                    // - OR both are the same transparent type (avoid internal faces)
+                    if (!neighbor.is_air()) {
+                        if (!neighbor_props.is_transparent && !current_props.is_transparent) {
+                            // Both opaque - cull
+                            should_cull = true;
+                        } else if (neighbor_props.is_transparent && current_props.is_transparent &&
+                                   neighbor.type_id() == voxel.type_id()) {
+                            // Same transparent type - cull internal faces
+                            should_cull = !current_props.render_all_faces;
+                        }
+                        // Opaque behind transparent - don't cull (show the face)
+                    }
                 } else if (m_config.enable_face_culling && neighbor_accessor) {
                     // Neighbor is in adjacent chunk
                     const ChunkPosition& pos = chunk.position();
@@ -136,11 +157,20 @@ void MeshGenerator::build_face_masks(
                     ChunkCoord world_z = coord::chunk_to_world(pos.z) + nz;
 
                     const Voxel neighbor = neighbor_accessor(world_x, world_y, world_z);
-                    neighbor_opaque = neighbor.is_opaque();
+                    const auto& neighbor_props = BlockRegistry::instance().get(neighbor.type_id());
+                    
+                    if (!neighbor.is_air()) {
+                        if (!neighbor_props.is_transparent && !current_props.is_transparent) {
+                            should_cull = true;
+                        } else if (neighbor_props.is_transparent && current_props.is_transparent &&
+                                   neighbor.type_id() == voxel.type_id()) {
+                            should_cull = !current_props.render_all_faces;
+                        }
+                    }
                 }
 
-                // Face culling: skip if neighbor is opaque
-                if (m_config.enable_face_culling && neighbor_opaque) {
+                // Face culling
+                if (m_config.enable_face_culling && should_cull) {
                     ++m_stats_culled;
                     continue;
                 }
@@ -294,9 +324,24 @@ void MeshGenerator::add_face_quad(
     Face face,
     const FaceData& data
 ) {
+    // Get block properties from BlockRegistry
+    const auto& props = BlockRegistry::instance().get(data.voxel_type);
+    
+    // Determine texture layer based on face direction
+    std::uint8_t tex_layer;
+    switch (face) {
+        case FACE_POS_Y: // Top face
+            tex_layer = props.texture_top;
+            break;
+        case FACE_NEG_Y: // Bottom face
+            tex_layer = props.texture_bottom;
+            break;
+        default: // Side faces
+            tex_layer = props.texture_side;
+            break;
+    }
+    
     // Vertex positions for each face (CCW winding)
-    // Each face has 4 vertices defined by offsets from base position
-
     std::uint8_t x0, y0, z0;
     std::uint8_t x1, y1, z1;
     std::uint8_t x2, y2, z2;
@@ -308,36 +353,62 @@ void MeshGenerator::add_face_quad(
     const auto w = static_cast<std::uint8_t>(width);
     const auto h = static_cast<std::uint8_t>(height);
 
+    // UV coordinates for greedy meshing (use actual face size for GL_REPEAT)
+    // UVs are: (0,0), (width,0), (width,height), (0,height)
+    std::uint8_t u0, v0, u1, v1, u2, v2, u3, v3;
+
     switch (face) {
         case FACE_NEG_X: // -X face
             x0 = bx; y0 = by;     z0 = bz;
             x1 = bx; y1 = by;     z1 = bz + w;
             x2 = bx; y2 = by + h; z2 = bz + w;
             x3 = bx; y3 = by + h; z3 = bz;
+            // UV: width along Z, height along Y
+            u0 = 0; v0 = 0;
+            u1 = w; v1 = 0;
+            u2 = w; v2 = h;
+            u3 = 0; v3 = h;
             break;
         case FACE_POS_X: // +X face
             x0 = bx + 1; y0 = by;     z0 = bz + w;
             x1 = bx + 1; y1 = by;     z1 = bz;
             x2 = bx + 1; y2 = by + h; z2 = bz;
             x3 = bx + 1; y3 = by + h; z3 = bz + w;
+            u0 = 0; v0 = 0;
+            u1 = w; v1 = 0;
+            u2 = w; v2 = h;
+            u3 = 0; v3 = h;
             break;
         case FACE_NEG_Y: // -Y face (bottom)
             x0 = bx;     y0 = by; z0 = bz;
             x1 = bx + w; y1 = by; z1 = bz;
             x2 = bx + w; y2 = by; z2 = bz + h;
             x3 = bx;     y3 = by; z3 = bz + h;
+            // UV: width along X, height along Z
+            u0 = 0; v0 = 0;
+            u1 = w; v1 = 0;
+            u2 = w; v2 = h;
+            u3 = 0; v3 = h;
             break;
         case FACE_POS_Y: // +Y face (top)
             x0 = bx;     y0 = by + 1; z0 = bz + h;
             x1 = bx + w; y1 = by + 1; z1 = bz + h;
             x2 = bx + w; y2 = by + 1; z2 = bz;
             x3 = bx;     y3 = by + 1; z3 = bz;
+            u0 = 0; v0 = h;
+            u1 = w; v1 = h;
+            u2 = w; v2 = 0;
+            u3 = 0; v3 = 0;
             break;
         case FACE_NEG_Z: // -Z face
             x0 = bx + w; y0 = by;     z0 = bz;
             x1 = bx;     y1 = by;     z1 = bz;
             x2 = bx;     y2 = by + h; z2 = bz;
             x3 = bx + w; y3 = by + h; z3 = bz;
+            u0 = 0; v0 = 0;
+            u1 = w; v1 = 0;
+            u2 = w; v2 = h;
+            u3 = 0; v3 = h;
             break;
         case FACE_POS_Z: // +Z face
         default:
@@ -345,21 +416,24 @@ void MeshGenerator::add_face_quad(
             x1 = bx + w; y1 = by;     z1 = bz + 1;
             x2 = bx + w; y2 = by + h; z2 = bz + 1;
             x3 = bx;     y3 = by + h; z3 = bz + 1;
+            u0 = 0; v0 = 0;
+            u1 = w; v1 = 0;
+            u2 = w; v2 = h;
+            u3 = 0; v3 = h;
             break;
     }
 
     const auto normal = static_cast<std::uint8_t>(face);
-    const std::uint16_t uv_index = data.voxel_type; // Use voxel type as texture index
     const std::uint8_t light = data.light;
     const std::uint8_t ao = data.ao;
 
-    // Create 4 vertices
-    PackedVertex v0(x0, y0, z0, normal, uv_index, data.voxel_type, light, ao);
-    PackedVertex v1(x1, y1, z1, normal, uv_index, data.voxel_type, light, ao);
-    PackedVertex v2(x2, y2, z2, normal, uv_index, data.voxel_type, light, ao);
-    PackedVertex v3(x3, y3, z3, normal, uv_index, data.voxel_type, light, ao);
+    // Create 4 vertices with proper UV coordinates for greedy meshing
+    PackedVertex v0_vert(x0, y0, z0, normal, tex_layer, u0, v0, light, ao);
+    PackedVertex v1_vert(x1, y1, z1, normal, tex_layer, u1, v1, light, ao);
+    PackedVertex v2_vert(x2, y2, z2, normal, tex_layer, u2, v2, light, ao);
+    PackedVertex v3_vert(x3, y3, z3, normal, tex_layer, u3, v3, light, ao);
 
-    mesh.add_quad(v0, v1, v2, v3);
+    mesh.add_quad(v0_vert, v1_vert, v2_vert, v3_vert);
 }
 
 // =============================================================================

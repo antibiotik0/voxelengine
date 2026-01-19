@@ -12,8 +12,10 @@
 #include <cstdio>
 #include <cstring>
 #include <fstream>
+#include <functional>
 #include <string>
 #include <string_view>
+#include <unordered_map>
 
 namespace voxel {
 
@@ -24,10 +26,15 @@ struct BlockProperties {
     char name[32] = "unknown";          // Block name (fixed size, no allocation)
     std::uint16_t id = 0;               // Block type ID
     
-    // Visual properties
-    std::uint8_t texture_top = 0;       // Texture index for +Y face
-    std::uint8_t texture_side = 0;      // Texture index for ±X, ±Z faces
-    std::uint8_t texture_bottom = 0;    // Texture index for -Y face
+    // Visual properties - Texture Layer Indices (set after TextureManager loads)
+    std::uint8_t texture_top = 0;       // Texture layer for +Y face
+    std::uint8_t texture_side = 0;      // Texture layer for ±X, ±Z faces
+    std::uint8_t texture_bottom = 0;    // Texture layer for -Y face
+    
+    // Texture filenames (loaded from TOML, resolved to layers at runtime)
+    char texture_top_file[48] = "";     
+    char texture_side_file[48] = "";    
+    char texture_bottom_file[48] = "";  
     
     // Physical properties
     bool is_solid = true;               // Collision enabled
@@ -44,7 +51,13 @@ struct BlockProperties {
     std::uint8_t light_filter = 15;     // How much light is blocked (15 = opaque)
     
     // Rendering flags
-    bool render_all_faces = false;      // Don't cull faces (e.g., glass, leaves)
+    bool render_all_faces = false;      // Don't cull faces (e.g., glass, leaves, water)
+    
+    // Tinting (RGBA, 255 = no tint)
+    std::uint8_t tint_r = 255;
+    std::uint8_t tint_g = 255;
+    std::uint8_t tint_b = 255;
+    std::uint8_t tint_a = 255;
     
     // Helper methods
     [[nodiscard]] constexpr bool blocks_light() const noexcept {
@@ -55,8 +68,6 @@ struct BlockProperties {
         return is_solid && !is_fluid;
     }
 };
-
-static_assert(sizeof(BlockProperties) <= 64, "BlockProperties should fit in a cache line");
 
 // =============================================================================
 // BLOCK REGISTRY (Singleton)
@@ -186,6 +197,65 @@ public:
         return m_fluid_count;
     }
     
+    // ==========================================================================
+    // TEXTURE RESOLUTION
+    // Call this after TextureManager loads to resolve filenames to layer indices
+    // ==========================================================================
+    
+    // Callback type for texture filename -> layer resolution
+    using TextureResolver = std::function<std::int32_t(std::string_view filename)>;
+    
+    // Resolve all texture filenames to layer indices
+    void resolve_textures(const TextureResolver& resolver) {
+        if (!resolver) return;
+        
+        std::uint32_t resolved = 0;
+        for (auto& block : m_blocks) {
+            if (block.id == 0 && std::strcmp(block.name, "air") == 0) continue;
+            
+            // Resolve top texture
+            if (block.texture_top_file[0] != '\0') {
+                std::int32_t layer = resolver(block.texture_top_file);
+                if (layer >= 0) {
+                    block.texture_top = static_cast<std::uint8_t>(layer);
+                    resolved++;
+                }
+            }
+            
+            // Resolve side texture
+            if (block.texture_side_file[0] != '\0') {
+                std::int32_t layer = resolver(block.texture_side_file);
+                if (layer >= 0) {
+                    block.texture_side = static_cast<std::uint8_t>(layer);
+                    resolved++;
+                }
+            }
+            
+            // Resolve bottom texture
+            if (block.texture_bottom_file[0] != '\0') {
+                std::int32_t layer = resolver(block.texture_bottom_file);
+                if (layer >= 0) {
+                    block.texture_bottom = static_cast<std::uint8_t>(layer);
+                    resolved++;
+                }
+            }
+        }
+        
+        std::printf("[BlockRegistry] Resolved %u texture references\n", resolved);
+    }
+    
+    // Get texture filename to layer mapping for debugging
+    void debug_print_textures() const {
+        std::printf("[BlockRegistry] Block texture assignments:\n");
+        for (std::size_t i = 0; i < MAX_BLOCK_TYPES; ++i) {
+            const auto& b = m_blocks[i];
+            if (b.name[0] != '\0' && std::strcmp(b.name, "unknown") != 0) {
+                std::printf("  %s (ID %u): top=%u side=%u bottom=%u\n",
+                           b.name, b.id, b.texture_top, b.texture_side, b.texture_bottom);
+            }
+        }
+    }
+    
 private:
     BlockRegistry() {
         register_defaults();
@@ -275,6 +345,18 @@ private:
     }
     
     void parse_property(BlockProperties& block, const std::string& key, const std::string& value) {
+        // Helper to extract string value (removes quotes)
+        auto extract_string = [](const std::string& val) -> std::string {
+            std::string result = val;
+            if (!result.empty() && (result.front() == '"' || result.front() == '\'')) {
+                result.erase(0, 1);
+            }
+            if (!result.empty() && (result.back() == '"' || result.back() == '\'')) {
+                result.pop_back();
+            }
+            return result;
+        };
+        
         if (key == "id") {
             block.id = static_cast<std::uint16_t>(std::strtol(value.c_str(), nullptr, 10));
         } else if (key == "is_solid") {
@@ -291,14 +373,62 @@ private:
             block.light_emission = static_cast<std::uint8_t>(std::strtol(value.c_str(), nullptr, 10));
         } else if (key == "light_filter") {
             block.light_filter = static_cast<std::uint8_t>(std::strtol(value.c_str(), nullptr, 10));
-        } else if (key == "texture_top") {
-            block.texture_top = static_cast<std::uint8_t>(std::strtol(value.c_str(), nullptr, 10));
-        } else if (key == "texture_side") {
-            block.texture_side = static_cast<std::uint8_t>(std::strtol(value.c_str(), nullptr, 10));
-        } else if (key == "texture_bottom") {
-            block.texture_bottom = static_cast<std::uint8_t>(std::strtol(value.c_str(), nullptr, 10));
         } else if (key == "render_all_faces") {
             block.render_all_faces = (value == "true" || value == "1");
+        }
+        // Texture indices (numeric, legacy support)
+        else if (key == "texture_top") {
+            // Check if value is numeric or filename
+            if (value.find(".png") != std::string::npos || value.find(".PNG") != std::string::npos) {
+                std::string filename = extract_string(value);
+                std::strncpy(block.texture_top_file, filename.c_str(), 47);
+                block.texture_top_file[47] = '\0';
+            } else {
+                block.texture_top = static_cast<std::uint8_t>(std::strtol(value.c_str(), nullptr, 10));
+            }
+        } else if (key == "texture_side") {
+            if (value.find(".png") != std::string::npos || value.find(".PNG") != std::string::npos) {
+                std::string filename = extract_string(value);
+                std::strncpy(block.texture_side_file, filename.c_str(), 47);
+                block.texture_side_file[47] = '\0';
+            } else {
+                block.texture_side = static_cast<std::uint8_t>(std::strtol(value.c_str(), nullptr, 10));
+            }
+        } else if (key == "texture_bottom") {
+            if (value.find(".png") != std::string::npos || value.find(".PNG") != std::string::npos) {
+                std::string filename = extract_string(value);
+                std::strncpy(block.texture_bottom_file, filename.c_str(), 47);
+                block.texture_bottom_file[47] = '\0';
+            } else {
+                block.texture_bottom = static_cast<std::uint8_t>(std::strtol(value.c_str(), nullptr, 10));
+            }
+        }
+        // All-face texture shorthand
+        else if (key == "texture_all") {
+            if (value.find(".png") != std::string::npos || value.find(".PNG") != std::string::npos) {
+                std::string filename = extract_string(value);
+                std::strncpy(block.texture_top_file, filename.c_str(), 47);
+                std::strncpy(block.texture_side_file, filename.c_str(), 47);
+                std::strncpy(block.texture_bottom_file, filename.c_str(), 47);
+                block.texture_top_file[47] = '\0';
+                block.texture_side_file[47] = '\0';
+                block.texture_bottom_file[47] = '\0';
+            } else {
+                std::uint8_t idx = static_cast<std::uint8_t>(std::strtol(value.c_str(), nullptr, 10));
+                block.texture_top = idx;
+                block.texture_side = idx;
+                block.texture_bottom = idx;
+            }
+        }
+        // Tinting
+        else if (key == "tint_r") {
+            block.tint_r = static_cast<std::uint8_t>(std::strtol(value.c_str(), nullptr, 10));
+        } else if (key == "tint_g") {
+            block.tint_g = static_cast<std::uint8_t>(std::strtol(value.c_str(), nullptr, 10));
+        } else if (key == "tint_b") {
+            block.tint_b = static_cast<std::uint8_t>(std::strtol(value.c_str(), nullptr, 10));
+        } else if (key == "tint_a") {
+            block.tint_a = static_cast<std::uint8_t>(std::strtol(value.c_str(), nullptr, 10));
         }
     }
     

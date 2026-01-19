@@ -130,6 +130,19 @@ private:
         const auto& props = BlockRegistry::instance().get(current.type_id());
         std::uint8_t current_level = current.metadata();
         
+        // === FLOWING WATER REMOVAL CHECK ===
+        // If this is NOT a source block (level > 0), check if it should exist
+        if (current_level > 0) {
+            if (!has_fluid_source_nearby(update.x, update.y, update.z, current.type_id())) {
+                // Remove flowing water that lost its source
+                m_world.set_voxel(update.x, update.y, update.z, Voxel(VoxelType::AIR));
+                
+                // Schedule updates for neighbors so they can also check
+                notify_block_change(update.x, update.y, update.z);
+                return;
+            }
+        }
+        
         // Check block below - flow down first (priority)
         Voxel below = m_world.get_voxel(update.x, update.y - 1, update.z);
         if (can_flow_into(below)) {
@@ -143,18 +156,11 @@ private:
             return;
         }
         
-        // If blocked below, spread horizontally
+        // If below is same fluid, still try horizontal spread
+        // Only source blocks and blocks fed from above spread horizontally
         if (current_level < props.fluid_max_distance) {
             spread_horizontal(update.x, update.y, update.z, current.type_id(), 
                             current_level, props.fluid_max_distance);
-        }
-        
-        // Check if this flowing water should disappear (no source feeding it)
-        if (current_level > 0) {
-            if (!has_fluid_source_nearby(update.x, update.y, update.z, current.type_id())) {
-                // Remove flowing water that lost its source
-                m_world.set_voxel(update.x, update.y, update.z, Voxel(VoxelType::AIR));
-            }
         }
     }
     

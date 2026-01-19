@@ -8,6 +8,7 @@
 #include "Client/Camera.hpp"
 #include "Client/Shader.hpp"
 #include "Client/ChunkMesh.hpp"
+#include "Client/TextureManager.hpp"
 
 #include <vector>
 #include <unordered_map>
@@ -111,6 +112,17 @@ public:
     // =============================================================================
 
     void set_camera(const Camera& camera);
+    
+    // =============================================================================
+    // TEXTURE MANAGEMENT
+    // =============================================================================
+    
+    // Load textures from a directory into texture array
+    bool load_textures(const std::string& directory);
+    
+    // Get texture manager for external access
+    [[nodiscard]] TextureManager& texture_manager() noexcept { return m_texture_manager; }
+    [[nodiscard]] const TextureManager& texture_manager() const noexcept { return m_texture_manager; }
 
     // =============================================================================
     // CHUNK MESH MANAGEMENT
@@ -194,6 +206,9 @@ private:
 
     // Default texture (1x1 white)
     std::uint32_t m_default_texture = 0;
+    
+    // Texture array for block textures
+    TextureManager m_texture_manager;
 };
 
 } // namespace voxel::client

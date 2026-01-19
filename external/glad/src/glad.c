@@ -79,8 +79,11 @@ PFNGLDELETETEXTURESPROC glDeleteTextures = 0;
 PFNGLBINDTEXTUREPROC glBindTexture = 0;
 PFNGLBINDTEXTUREUNITPROC glBindTextureUnit = 0;
 PFNGLTEXTURESTORAGE2DPROC glTextureStorage2D = 0;
+PFNGLTEXTURESTORAGE3DPROC glTextureStorage3D = 0;
 PFNGLTEXTURESUBIMAGE2DPROC glTextureSubImage2D = 0;
+PFNGLTEXTURESUBIMAGE3DPROC glTextureSubImage3D = 0;
 PFNGLTEXTUREPARAMETERIPROC glTextureParameteri = 0;
+PFNGLTEXTUREPARAMETERFPROC glTextureParameterf = 0;
 PFNGLGENERATETEXTUREMIPMAPPROC glGenerateTextureMipmap = 0;
 PFNGLACTIVETEXTUREPROC glActiveTexture = 0;
 
@@ -164,8 +167,11 @@ int gladLoadGLLoader(GLADloadproc load) {
     glBindTexture = (PFNGLBINDTEXTUREPROC)get_proc(load, "glBindTexture");
     glBindTextureUnit = (PFNGLBINDTEXTUREUNITPROC)get_proc(load, "glBindTextureUnit");
     glTextureStorage2D = (PFNGLTEXTURESTORAGE2DPROC)get_proc(load, "glTextureStorage2D");
+    glTextureStorage3D = (PFNGLTEXTURESTORAGE3DPROC)get_proc(load, "glTextureStorage3D");
     glTextureSubImage2D = (PFNGLTEXTURESUBIMAGE2DPROC)get_proc(load, "glTextureSubImage2D");
+    glTextureSubImage3D = (PFNGLTEXTURESUBIMAGE3DPROC)get_proc(load, "glTextureSubImage3D");
     glTextureParameteri = (PFNGLTEXTUREPARAMETERIPROC)get_proc(load, "glTextureParameteri");
+    glTextureParameterf = (PFNGLTEXTUREPARAMETERFPROC)get_proc(load, "glTextureParameterf");
     glGenerateTextureMipmap = (PFNGLGENERATETEXTUREMIPMAPPROC)get_proc(load, "glGenerateTextureMipmap");
     glActiveTexture = (PFNGLACTIVETEXTUREPROC)get_proc(load, "glActiveTexture");
 

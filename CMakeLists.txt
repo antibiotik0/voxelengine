@@ -185,6 +185,22 @@ target_link_libraries(imgui PUBLIC
 )
 
 # =============================================================================
+# STB_IMAGE LIBRARY (Header-only image loading)
+# =============================================================================
+add_library(stb_image STATIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/external/stb/stb_image.cpp
+)
+target_include_directories(stb_image PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/external/stb
+)
+# Disable warnings for stb_image (3rd party code)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    target_compile_options(stb_image PRIVATE -w)
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    target_compile_options(stb_image PRIVATE /w)
+endif()
+
+# =============================================================================
 # SUBDIRECTORIES (MODULAR ARCHITECTURE)
 # =============================================================================
 add_subdirectory(src/Shared)
