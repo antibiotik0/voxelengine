@@ -47,6 +47,8 @@ struct DebugOverlayData {
     float velocity_z = 0.0f;
     
     bool on_ground = false;
+    bool collision_enabled = true;
+    uint8_t selected_block = 1;
 };
 
 class ImGuiDebugOverlay {
@@ -111,6 +113,12 @@ public:
                        static_cast<double>(data.velocity_y), 
                        static_cast<double>(data.velocity_z));
             ImGui::Text("On Ground: %s", data.on_ground ? "Yes" : "No");
+            if (data.collision_enabled) {
+                ImGui::TextColored(ImVec4(0.0f, 1.0f, 0.0f, 1.0f), "Physics: ON");
+            } else {
+                ImGui::TextColored(ImVec4(1.0f, 0.5f, 0.0f, 1.0f), "Physics: NOCLIP");
+            }
+            ImGui::Text("Selected Block: %u", data.selected_block);
             
             ImGui::Separator();
             

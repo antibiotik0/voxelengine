@@ -1,0 +1,181 @@
+# =============================================================================
+# VOXEL ENGINE - BLOCK REGISTRY
+# Data-Driven Block Definitions
+# =============================================================================
+
+# Each block is defined with [[blocks.name]] section
+# Properties:
+#   id              - Unique block type ID (0-255)
+#   is_solid        - Has collision (default: true)
+#   is_transparent  - Light passes through (default: false)
+#   is_fluid        - Fluid simulation applies (default: false)
+#   fluid_viscosity - Ticks between spread for fluids (default: 2)
+#   fluid_max_distance - Max horizontal spread (default: 7)
+#   light_emission  - Light level emitted 0-15 (default: 0)
+#   light_filter    - Light blocked 0-15 (default: 15)
+#   texture_top     - Texture index for +Y face
+#   texture_side    - Texture index for ±X, ±Z faces
+#   texture_bottom  - Texture index for -Y face
+#   render_all_faces - Don't cull internal faces (default: false)
+
+# =============================================================================
+# CORE BLOCKS
+# =============================================================================
+
+[[blocks.air]]
+id = 0
+is_solid = false
+is_transparent = true
+light_filter = 0
+
+[[blocks.stone]]
+id = 1
+is_solid = true
+is_transparent = false
+texture_top = 1
+texture_side = 1
+texture_bottom = 1
+
+[[blocks.dirt]]
+id = 2
+is_solid = true
+is_transparent = false
+texture_top = 2
+texture_side = 2
+texture_bottom = 2
+
+[[blocks.grass]]
+id = 3
+is_solid = true
+is_transparent = false
+texture_top = 3
+texture_side = 4
+texture_bottom = 2
+
+# =============================================================================
+# FLUIDS
+# =============================================================================
+
+[[blocks.water]]
+id = 4
+is_solid = false
+is_transparent = true
+is_fluid = true
+fluid_viscosity = 4
+fluid_max_distance = 7
+light_filter = 2
+texture_top = 5
+texture_side = 5
+texture_bottom = 5
+render_all_faces = true
+
+[[blocks.lava]]
+id = 10
+is_solid = false
+is_transparent = false
+is_fluid = true
+fluid_viscosity = 8
+fluid_max_distance = 4
+light_emission = 15
+light_filter = 0
+texture_top = 12
+texture_side = 12
+texture_bottom = 12
+render_all_faces = true
+
+# =============================================================================
+# NATURAL BLOCKS
+# =============================================================================
+
+[[blocks.sand]]
+id = 5
+is_solid = true
+is_transparent = false
+texture_top = 6
+texture_side = 6
+texture_bottom = 6
+
+[[blocks.gravel]]
+id = 11
+is_solid = true
+is_transparent = false
+texture_top = 13
+texture_side = 13
+texture_bottom = 13
+
+[[blocks.clay]]
+id = 12
+is_solid = true
+is_transparent = false
+texture_top = 14
+texture_side = 14
+texture_bottom = 14
+
+# =============================================================================
+# WOOD & PLANTS
+# =============================================================================
+
+[[blocks.wood]]
+id = 6
+is_solid = true
+is_transparent = false
+texture_top = 7
+texture_side = 8
+texture_bottom = 7
+
+[[blocks.leaves]]
+id = 7
+is_solid = true
+is_transparent = true
+light_filter = 1
+texture_top = 9
+texture_side = 9
+texture_bottom = 9
+render_all_faces = true
+
+[[blocks.planks]]
+id = 13
+is_solid = true
+is_transparent = false
+texture_top = 15
+texture_side = 15
+texture_bottom = 15
+
+# =============================================================================
+# SPECIAL BLOCKS
+# =============================================================================
+
+[[blocks.glass]]
+id = 8
+is_solid = true
+is_transparent = true
+light_filter = 0
+texture_top = 10
+texture_side = 10
+texture_bottom = 10
+render_all_faces = true
+
+[[blocks.light]]
+id = 9
+is_solid = true
+is_transparent = false
+light_emission = 15
+texture_top = 11
+texture_side = 11
+texture_bottom = 11
+
+[[blocks.bedrock]]
+id = 14
+is_solid = true
+is_transparent = false
+texture_top = 16
+texture_side = 16
+texture_bottom = 16
+
+[[blocks.cobblestone]]
+id = 15
+is_solid = true
+is_transparent = false
+texture_top = 17
+texture_side = 17
+texture_bottom = 17

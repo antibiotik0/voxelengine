@@ -1,6 +1,6 @@
 // =============================================================================
 // VOXEL ENGINE - ENTRY POINT
-// Phase 3: World Interaction - Block Breaking/Placing, Collision
+// Phase 4: Modular & Advanced Systems
 // =============================================================================
 
 #include "Shared/Types.hpp"
@@ -8,9 +8,12 @@
 #include "Shared/Settings.hpp"
 #include "Shared/Raycast.hpp"
 #include "Shared/Collision.hpp"
+#include "Shared/BlockRegistry.hpp"
 #include "Server/TickManager.hpp"
 #include "Server/World.hpp"
 #include "Server/WorldGenerator.hpp"
+#include "Server/GeneratorRegistry.hpp"
+#include "Server/FluidSimulator.hpp"
 #include "Client/Window.hpp"
 #include "Client/Camera.hpp"
 #include "Client/Renderer.hpp"
@@ -38,6 +41,7 @@ using namespace voxel::client;
 // =============================================================================
 struct AppState {
     World* world = nullptr;
+    FluidSimulator* fluid_sim = nullptr;  // Phase 4: Fluid simulation
     Camera camera;
     Renderer renderer;
     MeshGenerator mesh_gen;
@@ -60,6 +64,16 @@ struct AppState {
     // Physics state
     bool collision_enabled = true;
     bool on_ground = false;
+    
+    // Velocity for physics simulation
+    double velocity_x = 0.0;
+    double velocity_y = 0.0;
+    double velocity_z = 0.0;
+    
+    // Physics constants
+    static constexpr double GRAVITY = -28.0;      // Blocks per second squared
+    static constexpr double JUMP_VELOCITY = 9.0;  // Blocks per second
+    static constexpr double MAX_FALL_SPEED = -50.0;  // Terminal velocity
 
     // Debug overlay
     bool show_debug = false;
@@ -76,43 +90,12 @@ struct AppState {
 // =============================================================================
 void process_input(AppState& app, Window& window) {
     const InputState& input = window.input();
-    auto dt = static_cast<float>(app.delta_time);
-
-    // Sprint multiplier
-    float speed_mult = 1.0f;
-    if (window.is_key_down(GLFW_KEY_LEFT_CONTROL)) {
-        speed_mult = 3.0f;
-    }
-
-    // Set camera speed (base speed * sprint multiplier)
-    app.camera.set_speed(app.move_speed * speed_mult);
-
-    // Process movement - pass delta_time directly, camera uses its own speed
-    if (window.is_key_down(GLFW_KEY_W)) {
-        app.camera.process_keyboard(Camera::Direction::FORWARD, dt);
-    }
-    if (window.is_key_down(GLFW_KEY_S)) {
-        app.camera.process_keyboard(Camera::Direction::BACKWARD, dt);
-    }
-    if (window.is_key_down(GLFW_KEY_D)) {
-        app.camera.process_keyboard(Camera::Direction::RIGHT, dt);
-    }
-    if (window.is_key_down(GLFW_KEY_A)) {
-        app.camera.process_keyboard(Camera::Direction::LEFT, dt);
-    }
-    if (window.is_key_down(GLFW_KEY_SPACE)) {
-        app.camera.process_keyboard(Camera::Direction::UP, dt);
-    }
-    if (window.is_key_down(GLFW_KEY_LEFT_SHIFT)) {
-        app.camera.process_keyboard(Camera::Direction::DOWN, dt);
-    }
 
     // Mouse look (only when captured)
-    // Apply sensitivity here
     if (input.mouse_captured) {
         app.camera.process_mouse(
             static_cast<float>(input.mouse_dx) * app.mouse_sensitivity,
-            static_cast<float>(-input.mouse_dy) * app.mouse_sensitivity  // Invert Y for natural mouse look
+            static_cast<float>(-input.mouse_dy) * app.mouse_sensitivity
         );
     }
 
@@ -138,8 +121,219 @@ void process_input(AppState& app, Window& window) {
             app.selected_block = static_cast<std::uint16_t>(i + 1);
         }
     }
+}
 
-    // Update camera origin if needed (for origin shifting)
+// =============================================================================
+// PHYSICS UPDATE
+// =============================================================================
+void update_physics(AppState& app, Window& window) {
+    const double dt = app.delta_time;
+    const auto& cam_pos = app.camera.position();
+    
+    // Get movement input
+    double move_x = 0.0, move_z = 0.0;
+    
+    // Sprint multiplier
+    double speed_mult = 1.0;
+    if (window.is_key_down(GLFW_KEY_LEFT_CONTROL)) {
+        speed_mult = 3.0;
+    }
+    
+    const double move_speed = static_cast<double>(app.move_speed) * speed_mult;
+    
+    // Get horizontal front/right vectors (ignore Y component for ground movement)
+    const auto& front = app.camera.front();
+    const auto& right = app.camera.right();
+    
+    // Flatten front vector for horizontal movement
+    double front_x = static_cast<double>(front.x);
+    double front_z = static_cast<double>(front.z);
+    double front_len = std::sqrt(front_x * front_x + front_z * front_z);
+    if (front_len > 0.001) {
+        front_x /= front_len;
+        front_z /= front_len;
+    }
+    
+    double right_x = static_cast<double>(right.x);
+    double right_z = static_cast<double>(right.z);
+    
+    // Accumulate movement direction
+    if (window.is_key_down(GLFW_KEY_W)) {
+        move_x += front_x;
+        move_z += front_z;
+    }
+    if (window.is_key_down(GLFW_KEY_S)) {
+        move_x -= front_x;
+        move_z -= front_z;
+    }
+    if (window.is_key_down(GLFW_KEY_D)) {
+        move_x += right_x;
+        move_z += right_z;
+    }
+    if (window.is_key_down(GLFW_KEY_A)) {
+        move_x -= right_x;
+        move_z -= right_z;
+    }
+    
+    // Normalize if moving diagonally
+    double move_len = std::sqrt(move_x * move_x + move_z * move_z);
+    if (move_len > 0.001) {
+        move_x /= move_len;
+        move_z /= move_len;
+    }
+    
+    // Set horizontal velocity from input (instant response for responsive controls)
+    app.velocity_x = move_x * move_speed;
+    app.velocity_z = move_z * move_speed;
+    
+    // === COLLISION DISABLED (NOCLIP MODE) ===
+    if (!app.collision_enabled) {
+        // Free flying - direct position manipulation
+        double dx = app.velocity_x * dt;
+        double dz = app.velocity_z * dt;
+        double dy = 0.0;
+        
+        // Vertical movement in noclip
+        if (window.is_key_down(GLFW_KEY_SPACE)) {
+            dy = move_speed * dt;
+        }
+        if (window.is_key_down(GLFW_KEY_LEFT_SHIFT)) {
+            dy = -move_speed * dt;
+        }
+        
+        app.camera.set_position(
+            cam_pos.x + dx,
+            cam_pos.y + dy,
+            cam_pos.z + dz
+        );
+        app.on_ground = false;
+        app.velocity_y = 0.0;
+        app.camera.update_origin_if_needed();
+        return;
+    }
+    
+    // === COLLISION ENABLED (PHYSICS MODE) ===
+    
+    // Apply gravity (only when not grounded)
+    if (!app.on_ground) {
+        app.velocity_y += AppState::GRAVITY * dt;
+        // Clamp to terminal velocity
+        if (app.velocity_y < AppState::MAX_FALL_SPEED) {
+            app.velocity_y = AppState::MAX_FALL_SPEED;
+        }
+    }
+    
+    // Jump (only when grounded)
+    if (window.is_key_down(GLFW_KEY_SPACE) && app.on_ground) {
+        app.velocity_y = AppState::JUMP_VELOCITY;
+        app.on_ground = false;
+    }
+    
+    // Calculate position deltas
+    double dx = app.velocity_x * dt;
+    double dy = app.velocity_y * dt;
+    double dz = app.velocity_z * dt;
+    
+    // Get current position
+    double pos_x = cam_pos.x;
+    double pos_y = cam_pos.y - CollisionResolver::PLAYER_EYE_HEIGHT; // Convert to feet position
+    double pos_z = cam_pos.z;
+    
+    // Lambda for voxel lookup
+    auto get_voxel = [&](std::int64_t bx, std::int64_t by, std::int64_t bz) -> Voxel {
+        return app.world->get_voxel(
+            static_cast<ChunkCoord>(bx),
+            static_cast<ChunkCoord>(by),
+            static_cast<ChunkCoord>(bz)
+        );
+    };
+    
+    constexpr double HALF_WIDTH = CollisionResolver::PLAYER_WIDTH / 2.0;
+    constexpr double HALF_HEIGHT = CollisionResolver::PLAYER_HEIGHT / 2.0;
+    
+    // Reset on_ground - will be set true if we collide downward
+    app.on_ground = false;
+    
+    // === AXIS-BY-AXIS COLLISION RESOLUTION WITH SNAPPING ===
+    
+    // --- X AXIS ---
+    if (std::abs(dx) > 0.0001) {
+        double new_x = pos_x + dx;
+        if (CollisionResolver::would_collide(new_x, pos_y, pos_z, HALF_WIDTH, HALF_HEIGHT, get_voxel)) {
+            // Snap to block edge
+            if (dx > 0) {
+                // Moving +X: snap to left edge of blocking voxel
+                std::int64_t block_x = static_cast<std::int64_t>(std::floor(new_x + HALF_WIDTH));
+                pos_x = static_cast<double>(block_x) - HALF_WIDTH - 0.001;
+            } else {
+                // Moving -X: snap to right edge of blocking voxel
+                std::int64_t block_x = static_cast<std::int64_t>(std::floor(new_x - HALF_WIDTH));
+                pos_x = static_cast<double>(block_x + 1) + HALF_WIDTH + 0.001;
+            }
+            app.velocity_x = 0.0;
+        } else {
+            pos_x = new_x;
+        }
+    }
+    
+    // --- Y AXIS ---
+    if (std::abs(dy) > 0.0001) {
+        double new_y = pos_y + dy;
+        if (CollisionResolver::would_collide(pos_x, new_y, pos_z, HALF_WIDTH, HALF_HEIGHT, get_voxel)) {
+            if (dy < 0) {
+                // Moving down (falling): snap to top of blocking voxel
+                std::int64_t block_y = static_cast<std::int64_t>(std::floor(new_y));
+                pos_y = static_cast<double>(block_y + 1) + 0.001;
+                app.on_ground = true;
+            } else {
+                // Moving up (jumping): snap to bottom of blocking voxel
+                std::int64_t block_y = static_cast<std::int64_t>(std::floor(new_y + CollisionResolver::PLAYER_HEIGHT));
+                pos_y = static_cast<double>(block_y) - CollisionResolver::PLAYER_HEIGHT - 0.001;
+            }
+            app.velocity_y = 0.0;
+        } else {
+            pos_y = new_y;
+        }
+    }
+    
+    // --- Z AXIS ---
+    if (std::abs(dz) > 0.0001) {
+        double new_z = pos_z + dz;
+        if (CollisionResolver::would_collide(pos_x, pos_y, new_z, HALF_WIDTH, HALF_HEIGHT, get_voxel)) {
+            // Snap to block edge
+            if (dz > 0) {
+                // Moving +Z: snap to near edge of blocking voxel
+                std::int64_t block_z = static_cast<std::int64_t>(std::floor(new_z + HALF_WIDTH));
+                pos_z = static_cast<double>(block_z) - HALF_WIDTH - 0.001;
+            } else {
+                // Moving -Z: snap to far edge of blocking voxel
+                std::int64_t block_z = static_cast<std::int64_t>(std::floor(new_z - HALF_WIDTH));
+                pos_z = static_cast<double>(block_z + 1) + HALF_WIDTH + 0.001;
+            }
+            app.velocity_z = 0.0;
+        } else {
+            pos_z = new_z;
+        }
+    }
+    
+    // Check if standing on ground (for next frame)
+    // Test a small distance below feet
+    if (!app.on_ground) {
+        if (CollisionResolver::would_collide(pos_x, pos_y - 0.01, pos_z, HALF_WIDTH, HALF_HEIGHT, get_voxel)) {
+            app.on_ground = true;
+            if (app.velocity_y < 0) {
+                app.velocity_y = 0.0;
+            }
+        }
+    }
+    
+    // Convert back to eye position and update camera
+    app.camera.set_position(
+        pos_x,
+        pos_y + CollisionResolver::PLAYER_EYE_HEIGHT,
+        pos_z
+    );
+    
     app.camera.update_origin_if_needed();
 }
 
@@ -246,19 +440,36 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
     ImGui_ImplOpenGL3_Init("#version 330");
 
     app.debug_overlay.init();
+    
+    // Initialize BlockRegistry from config
+    BlockRegistry::instance().load("config/blocks.toml");
 
-    // Create world with superflat generator
+    // Create world with superflat generator (using registry for runtime swapping)
     WorldConfig world_config;
     world_config.seed = 12345;
     world_config.name = "render_test";
 
     World world(world_config);
-    world.set_generator(generator::create_superflat(SuperflatConfig::classic()));
+    
+    // Use GeneratorRegistry for swappable generators
+    world.set_generator(GeneratorRegistry::instance().create("superflat", world_config.seed));
     app.world = &world;
+    
+    // Create fluid simulator (Phase 4)
+    FluidSimulator fluid_sim(world);
+    app.fluid_sim = &fluid_sim;
 
     std::printf("Generator: %.*s\n",
         static_cast<int>(world.generator()->type_name().size()),
         world.generator()->type_name().data());
+    
+    // List available generators
+    auto generators = GeneratorRegistry::instance().list_generators();
+    std::printf("Available generators: ");
+    for (const auto& name : generators) {
+        std::printf("%s ", name.c_str());
+    }
+    std::printf("\n");
 
     // Load chunks
     std::printf("\n--- Loading Chunks ---\n");
@@ -334,6 +545,11 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
             app.fps_count = 0;
             app.fps_time = 0.0;
         }
+        
+        // Tick fluid simulation (Phase 4: Modular Fluid Simulation)
+        if (app.fluid_sim) {
+            app.fluid_sim->tick();
+        }
 
         // Debug overlay (F3 style) - populate data struct for ImGui
         DebugOverlayData debug_data;
@@ -365,7 +581,12 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
             debug_data.player_x = static_cast<float>(pos.x);
             debug_data.player_y = static_cast<float>(pos.y);
             debug_data.player_z = static_cast<float>(pos.z);
+            debug_data.velocity_x = static_cast<float>(app.velocity_x);
+            debug_data.velocity_y = static_cast<float>(app.velocity_y);
+            debug_data.velocity_z = static_cast<float>(app.velocity_z);
             debug_data.on_ground = app.on_ground;
+            debug_data.collision_enabled = app.collision_enabled;
+            debug_data.selected_block = static_cast<std::uint8_t>(app.selected_block);
             
             // Target block
             if (app.targeted_block && app.targeted_block->hit) {
@@ -385,6 +606,9 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
         // Input
         window.poll_events();
         process_input(app, window);
+        
+        // Physics update (movement with collision)
+        update_physics(app, window);
 
         // Update camera projection if window resized
         app.camera.set_projection(app.fov, window.aspect_ratio(), 0.1f, 1000.0f);
@@ -416,11 +640,16 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
             window.input().mouse_captured &&
             app.targeted_block && app.targeted_block->hit) {
             
-            app.world->break_block(
-                app.targeted_block->block_x,
-                app.targeted_block->block_y,
-                app.targeted_block->block_z
-            );
+            auto bx = app.targeted_block->block_x;
+            auto by = app.targeted_block->block_y;
+            auto bz = app.targeted_block->block_z;
+            
+            app.world->break_block(bx, by, bz);
+            
+            // Notify fluid simulator for potential flow
+            if (app.fluid_sim) {
+                app.fluid_sim->notify_block_change(bx, by, bz);
+            }
         }
 
         // Block placing (Right Mouse Button)
@@ -433,8 +662,34 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
             std::int64_t place_y = app.targeted_block->block_y + app.targeted_block->normal_y;
             std::int64_t place_z = app.targeted_block->block_z + app.targeted_block->normal_z;
 
-            Voxel new_block(app.selected_block);
-            app.world->place_block(place_x, place_y, place_z, new_block);
+            // === PLACEMENT SAFETY CHECK ===
+            // Check if the new block's AABB would intersect with player's AABB
+            const auto& cam_pos = app.camera.position();
+            double player_feet_y = cam_pos.y - CollisionResolver::PLAYER_EYE_HEIGHT;
+            
+            // Player AABB
+            AABB player_aabb = AABB::from_center(
+                cam_pos.x, 
+                player_feet_y + CollisionResolver::PLAYER_HEIGHT / 2.0,
+                cam_pos.z,
+                CollisionResolver::PLAYER_WIDTH / 2.0,
+                CollisionResolver::PLAYER_HEIGHT / 2.0,
+                CollisionResolver::PLAYER_WIDTH / 2.0
+            );
+            
+            // Block AABB
+            AABB block_aabb = AABB::from_block(place_x, place_y, place_z);
+            
+            // Only place if no intersection
+            if (!player_aabb.intersects(block_aabb)) {
+                Voxel new_block(app.selected_block);
+                app.world->place_block(place_x, place_y, place_z, new_block);
+                
+                // Notify fluid simulator
+                if (app.fluid_sim) {
+                    app.fluid_sim->notify_block_change(place_x, place_y, place_z);
+                }
+            }
         }
 
         // Rebuild dirty chunk meshes
