@@ -61,6 +61,7 @@ PFNGLUNIFORM1FPROC glUniform1f = 0;
 PFNGLUNIFORM2FPROC glUniform2f = 0;
 PFNGLUNIFORM3FPROC glUniform3f = 0;
 PFNGLUNIFORM4FPROC glUniform4f = 0;
+PFNGLUNIFORM4FVPROC glUniform4fv = 0;
 PFNGLUNIFORMMATRIX4FVPROC glUniformMatrix4fv = 0;
 
 PFNGLDRAWARRAYSPROC glDrawArrays = 0;
@@ -149,6 +150,7 @@ int gladLoadGLLoader(GLADloadproc load) {
     glUniform2f = (PFNGLUNIFORM2FPROC)get_proc(load, "glUniform2f");
     glUniform3f = (PFNGLUNIFORM3FPROC)get_proc(load, "glUniform3f");
     glUniform4f = (PFNGLUNIFORM4FPROC)get_proc(load, "glUniform4f");
+    glUniform4fv = (PFNGLUNIFORM4FVPROC)get_proc(load, "glUniform4fv");
     glUniformMatrix4fv = (PFNGLUNIFORMMATRIX4FVPROC)get_proc(load, "glUniformMatrix4fv");
 
     glDrawArrays = (PFNGLDRAWARRAYSPROC)get_proc(load, "glDrawArrays");

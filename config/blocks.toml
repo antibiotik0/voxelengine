@@ -42,13 +42,17 @@ is_solid = true
 is_transparent = false
 texture_all = "dirt.png"
 
-[[blocks.grass]]
+[[blocks.grass_block]]
 id = 3
 is_solid = true
 is_transparent = false
 texture_top = "grass_block_top.png"
 texture_side = "grass_block_side.png"
 texture_bottom = "dirt.png"
+tint_r = 120
+tint_g = 200
+tint_b = 80
+tint_a = 255
 
 # =============================================================================
 # FLUIDS
@@ -63,11 +67,11 @@ fluid_viscosity = 4
 fluid_max_distance = 7
 light_filter = 2
 texture_all = "water.png"
-render_all_faces = true
-tint_r = 100
-tint_g = 150
+render_all_faces = false
+tint_r = 60
+tint_g = 120
 tint_b = 255
-tint_a = 180
+tint_a = 200
 
 [[blocks.lava]]
 id = 10

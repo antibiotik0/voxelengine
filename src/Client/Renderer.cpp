@@ -8,9 +8,10 @@
 
 #include <glad/glad.h>
 
-#include <iostream>
-#include <cstring>
 #include <algorithm>
+#include <array>
+#include <cstring>
+#include <iostream>
 
 namespace voxel::client {
 
@@ -412,6 +413,56 @@ void Renderer::render_chunks() {
     GLint tex_loc = glGetUniformLocation(m_chunk_shader.id(), "u_TextureArray");
     if (tex_loc >= 0) {
         glUniform1i(tex_loc, 0);
+    }
+    
+    // Set block tint colors from BlockRegistry
+    // Each texture layer gets its tint from the block that uses it
+    GLint tint_loc = glGetUniformLocation(m_chunk_shader.id(), "u_BlockTints");
+    if (tint_loc >= 0) {
+        // Build tint array (256 vec4s)
+        std::array<float, 256 * 4> tints;
+        tints.fill(1.0f); // Default to white (no tint)
+        
+        // Set tints for each block type based on their texture layers
+        for (std::uint16_t id = 0; id < 256; ++id) {
+            const auto& props = BlockRegistry::instance().get(id);
+            if (props.id != id) continue; // Skip unregistered blocks
+            
+            // Apply tint to texture layers used by this block
+            float r = static_cast<float>(props.tint_r) / 255.0f;
+            float g = static_cast<float>(props.tint_g) / 255.0f;
+            float b = static_cast<float>(props.tint_b) / 255.0f;
+            float a = static_cast<float>(props.tint_a) / 255.0f;
+            
+            // Set tint for top texture layer
+            std::size_t top_idx = static_cast<std::size_t>(props.texture_top) * 4;
+            if (top_idx < 256 * 4) {
+                tints[top_idx + 0] = r;
+                tints[top_idx + 1] = g;
+                tints[top_idx + 2] = b;
+                tints[top_idx + 3] = a;
+            }
+            
+            // Set tint for side texture layer
+            std::size_t side_idx = static_cast<std::size_t>(props.texture_side) * 4;
+            if (side_idx < 256 * 4) {
+                tints[side_idx + 0] = r;
+                tints[side_idx + 1] = g;
+                tints[side_idx + 2] = b;
+                tints[side_idx + 3] = a;
+            }
+            
+            // Set tint for bottom texture layer
+            std::size_t bottom_idx = static_cast<std::size_t>(props.texture_bottom) * 4;
+            if (bottom_idx < 256 * 4) {
+                tints[bottom_idx + 0] = r;
+                tints[bottom_idx + 1] = g;
+                tints[bottom_idx + 2] = b;
+                tints[bottom_idx + 3] = a;
+            }
+        }
+        
+        glUniform4fv(tint_loc, 256, tints.data());
     }
     
     // Debug: Check if shader is valid

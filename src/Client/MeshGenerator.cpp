@@ -135,19 +135,31 @@ void MeshGenerator::build_face_masks(
                     // Get neighbor properties from BlockRegistry
                     const auto& neighbor_props = BlockRegistry::instance().get(neighbor.type_id());
                     
+                    // WATER/FLUID CULLING RULES:
+                    // Show face if:
+                    //   - Neighbor is AIR
+                    //   - Neighbor is a different block type
+                    //   - Neighbor is same fluid but has lower liquid_level
                     // Cull face if:
-                    // - Neighbor is opaque AND current is not transparent
-                    // - OR both are the same transparent type (avoid internal faces)
+                    //   - Neighbor is opaque AND current is opaque
+                    //   - Neighbor is same fluid with >= liquid_level
                     if (!neighbor.is_air()) {
                         if (!neighbor_props.is_transparent && !current_props.is_transparent) {
                             // Both opaque - cull
                             should_cull = true;
+                        } else if (current_props.is_fluid && neighbor.type_id() == voxel.type_id()) {
+                            // Same fluid type - cull only if neighbor has >= fluid level
+                            std::uint8_t current_level = voxel.fluid_level();
+                            std::uint8_t neighbor_level = neighbor.fluid_level();
+                            if (current_level == 0) current_level = Voxel::FLUID_LEVEL_FULL;
+                            if (neighbor_level == 0) neighbor_level = Voxel::FLUID_LEVEL_FULL;
+                            should_cull = (neighbor_level >= current_level);
                         } else if (neighbor_props.is_transparent && current_props.is_transparent &&
                                    neighbor.type_id() == voxel.type_id()) {
-                            // Same transparent type - cull internal faces
+                            // Same non-fluid transparent type - cull internal faces
                             should_cull = !current_props.render_all_faces;
                         }
-                        // Opaque behind transparent - don't cull (show the face)
+                        // Different types or opaque behind transparent - don't cull
                     }
                 } else if (m_config.enable_face_culling && neighbor_accessor) {
                     // Neighbor is in adjacent chunk
@@ -162,6 +174,13 @@ void MeshGenerator::build_face_masks(
                     if (!neighbor.is_air()) {
                         if (!neighbor_props.is_transparent && !current_props.is_transparent) {
                             should_cull = true;
+                        } else if (current_props.is_fluid && neighbor.type_id() == voxel.type_id()) {
+                            // Same fluid type - cull only if neighbor has >= fluid level
+                            std::uint8_t current_level = voxel.fluid_level();
+                            std::uint8_t neighbor_level = neighbor.fluid_level();
+                            if (current_level == 0) current_level = Voxel::FLUID_LEVEL_FULL;
+                            if (neighbor_level == 0) neighbor_level = Voxel::FLUID_LEVEL_FULL;
+                            should_cull = (neighbor_level >= current_level);
                         } else if (neighbor_props.is_transparent && current_props.is_transparent &&
                                    neighbor.type_id() == voxel.type_id()) {
                             should_cull = !current_props.render_all_faces;
@@ -205,6 +224,17 @@ void MeshGenerator::build_face_masks(
                 face_data.voxel_type = voxel.type_id();
                 face_data.light = voxel.light_level();
                 face_data.ao = 0; // TODO: Calculate AO
+                
+                // Store fluid level for water/lava height lowering
+                if (current_props.is_fluid) {
+                    face_data.fluid_level = voxel.fluid_level();
+                    // Default to full if not set
+                    if (face_data.fluid_level == 0) {
+                        face_data.fluid_level = Voxel::FLUID_LEVEL_FULL;
+                    }
+                } else {
+                    face_data.fluid_level = 0;
+                }
 
                 ++m_stats_faces;
             }
@@ -391,14 +421,15 @@ void MeshGenerator::add_face_quad(
             u3 = 0; v3 = h;
             break;
         case FACE_POS_Y: // +Y face (top)
-            x0 = bx;     y0 = by + 1; z0 = bz + h;
-            x1 = bx + w; y1 = by + 1; z1 = bz + h;
-            x2 = bx + w; y2 = by + 1; z2 = bz;
-            x3 = bx;     y3 = by + 1; z3 = bz;
-            u0 = 0; v0 = h;
-            u1 = w; v1 = h;
-            u2 = w; v2 = 0;
-            u3 = 0; v3 = 0;
+            x0 = bx;     y0 = by + 1; z0 = bz;
+            x1 = bx + w; y1 = by + 1; z1 = bz;
+            x2 = bx + w; y2 = by + 1; z2 = bz + h;
+            x3 = bx;     y3 = by + 1; z3 = bz + h;
+            // UV: (0,0), (W,0), (W,H), (0,H) - standard quad layout
+            u0 = 0; v0 = 0;
+            u1 = w; v1 = 0;
+            u2 = w; v2 = h;
+            u3 = 0; v3 = h;
             break;
         case FACE_NEG_Z: // -Z face
             x0 = bx + w; y0 = by;     z0 = bz;
@@ -425,13 +456,16 @@ void MeshGenerator::add_face_quad(
 
     const auto normal = static_cast<std::uint8_t>(face);
     const std::uint8_t light = data.light;
-    const std::uint8_t ao = data.ao;
+    
+    // Pack AO (lower 4 bits) and fluid_level (upper 4 bits) together
+    // Fluid level 0-8 stored in bits 4-7, AO in bits 0-3
+    std::uint8_t ao_packed = (data.ao & 0x0F) | ((data.fluid_level & 0x0F) << 4);
 
     // Create 4 vertices with proper UV coordinates for greedy meshing
-    PackedVertex v0_vert(x0, y0, z0, normal, tex_layer, u0, v0, light, ao);
-    PackedVertex v1_vert(x1, y1, z1, normal, tex_layer, u1, v1, light, ao);
-    PackedVertex v2_vert(x2, y2, z2, normal, tex_layer, u2, v2, light, ao);
-    PackedVertex v3_vert(x3, y3, z3, normal, tex_layer, u3, v3, light, ao);
+    PackedVertex v0_vert(x0, y0, z0, normal, tex_layer, u0, v0, light, ao_packed);
+    PackedVertex v1_vert(x1, y1, z1, normal, tex_layer, u1, v1, light, ao_packed);
+    PackedVertex v2_vert(x2, y2, z2, normal, tex_layer, u2, v2, light, ao_packed);
+    PackedVertex v3_vert(x3, y3, z3, normal, tex_layer, u3, v3, light, ao_packed);
 
     mesh.add_quad(v0_vert, v1_vert, v2_vert, v3_vert);
 }

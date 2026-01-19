@@ -58,6 +58,12 @@ key_repeat_delay = 500
 # Player reach distance (blocks) for block selection
 player_reach = 5.0
 
+# Player movement speed (blocks/second)
+player_speed = 5.0
+
+# Sprint speed multiplier
+sprint_multiplier = 3.0
+
 [performance]
 # Mesh generation threads
 mesh_threads = 4

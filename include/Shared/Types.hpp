@@ -89,6 +89,31 @@ struct Voxel {
         return static_cast<std::uint8_t>((data & METADATA_MASK) >> METADATA_SHIFT);
     }
 
+    // ==========================================================================
+    // FLUID LEVEL (stored in lower 4 bits of metadata: 0-15)
+    // Level 8 = full block, Level 0 = empty, Level 1-7 = partial
+    // ==========================================================================
+    static constexpr std::uint8_t FLUID_LEVEL_FULL = 8;
+    static constexpr std::uint8_t FLUID_LEVEL_MASK = 0x0F;
+    
+    [[nodiscard]] constexpr std::uint8_t fluid_level() const noexcept {
+        return metadata() & FLUID_LEVEL_MASK;
+    }
+    
+    constexpr void set_fluid_level(std::uint8_t level) noexcept {
+        std::uint8_t meta = metadata();
+        meta = (meta & ~FLUID_LEVEL_MASK) | (level & FLUID_LEVEL_MASK);
+        set_metadata(meta);
+    }
+    
+    // Get fluid height as 0.0 - 1.0 (for rendering)
+    [[nodiscard]] constexpr float fluid_height() const noexcept {
+        std::uint8_t level = fluid_level();
+        if (level == 0) return 0.0f;
+        if (level >= FLUID_LEVEL_FULL) return 1.0f;
+        return static_cast<float>(level) / static_cast<float>(FLUID_LEVEL_FULL);
+    }
+
     // Combined light level (max of sun and torch)
     [[nodiscard]] constexpr std::uint8_t light_level() const noexcept {
         const auto sun = sunlight();

@@ -105,11 +105,13 @@ private:
         std::uint16_t voxel_type;
         std::uint8_t light;
         std::uint8_t ao;
+        std::uint8_t fluid_level;  // 0-8, for lowering fluid top faces
 
         [[nodiscard]] bool operator==(const FaceData& other) const noexcept {
             return voxel_type == other.voxel_type && 
                    light == other.light && 
-                   ao == other.ao;
+                   ao == other.ao &&
+                   fluid_level == other.fluid_level;
         }
     };
 

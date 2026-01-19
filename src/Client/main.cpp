@@ -56,6 +56,7 @@ struct AppState {
 
     // Camera movement (loaded from settings.toml)
     float move_speed = 10.0f;
+    float sprint_multiplier = 3.0f;
     float mouse_sensitivity = 0.15f;
     float player_reach = 5.0f;
     float fov = 70.0f;
@@ -136,7 +137,7 @@ void update_physics(AppState& app, Window& window) {
     // Sprint multiplier
     double speed_mult = 1.0;
     if (window.is_key_down(GLFW_KEY_LEFT_CONTROL)) {
-        speed_mult = 3.0;
+        speed_mult = static_cast<double>(app.sprint_multiplier);
     }
     
     const double move_speed = static_cast<double>(app.move_speed) * speed_mult;
@@ -414,9 +415,13 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
     if (settings_loaded) {
         app.mouse_sensitivity = settings.get_float("input.mouse_sensitivity", 0.15f);
         app.player_reach = settings.get_float("input.player_reach", 5.0f);
+        app.move_speed = settings.get_float("input.player_speed", 10.0f);
+        app.sprint_multiplier = settings.get_float("input.sprint_multiplier", 3.0f);
         app.fov = settings.get_float("rendering.fov", 70.0f);
         std::printf("[Settings] mouse_sensitivity = %.2f\n", static_cast<double>(app.mouse_sensitivity));
         std::printf("[Settings] player_reach = %.2f\n", static_cast<double>(app.player_reach));
+        std::printf("[Settings] player_speed = %.2f\n", static_cast<double>(app.move_speed));
+        std::printf("[Settings] sprint_multiplier = %.2f\n", static_cast<double>(app.sprint_multiplier));
         std::printf("[Settings] fov = %.2f\n", static_cast<double>(app.fov));
     } else {
         std::printf("[Settings] Could not find settings.toml, using defaults\n");

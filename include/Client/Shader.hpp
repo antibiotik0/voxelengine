@@ -103,7 +103,8 @@ layout(location = 1) uniform vec3 u_ChunkOffset;  // Chunk position relative to 
 // Outputs to fragment shader
 out vec3 v_Position;
 out vec3 v_Normal;
-out vec3 v_TexCoord;   // UV.xy + layer as z
+out vec2 v_TexCoord;   // UV coordinates
+flat out uint v_TexLayer;  // Texture layer (no interpolation!)
 out float v_Light;
 out float v_AO;
 
@@ -115,14 +116,28 @@ void main() {
     uint normalIdx = (data1 >> 21u) & 0x7u;    // bits 21-23
     uint texLayer = (data1 >> 24u) & 0xFFu;    // bits 24-31
 
-    // Unpack data2: uv_u(8) | uv_v(8) | light(8) | ao(8)
+    // Unpack data2: uv_u(8) | uv_v(8) | light(8) | ao_packed(8)
+    // ao_packed: lower 4 bits = AO, upper 4 bits = fluid_level (0-8)
     uint uvU = data2 & 0xFFu;                  // bits 0-7
     uint uvV = (data2 >> 8u) & 0xFFu;          // bits 8-15
     uint light = (data2 >> 16u) & 0xFFu;       // bits 16-23
-    uint ao = (data2 >> 24u) & 0xFFu;          // bits 24-31
+    uint aoPacked = (data2 >> 24u) & 0xFFu;    // bits 24-31
+    uint ao = aoPacked & 0x0Fu;                // lower 4 bits: AO
+    uint fluidLevel = (aoPacked >> 4u) & 0x0Fu; // upper 4 bits: fluid level (0-8)
 
     // Calculate world position (local + chunk offset)
     vec3 localPos = vec3(float(x), float(y), float(z));
+    
+    // Apply fluid height offset for top faces (+Y normal, index 3)
+    // Fluid level 8 = full block, level 4 = half height, etc.
+    if (fluidLevel > 0u && normalIdx == 3u) {
+        // Lower the top face based on fluid level
+        // fluidLevel 8 = 0.875 height (7/8), level 4 = 0.5 height, etc.
+        float fluidHeight = float(fluidLevel) / 8.0;
+        // Offset: full block = 0 offset, level 4 = -0.5 offset
+        localPos.y -= (1.0 - fluidHeight * 0.875);
+    }
+    
     vec3 worldPos = localPos + u_ChunkOffset;
 
     // Transform to clip space
@@ -146,10 +161,11 @@ void main() {
     // If uvU and uvV are 0, use default 1x1 (corner indices)
     float u = (uvU == 0u) ? float(gl_VertexID % 2) : float(uvU);
     float v = (uvV == 0u) ? float((gl_VertexID / 2) % 2) : float(uvV);
-    v_TexCoord = vec3(u, v, float(texLayer));
+    v_TexCoord = vec2(u, v);
+    v_TexLayer = texLayer;  // Flat - no interpolation
     
     v_Light = float(light) / 255.0;
-    v_AO = float(ao) / 255.0;
+    v_AO = float(ao) / 15.0;  // AO is now 4-bit (0-15)
 }
 )glsl";
 
@@ -159,7 +175,8 @@ constexpr const char* CHUNK_FRAGMENT_SHADER = R"glsl(
 // Inputs from vertex shader
 in vec3 v_Position;
 in vec3 v_Normal;
-in vec3 v_TexCoord;  // UV.xy + layer as z
+in vec2 v_TexCoord;  // UV coordinates
+flat in uint v_TexLayer;  // Texture layer (no interpolation!)
 in float v_Light;
 in float v_AO;
 
@@ -169,30 +186,58 @@ out vec4 FragColor;
 // Texture array sampler
 uniform sampler2DArray u_TextureArray;
 
+// Block tinting data (sent as uniform array)
+// Each vec4: (r, g, b, a) normalized 0-1
+// Index by texture layer for simplicity
+uniform vec4 u_BlockTints[256];
+
 void main() {
-    // Sample from texture array using UV and layer index
-    vec3 texCoord = vec3(v_TexCoord.xy, v_TexCoord.z);
+    // Sample from texture array using UV and flat layer index
+    vec3 texCoord = vec3(v_TexCoord.xy, float(v_TexLayer));
     vec4 texColor = texture(u_TextureArray, texCoord);
     
     // Discard fully transparent pixels
     if (texColor.a < 0.1) {
         discard;
     }
+    
+    // Get texture layer for tint lookup
+    int layer = int(v_TexLayer);
+    
+    // Apply grayscale tinting for specific textures that are grayscale
+    // grass_block_top = layer 5, oak_leaves = layer 8, water = layer 14
+    // These textures need biome-based coloring
+    vec4 tint = u_BlockTints[layer];
+    if (layer == 5 || layer == 8 || layer == 14) {
+        texColor.rgb *= tint.rgb;
+    }
 
-    // Simple directional lighting
+    // ==========================================================================
+    // DIRECTIONAL LIGHTING SYSTEM
+    // ==========================================================================
+    
+    // Sun direction - from upper-right-front
     vec3 lightDir = normalize(vec3(0.5, 1.0, 0.3));
-    float diffuse = max(dot(v_Normal, lightDir), 0.0);
+    
+    // Ambient light constant (never pitch black)
     float ambient = 0.4;
+    
+    // Diffuse lighting: ambient + max(0.0, dot(normal, lightDir)) * 0.6
+    float diffuse = max(0.0, dot(v_Normal, lightDir));
     float lighting = ambient + diffuse * 0.6;
 
     // Apply ambient occlusion (v_AO is 0-1 where higher = more occlusion)
-    float aoFactor = 1.0 - v_AO * 0.5;
+    float aoFactor = 1.0 - v_AO * 0.3;
 
-    // Apply light level
+    // Apply light level from voxel data (sun + torch)
     float lightFactor = max(v_Light, 0.2);  // Minimum light to see something
 
-    // Final color
+    // Final color with proper lighting
     vec3 finalColor = texColor.rgb * lighting * aoFactor * lightFactor;
+    
+    // Clamp to prevent over-bright
+    finalColor = clamp(finalColor, 0.0, 1.0);
+    
     FragColor = vec4(finalColor, texColor.a);
 }
 )glsl";
