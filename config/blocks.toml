@@ -68,10 +68,10 @@ fluid_max_distance = 7
 light_filter = 2
 texture_all = "water.png"
 render_all_faces = false
-tint_r = 60
-tint_g = 120
-tint_b = 255
-tint_a = 200
+tint_r = 63
+tint_g = 118
+tint_b = 228
+tint_a = 150
 
 [[blocks.lava]]
 id = 10

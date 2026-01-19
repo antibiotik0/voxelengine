@@ -229,11 +229,18 @@ void MeshGenerator::build_face_masks(
                 face_data.ao = 0; // TODO: Calculate AO
                 
                 // Store fluid level for water/lava height lowering
+                // Level meanings:
+                //   0 = source block (stored as 8 for shader: full height)
+                //   1-7 = flowing water (1=near source=high, 7=far=low)
                 if (current_props.is_fluid) {
-                    face_data.fluid_level = voxel.fluid_level();
-                    // Default to full if not set
-                    if (face_data.fluid_level == 0) {
-                        face_data.fluid_level = Voxel::FLUID_LEVEL_FULL;
+                    std::uint8_t raw_level = voxel.fluid_level();
+                    if (raw_level == 0) {
+                        // Source block - full height
+                        face_data.fluid_level = Voxel::FLUID_LEVEL_FULL;  // 8
+                    } else {
+                        // Flowing water - keep raw level (1-7)
+                        // Shader will interpret: 1=7/8 height, 7=1/8 height
+                        face_data.fluid_level = raw_level;
                     }
                 } else {
                     face_data.fluid_level = 0;

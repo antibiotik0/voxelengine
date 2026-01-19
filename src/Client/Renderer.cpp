@@ -232,6 +232,10 @@ bool Renderer::load_textures(const std::string& directory) {
 void Renderer::begin_frame() {
     glClearColor(0.5f, 0.7f, 1.0f, 1.0f);  // Sky blue
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+    // Enable alpha blending for transparent blocks (water, glass, leaves)
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     m_draw_calls = 0;
     m_meshes_rebuilt = 0;

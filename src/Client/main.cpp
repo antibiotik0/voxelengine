@@ -462,6 +462,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
     World world(world_config);
     
     // Use GeneratorRegistry for swappable generators
+    // Options: "superflat", "water_world", "islands"
     world.set_generator(GeneratorRegistry::instance().create("superflat", world_config.seed));
     app.world = &world;
     

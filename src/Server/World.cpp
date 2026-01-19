@@ -241,6 +241,32 @@ bool World::set_voxel(ChunkCoord world_x, ChunkCoord world_y, ChunkCoord world_z
     LocalCoord local_z = world_to_local(world_z);
 
     locked_chunk->set(local_x, local_y, local_z, voxel);
+    
+    // Mark this chunk dirty for mesh rebuild
+    // (unlock first to avoid deadlock with mark_chunk_dirty)
+    lock.unlock();
+    mark_chunk_dirty(chunk_pos);
+    
+    // Check if voxel is on chunk border - mark adjacent chunks dirty too
+    // This is critical for fluid simulation and cross-chunk face culling
+    if (local_x == 0) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x - 1, chunk_pos.y, chunk_pos.z});
+    } else if (local_x == static_cast<LocalCoord>(CHUNK_SIZE_X - 1)) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x + 1, chunk_pos.y, chunk_pos.z});
+    }
+    
+    if (local_y == 0) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x, chunk_pos.y - 1, chunk_pos.z});
+    } else if (local_y == static_cast<LocalCoord>(CHUNK_SIZE_Y - 1)) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x, chunk_pos.y + 1, chunk_pos.z});
+    }
+    
+    if (local_z == 0) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x, chunk_pos.y, chunk_pos.z - 1});
+    } else if (local_z == static_cast<LocalCoord>(CHUNK_SIZE_Z - 1)) {
+        mark_chunk_dirty(ChunkPosition{chunk_pos.x, chunk_pos.y, chunk_pos.z + 1});
+    }
+    
     return true;
 }
 

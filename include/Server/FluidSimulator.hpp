@@ -70,6 +70,12 @@ public:
     
     // Schedule updates for all fluids around a changed block
     void notify_block_change(ChunkCoord x, ChunkCoord y, ChunkCoord z) {
+        // FIRST: Check if the changed block ITSELF is a fluid (e.g., water placed)
+        Voxel self = m_world.get_voxel(x, y, z);
+        if (BlockRegistry::instance().is_fluid(self.type_id())) {
+            schedule_update(x, y, z);
+        }
+        
         // Check neighbors for fluids
         static constexpr std::array<std::array<ChunkCoord, 3>, 6> offsets = {{
             {-1, 0, 0}, {1, 0, 0},

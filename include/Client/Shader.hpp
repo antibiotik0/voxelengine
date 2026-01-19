@@ -129,17 +129,18 @@ void main() {
     vec3 localPos = vec3(float(x), float(y), float(z));
     
     // Apply fluid height offset for top faces (+Y normal, index 3)
-    // Fluid level 8 = full block (no offset)
-    // Fluid level 1 = thin sliver at bottom (1/8 height, -7/8 offset)
-    // Fluid level 0 = treat as full (source block)
-    if (normalIdx == 3u && fluidLevel > 0u) {
-        // Calculate top face height: level/8
-        // Level 8 = 8/8 = 1.0 (full height, no offset)
-        // Level 4 = 4/8 = 0.5 (half height, -0.5 offset)
-        // Level 1 = 1/8 = 0.125 (thin, -0.875 offset)
-        float fluidHeight = float(fluidLevel) / 8.0;
+    // Fluid level meanings:
+    //   Level 8 = source block (full height, no offset)
+    //   Level 0 = treated as source (full height)
+    //   Level 1-7 = flowing water distance from source
+    //     Level 1 = closest to source (high water: 7/8 height)
+    //     Level 7 = furthest from source (low water: 1/8 height)
+    if (normalIdx == 3u && fluidLevel > 0u && fluidLevel < 8u) {
+        // Invert: flowing level 1 = 7/8 height, level 7 = 1/8 height
+        float fluidHeight = float(8u - fluidLevel) / 8.0;
         localPos.y -= (1.0 - fluidHeight);
     }
+    // Level 8 or 0: no offset (full block)
     
     vec3 worldPos = localPos + u_ChunkOffset;
 
@@ -211,6 +212,8 @@ void main() {
     vec4 tint = u_BlockTints[layer];
     if (layer == 5 || layer == 8 || layer == 14) {
         texColor.rgb *= tint.rgb;
+        // Apply tint alpha for water transparency
+        texColor.a *= tint.a;
     }
 
     // ==========================================================================
