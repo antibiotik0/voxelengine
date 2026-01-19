@@ -129,13 +129,16 @@ void main() {
     vec3 localPos = vec3(float(x), float(y), float(z));
     
     // Apply fluid height offset for top faces (+Y normal, index 3)
-    // Fluid level 8 = full block, level 4 = half height, etc.
-    if (fluidLevel > 0u && normalIdx == 3u) {
-        // Lower the top face based on fluid level
-        // fluidLevel 8 = 0.875 height (7/8), level 4 = 0.5 height, etc.
+    // Fluid level 8 = full block (no offset)
+    // Fluid level 1 = thin sliver at bottom (1/8 height, -7/8 offset)
+    // Fluid level 0 = treat as full (source block)
+    if (normalIdx == 3u && fluidLevel > 0u) {
+        // Calculate top face height: level/8
+        // Level 8 = 8/8 = 1.0 (full height, no offset)
+        // Level 4 = 4/8 = 0.5 (half height, -0.5 offset)
+        // Level 1 = 1/8 = 0.125 (thin, -0.875 offset)
         float fluidHeight = float(fluidLevel) / 8.0;
-        // Offset: full block = 0 offset, level 4 = -0.5 offset
-        localPos.y -= (1.0 - fluidHeight * 0.875);
+        localPos.y -= (1.0 - fluidHeight);
     }
     
     vec3 worldPos = localPos + u_ChunkOffset;

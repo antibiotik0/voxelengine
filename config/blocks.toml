@@ -141,14 +141,6 @@ tint_a = 255
 # SPECIAL BLOCKS
 # =============================================================================
 
-[[blocks.glass_block]]
-id = 8
-is_solid = true
-is_transparent = true
-light_filter = 0
-texture_all = "stone.png"
-render_all_faces = true
-
 [[blocks.light]]
 id = 9
 is_solid = true

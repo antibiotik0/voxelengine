@@ -36,6 +36,8 @@ struct DebugOverlayData {
     // Rendering
     uint32_t meshes_rebuilt = 0;
     uint32_t chunk_count = 0;
+    uint64_t total_vertices = 0;   // Total vertex count (greedy mesh verification)
+    uint64_t total_triangles = 0;  // Total triangle count (indices / 3)
     
     // Physics & Player State
     float player_x = 0.0f;
@@ -86,6 +88,13 @@ public:
             ImGui::Text("Frame Time: %.2f ms", static_cast<double>(data.frame_time_ms));
             ImGui::Text("Meshes Rebuilt: %u", data.meshes_rebuilt);
             ImGui::Text("Chunks Loaded: %u", data.chunk_count);
+            
+            ImGui::Separator();
+            
+            // === GEOMETRY (Greedy Mesh Verification) ===
+            ImGui::TextColored(ImVec4(1.0f, 1.0f, 0.5f, 1.0f), "Geometry");
+            ImGui::Text("Vertices: %llu", static_cast<unsigned long long>(data.total_vertices));
+            ImGui::Text("Triangles: %llu", static_cast<unsigned long long>(data.total_triangles));
             
             ImGui::Separator();
             

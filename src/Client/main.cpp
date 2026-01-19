@@ -495,6 +495,16 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
             }
         }
     }
+    
+    // Initialize fluid simulation for all loaded chunks (Phase 4)
+    std::printf("\n--- Initializing Fluid Simulation ---\n");
+    for (const auto& pos : loaded_chunks) {
+        const Chunk* chunk = world.get_chunk(pos);
+        if (chunk) {
+            fluid_sim.initialize_chunk_fluids(*chunk);
+        }
+    }
+    std::printf("Scheduled fluid updates for %zu chunks\n", loaded_chunks.size());
 
     auto load_end = std::chrono::high_resolution_clock::now();
     auto load_time = std::chrono::duration_cast<std::chrono::milliseconds>(load_end - load_start);
@@ -586,6 +596,10 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
             debug_data.frame_time_ms = static_cast<float>(app.delta_time * 1000.0);
             debug_data.meshes_rebuilt = static_cast<std::uint32_t>(app.renderer.meshes_rebuilt_last_frame());
             debug_data.chunk_count = static_cast<std::uint32_t>(app.renderer.uploaded_chunk_count());
+            
+            // Geometry stats (for greedy mesh verification)
+            debug_data.total_vertices = static_cast<std::uint64_t>(app.renderer.total_vertices());
+            debug_data.total_triangles = static_cast<std::uint64_t>(app.renderer.total_indices() / 3);
             
             // Player position
             debug_data.player_x = static_cast<float>(pos.x);

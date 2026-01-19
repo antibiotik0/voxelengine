@@ -82,10 +82,10 @@ struct ChunkMesh {
         indices.push_back(base_index + 1);
         indices.push_back(base_index + 2);
 
-        // Triangle 2: 0-2-3
-        indices.push_back(base_index + 0);
+        // Triangle 2: 2-3-0
         indices.push_back(base_index + 2);
         indices.push_back(base_index + 3);
+        indices.push_back(base_index + 0);
 
         ++quad_count;
         triangle_count = quad_count * 2;

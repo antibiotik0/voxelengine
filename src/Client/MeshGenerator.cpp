@@ -139,21 +139,23 @@ void MeshGenerator::build_face_masks(
                     // Show face if:
                     //   - Neighbor is AIR
                     //   - Neighbor is a different block type
-                    //   - Neighbor is same fluid but has lower liquid_level
+                    //   - Neighbor is same fluid but has DIFFERENT liquid_level
                     // Cull face if:
                     //   - Neighbor is opaque AND current is opaque
-                    //   - Neighbor is same fluid with >= liquid_level
+                    //   - Neighbor is same fluid with SAME liquid_level (smooth water body)
                     if (!neighbor.is_air()) {
                         if (!neighbor_props.is_transparent && !current_props.is_transparent) {
                             // Both opaque - cull
                             should_cull = true;
                         } else if (current_props.is_fluid && neighbor.type_id() == voxel.type_id()) {
-                            // Same fluid type - cull only if neighbor has >= fluid level
+                            // Same fluid type - cull if levels are EQUAL (smooth water body)
+                            // Show face only if levels differ (water step visible)
                             std::uint8_t current_level = voxel.fluid_level();
                             std::uint8_t neighbor_level = neighbor.fluid_level();
                             if (current_level == 0) current_level = Voxel::FLUID_LEVEL_FULL;
                             if (neighbor_level == 0) neighbor_level = Voxel::FLUID_LEVEL_FULL;
-                            should_cull = (neighbor_level >= current_level);
+                            // Cull if same level = internal wall that shouldn't be visible
+                            should_cull = (current_level == neighbor_level);
                         } else if (neighbor_props.is_transparent && current_props.is_transparent &&
                                    neighbor.type_id() == voxel.type_id()) {
                             // Same non-fluid transparent type - cull internal faces
@@ -175,12 +177,12 @@ void MeshGenerator::build_face_masks(
                         if (!neighbor_props.is_transparent && !current_props.is_transparent) {
                             should_cull = true;
                         } else if (current_props.is_fluid && neighbor.type_id() == voxel.type_id()) {
-                            // Same fluid type - cull only if neighbor has >= fluid level
+                            // Same fluid type - cull if levels are EQUAL (smooth water body)
                             std::uint8_t current_level = voxel.fluid_level();
                             std::uint8_t neighbor_level = neighbor.fluid_level();
                             if (current_level == 0) current_level = Voxel::FLUID_LEVEL_FULL;
                             if (neighbor_level == 0) neighbor_level = Voxel::FLUID_LEVEL_FULL;
-                            should_cull = (neighbor_level >= current_level);
+                            should_cull = (current_level == neighbor_level);
                         } else if (neighbor_props.is_transparent && current_props.is_transparent &&
                                    neighbor.type_id() == voxel.type_id()) {
                             should_cull = !current_props.render_all_faces;
@@ -389,69 +391,82 @@ void MeshGenerator::add_face_quad(
     std::uint8_t u0, v0, u1, v1, u2, v2, u3, v3;
 
     switch (face) {
-        case FACE_NEG_X: // -X face
-            x0 = bx; y0 = by;     z0 = bz;
-            x1 = bx; y1 = by;     z1 = bz + w;
-            x2 = bx; y2 = by + h; z2 = bz + w;
-            x3 = bx; y3 = by + h; z3 = bz;
-            // UV: width along Z, height along Y
+        case FACE_NEG_X: // -X face (West) - normal points toward -X
+            // Looking at face from -X direction, CCW order:
+            // v0=bottom-left, v1=bottom-right, v2=top-right, v3=top-left
+            x0 = bx; y0 = by;     z0 = bz;          // bottom-left
+            x1 = bx; y1 = by;     z1 = bz + w;      // bottom-right
+            x2 = bx; y2 = by + h; z2 = bz + w;      // top-right
+            x3 = bx; y3 = by + h; z3 = bz;          // top-left
+            // Invert V for OpenGL bottom-left origin (side faces)
+            u0 = 0; v0 = h;
+            u1 = w; v1 = h;
+            u2 = w; v2 = 0;
+            u3 = 0; v3 = 0;
+            break;
+            
+        case FACE_POS_X: // +X face (East) - normal points toward +X
+            // Looking at face from +X direction, CCW order:
+            x0 = bx + 1; y0 = by;     z0 = bz + w;  // bottom-left
+            x1 = bx + 1; y1 = by;     z1 = bz;      // bottom-right
+            x2 = bx + 1; y2 = by + h; z2 = bz;      // top-right
+            x3 = bx + 1; y3 = by + h; z3 = bz + w;  // top-left
+            // Invert V for OpenGL bottom-left origin (side faces)
+            u0 = 0; v0 = h;
+            u1 = w; v1 = h;
+            u2 = w; v2 = 0;
+            u3 = 0; v3 = 0;
+            break;
+            
+        case FACE_NEG_Y: // -Y face (Bottom) - normal points toward -Y
+            // Looking at face from below, CCW order:
+            x0 = bx;     y0 = by; z0 = bz;          // bottom-left
+            x1 = bx + w; y1 = by; z1 = bz;          // bottom-right
+            x2 = bx + w; y2 = by; z2 = bz + h;      // top-right
+            x3 = bx;     y3 = by; z3 = bz + h;      // top-left
             u0 = 0; v0 = 0;
             u1 = w; v1 = 0;
             u2 = w; v2 = h;
             u3 = 0; v3 = h;
             break;
-        case FACE_POS_X: // +X face
-            x0 = bx + 1; y0 = by;     z0 = bz + w;
-            x1 = bx + 1; y1 = by;     z1 = bz;
-            x2 = bx + 1; y2 = by + h; z2 = bz;
-            x3 = bx + 1; y3 = by + h; z3 = bz + w;
+            
+        case FACE_POS_Y: // +Y face (Top) - normal points toward +Y
+            // Looking at face from above, CCW order:
+            x0 = bx;     y0 = by + 1; z0 = bz + h;  // bottom-left
+            x1 = bx + w; y1 = by + 1; z1 = bz + h;  // bottom-right
+            x2 = bx + w; y2 = by + 1; z2 = bz;      // top-right
+            x3 = bx;     y3 = by + 1; z3 = bz;      // top-left
             u0 = 0; v0 = 0;
             u1 = w; v1 = 0;
             u2 = w; v2 = h;
             u3 = 0; v3 = h;
             break;
-        case FACE_NEG_Y: // -Y face (bottom)
-            x0 = bx;     y0 = by; z0 = bz;
-            x1 = bx + w; y1 = by; z1 = bz;
-            x2 = bx + w; y2 = by; z2 = bz + h;
-            x3 = bx;     y3 = by; z3 = bz + h;
-            // UV: width along X, height along Z
-            u0 = 0; v0 = 0;
-            u1 = w; v1 = 0;
-            u2 = w; v2 = h;
-            u3 = 0; v3 = h;
+            
+        case FACE_NEG_Z: // -Z face (North) - normal points toward -Z
+            // Looking at face from -Z direction, CCW order:
+            x0 = bx + w; y0 = by;     z0 = bz;      // bottom-left
+            x1 = bx;     y1 = by;     z1 = bz;      // bottom-right
+            x2 = bx;     y2 = by + h; z2 = bz;      // top-right
+            x3 = bx + w; y3 = by + h; z3 = bz;      // top-left
+            // Invert V for OpenGL bottom-left origin (side faces)
+            u0 = 0; v0 = h;
+            u1 = w; v1 = h;
+            u2 = w; v2 = 0;
+            u3 = 0; v3 = 0;
             break;
-        case FACE_POS_Y: // +Y face (top)
-            x0 = bx;     y0 = by + 1; z0 = bz;
-            x1 = bx + w; y1 = by + 1; z1 = bz;
-            x2 = bx + w; y2 = by + 1; z2 = bz + h;
-            x3 = bx;     y3 = by + 1; z3 = bz + h;
-            // UV: (0,0), (W,0), (W,H), (0,H) - standard quad layout
-            u0 = 0; v0 = 0;
-            u1 = w; v1 = 0;
-            u2 = w; v2 = h;
-            u3 = 0; v3 = h;
-            break;
-        case FACE_NEG_Z: // -Z face
-            x0 = bx + w; y0 = by;     z0 = bz;
-            x1 = bx;     y1 = by;     z1 = bz;
-            x2 = bx;     y2 = by + h; z2 = bz;
-            x3 = bx + w; y3 = by + h; z3 = bz;
-            u0 = 0; v0 = 0;
-            u1 = w; v1 = 0;
-            u2 = w; v2 = h;
-            u3 = 0; v3 = h;
-            break;
-        case FACE_POS_Z: // +Z face
+            
+        case FACE_POS_Z: // +Z face (South) - normal points toward +Z
         default:
-            x0 = bx;     y0 = by;     z0 = bz + 1;
-            x1 = bx + w; y1 = by;     z1 = bz + 1;
-            x2 = bx + w; y2 = by + h; z2 = bz + 1;
-            x3 = bx;     y3 = by + h; z3 = bz + 1;
-            u0 = 0; v0 = 0;
-            u1 = w; v1 = 0;
-            u2 = w; v2 = h;
-            u3 = 0; v3 = h;
+            // Looking at face from +Z direction, CCW order:
+            x0 = bx;     y0 = by;     z0 = bz + 1;  // bottom-left
+            x1 = bx + w; y1 = by;     z1 = bz + 1;  // bottom-right
+            x2 = bx + w; y2 = by + h; z2 = bz + 1;  // top-right
+            x3 = bx;     y3 = by + h; z3 = bz + 1;  // top-left
+            // Invert V for OpenGL bottom-left origin (side faces)
+            u0 = 0; v0 = h;
+            u1 = w; v1 = h;
+            u2 = w; v2 = 0;
+            u3 = 0; v3 = 0;
             break;
     }
 

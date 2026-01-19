@@ -94,6 +94,35 @@ public:
             schedule_update(x, y + 1, z);
         }
     }
+    
+    // =============================================================================
+    // CHUNK INITIALIZATION
+    // Scan a newly generated chunk for fluid blocks and schedule initial updates
+    // =============================================================================
+    void initialize_chunk_fluids(const Chunk& chunk) {
+        const ChunkPosition& pos = chunk.position();
+        const ChunkCoord base_x = coord::chunk_to_world(pos.x);
+        const ChunkCoord base_y = coord::chunk_to_world(pos.y);
+        const ChunkCoord base_z = coord::chunk_to_world(pos.z);
+        
+        // Scan all voxels in the chunk for fluids
+        for (LocalCoord y = 0; y < static_cast<LocalCoord>(CHUNK_SIZE_Y); ++y) {
+            for (LocalCoord z = 0; z < static_cast<LocalCoord>(CHUNK_SIZE_Z); ++z) {
+                for (LocalCoord x = 0; x < static_cast<LocalCoord>(CHUNK_SIZE_X); ++x) {
+                    const Voxel voxel = chunk.get(x, y, z);
+                    const auto& props = BlockRegistry::instance().get(voxel.type_id());
+                    
+                    if (props.is_fluid) {
+                        // Schedule this fluid for initial update
+                        ChunkCoord world_x = base_x + x;
+                        ChunkCoord world_y = base_y + y;
+                        ChunkCoord world_z = base_z + z;
+                        schedule_update(world_x, world_y, world_z);
+                    }
+                }
+            }
+        }
+    }
 
 private:
     void process_updates() {
