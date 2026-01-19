@@ -15,9 +15,13 @@
 #include "Client/Camera.hpp"
 #include "Client/Renderer.hpp"
 #include "Client/MeshGenerator.hpp"
+#include "Client/ImGuiDebugOverlay.hpp"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <imgui.h>
+#include <backends/imgui_impl_glfw.h>
+#include <backends/imgui_impl_opengl3.h>
 
 #include <cstdio>
 #include <cmath>
@@ -37,6 +41,7 @@ struct AppState {
     Camera camera;
     Renderer renderer;
     MeshGenerator mesh_gen;
+    ImGuiDebugOverlay debug_overlay;
 
     // Timing
     double last_time = 0.0;
@@ -119,20 +124,18 @@ void process_input(AppState& app, Window& window) {
     // Debug overlay toggle (F3)
     if (window.is_key_pressed(GLFW_KEY_F3)) {
         app.show_debug = !app.show_debug;
-        std::printf("Debug overlay: %s\n", app.show_debug ? "ON" : "OFF");
+        app.debug_overlay.set_visible(app.show_debug);
     }
 
     // Toggle collision (F4)
     if (window.is_key_pressed(GLFW_KEY_F4)) {
         app.collision_enabled = !app.collision_enabled;
-        std::printf("Collision: %s\n", app.collision_enabled ? "ON" : "OFF");
     }
 
     // Block selection (1-9 keys)
     for (int i = 0; i < 9; ++i) {
         if (window.is_key_pressed(GLFW_KEY_1 + i)) {
             app.selected_block = static_cast<std::uint16_t>(i + 1);
-            std::printf("Selected block: %u\n", app.selected_block);
         }
     }
 
@@ -148,8 +151,13 @@ void generate_chunk_meshes(AppState& app, const std::vector<ChunkPosition>& posi
         const Chunk* chunk = app.world->get_chunk(pos.x, pos.y, pos.z);
         if (!chunk) continue;
 
+        // Create neighbor accessor for cross-chunk face culling
+        auto neighbor_accessor = [&](ChunkCoord x, ChunkCoord y, ChunkCoord z) -> Voxel {
+            return app.world->get_voxel(x, y, z);
+        };
+
         ChunkMesh mesh;
-        app.mesh_gen.generate(*chunk, mesh);
+        app.mesh_gen.generate(*chunk, mesh, neighbor_accessor);
 
         if (!mesh.is_empty) {
             app.renderer.upload_chunk_mesh(pos, mesh);
@@ -226,6 +234,18 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
         terminate_glfw();
         return 1;
     }
+
+    // Initialize ImGui
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO();
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+    ImGui::StyleColorsDark();
+    
+    ImGui_ImplGlfw_InitForOpenGL(window.handle(), true);
+    ImGui_ImplOpenGL3_Init("#version 330");
+
+    app.debug_overlay.init();
 
     // Create world with superflat generator
     WorldConfig world_config;
@@ -311,72 +331,55 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
         app.fps_time += app.delta_time;
         if (app.fps_time >= 1.0) {
             app.current_fps = app.fps_count;
-            if (!app.show_debug) {
-                std::printf("FPS: %d | Draw calls: %zu | Meshes rebuilt: %zu\n",
-                    app.fps_count,
-                    app.renderer.draw_calls_last_frame(),
-                    app.renderer.meshes_rebuilt_last_frame());
-            }
             app.fps_count = 0;
             app.fps_time = 0.0;
         }
 
-        // Debug overlay (F3 style) - using int64_t world coordinates
-        if (app.show_debug) {
+        // Debug overlay (F3 style) - populate data struct for ImGui
+        DebugOverlayData debug_data;
+        {
             const auto& pos = app.camera.position();
             
             // Precise world coordinates (int64_t)
-            std::int64_t world_x = static_cast<std::int64_t>(std::floor(pos.x));
-            std::int64_t world_y = static_cast<std::int64_t>(std::floor(pos.y));
-            std::int64_t world_z = static_cast<std::int64_t>(std::floor(pos.z));
+            debug_data.world_x = static_cast<std::int64_t>(std::floor(pos.x));
+            debug_data.world_y = static_cast<std::int64_t>(std::floor(pos.y));
+            debug_data.world_z = static_cast<std::int64_t>(std::floor(pos.z));
 
             // Chunk coordinates
-            ChunkCoord chunk_x = static_cast<ChunkCoord>(world_x >> 6);  // /64 via bit shift
-            ChunkCoord chunk_y = static_cast<ChunkCoord>(world_y >> 6);
-            ChunkCoord chunk_z = static_cast<ChunkCoord>(world_z >> 6);
+            debug_data.chunk_x = static_cast<std::int32_t>(debug_data.world_x >> 6);  // /64 via bit shift
+            debug_data.chunk_y = static_cast<std::int32_t>(debug_data.world_y >> 6);
+            debug_data.chunk_z = static_cast<std::int32_t>(debug_data.world_z >> 6);
 
             // Local coordinates within chunk
-            std::int32_t local_x = static_cast<std::int32_t>(world_x & 63);  // %64 via bit mask
-            std::int32_t local_y = static_cast<std::int32_t>(world_y & 63);
-            std::int32_t local_z = static_cast<std::int32_t>(world_z & 63);
-
-            std::printf("\033[2J\033[H");  // Clear console (ANSI escape)
-            std::printf("=== DEBUG (F3) ===\n");
-            std::printf("FPS: %d (%.2f ms/frame)\n", app.current_fps, app.delta_time * 1000.0);
-            std::printf("\n--- Position ---\n");
-            std::printf("XYZ: %.3f / %.3f / %.3f\n", pos.x, pos.y, pos.z);
-            std::printf("Block: %lld %lld %lld\n", 
-                static_cast<long long>(world_x),
-                static_cast<long long>(world_y),
-                static_cast<long long>(world_z));
-            std::printf("Chunk: %lld %lld %lld [%d %d %d]\n", 
-                static_cast<long long>(chunk_x),
-                static_cast<long long>(chunk_y),
-                static_cast<long long>(chunk_z),
-                local_x, local_y, local_z);
-            std::printf("\n--- Rendering ---\n");
-            std::printf("Chunks loaded: %zu\n", app.renderer.uploaded_chunk_count());
-            std::printf("Draw calls: %zu\n", app.renderer.draw_calls_last_frame());
-            std::printf("Vertices: %zu\n", app.renderer.total_vertices());
-            std::printf("Meshes rebuilt: %zu\n", app.renderer.meshes_rebuilt_last_frame());
-            std::printf("\n--- Target ---\n");
+            debug_data.local_x = static_cast<std::int32_t>(debug_data.world_x & 63);  // %64 via bit mask
+            debug_data.local_y = static_cast<std::int32_t>(debug_data.world_y & 63);
+            debug_data.local_z = static_cast<std::int32_t>(debug_data.world_z & 63);
+            
+            // Performance
+            debug_data.fps = static_cast<float>(app.current_fps);
+            debug_data.frame_time_ms = static_cast<float>(app.delta_time * 1000.0);
+            debug_data.meshes_rebuilt = static_cast<std::uint32_t>(app.renderer.meshes_rebuilt_last_frame());
+            debug_data.chunk_count = static_cast<std::uint32_t>(app.renderer.uploaded_chunk_count());
+            
+            // Player position
+            debug_data.player_x = static_cast<float>(pos.x);
+            debug_data.player_y = static_cast<float>(pos.y);
+            debug_data.player_z = static_cast<float>(pos.z);
+            debug_data.on_ground = app.on_ground;
+            
+            // Target block
             if (app.targeted_block && app.targeted_block->hit) {
-                std::printf("Looking at: %lld, %lld, %lld\n", 
-                    static_cast<long long>(app.targeted_block->block_x),
-                    static_cast<long long>(app.targeted_block->block_y),
-                    static_cast<long long>(app.targeted_block->block_z));
-                std::printf("Face: %d, %d, %d\n",
-                    app.targeted_block->normal_x,
-                    app.targeted_block->normal_y,
-                    app.targeted_block->normal_z);
+                debug_data.has_target = true;
+                debug_data.target_world_x = app.targeted_block->block_x;
+                debug_data.target_world_y = app.targeted_block->block_y;
+                debug_data.target_world_z = app.targeted_block->block_z;
+                debug_data.target_type = static_cast<std::uint8_t>(app.targeted_block->hit_voxel.type_id());
+                debug_data.target_normal_x = app.targeted_block->normal_x;
+                debug_data.target_normal_y = app.targeted_block->normal_y;
+                debug_data.target_normal_z = app.targeted_block->normal_z;
             } else {
-                std::printf("Looking at: (none)\n");
+                debug_data.has_target = false;
             }
-            std::printf("\n--- Physics ---\n");
-            std::printf("Collision: %s\n", app.collision_enabled ? "ON" : "OFF");
-            std::printf("On ground: %s\n", app.on_ground ? "YES" : "NO");
-            std::printf("Selected block: %u\n", app.selected_block);
-            std::printf("==================\n");
         }
 
         // Input
@@ -413,19 +416,11 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
             window.input().mouse_captured &&
             app.targeted_block && app.targeted_block->hit) {
             
-            Voxel broken = app.world->break_block(
+            app.world->break_block(
                 app.targeted_block->block_x,
                 app.targeted_block->block_y,
                 app.targeted_block->block_z
             );
-            
-            if (!broken.is_air()) {
-                std::printf("Broke block at %lld, %lld, %lld (type=%u)\n",
-                    static_cast<long long>(app.targeted_block->block_x),
-                    static_cast<long long>(app.targeted_block->block_y),
-                    static_cast<long long>(app.targeted_block->block_z),
-                    broken.type_id());
-            }
         }
 
         // Block placing (Right Mouse Button)
@@ -439,23 +434,23 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
             std::int64_t place_z = app.targeted_block->block_z + app.targeted_block->normal_z;
 
             Voxel new_block(app.selected_block);
-            if (app.world->place_block(place_x, place_y, place_z, new_block)) {
-                std::printf("Placed block at %lld, %lld, %lld (type=%u)\n",
-                    static_cast<long long>(place_x),
-                    static_cast<long long>(place_y),
-                    static_cast<long long>(place_z),
-                    app.selected_block);
-            }
+            app.world->place_block(place_x, place_y, place_z, new_block);
         }
 
         // Rebuild dirty chunk meshes
         if (app.world->has_dirty_chunks()) {
             auto dirty_positions = app.world->consume_dirty_chunks();
+            
+            // Create neighbor accessor for cross-chunk face culling
+            auto neighbor_accessor = [&](ChunkCoord x, ChunkCoord y, ChunkCoord z) -> Voxel {
+                return app.world->get_voxel(x, y, z);
+            };
+            
             for (const auto& pos : dirty_positions) {
                 const Chunk* chunk = app.world->get_chunk(pos);
                 if (chunk) {
                     ChunkMesh mesh;
-                    app.mesh_gen.generate(*chunk, mesh);
+                    app.mesh_gen.generate(*chunk, mesh, neighbor_accessor);
                     if (!mesh.is_empty) {
                         app.renderer.upload_chunk_mesh(pos, mesh);
                     } else {
@@ -480,12 +475,26 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) {
             );
         }
 
+        // Render ImGui debug overlay
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+        
+        app.debug_overlay.render(debug_data);
+        
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
         app.renderer.end_frame();
 
         window.swap_buffers();
     }
 
     // Cleanup
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
+    
     app.renderer.shutdown();
     window.destroy();
     terminate_glfw();

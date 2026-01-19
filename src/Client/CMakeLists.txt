@@ -21,6 +21,7 @@ target_link_libraries(VoxelClient
     PUBLIC
         Voxel::Shared
         Voxel::Server
+        imgui
     PRIVATE
         voxel_compile_options
         glad

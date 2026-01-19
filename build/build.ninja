@@ -40,6 +40,88 @@ include CMakeFiles/rules.ninja
 # Logical path to working directory; prefix for absolute paths.
 
 cmake_ninja_workdir = C$:/Users/berke/Desktop/voxelengine/build/
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target imgui
+
+
+#############################################
+# Order-only phony target for imgui
+
+build cmake_object_order_depends_target_imgui: phony || cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw
+
+build CMakeFiles/imgui.dir/_deps/imgui-src/imgui.cpp.obj: CXX_COMPILER__imgui_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/imgui.cpp || cmake_object_order_depends_target_imgui
+  CONFIG = Release
+  DEP_FILE = CMakeFiles\imgui.dir\_deps\imgui-src\imgui.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++20
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  OBJECT_DIR = CMakeFiles\imgui.dir
+  OBJECT_FILE_DIR = CMakeFiles\imgui.dir\_deps\imgui-src
+
+build CMakeFiles/imgui.dir/_deps/imgui-src/imgui_demo.cpp.obj: CXX_COMPILER__imgui_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/imgui_demo.cpp || cmake_object_order_depends_target_imgui
+  CONFIG = Release
+  DEP_FILE = CMakeFiles\imgui.dir\_deps\imgui-src\imgui_demo.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++20
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  OBJECT_DIR = CMakeFiles\imgui.dir
+  OBJECT_FILE_DIR = CMakeFiles\imgui.dir\_deps\imgui-src
+
+build CMakeFiles/imgui.dir/_deps/imgui-src/imgui_draw.cpp.obj: CXX_COMPILER__imgui_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/imgui_draw.cpp || cmake_object_order_depends_target_imgui
+  CONFIG = Release
+  DEP_FILE = CMakeFiles\imgui.dir\_deps\imgui-src\imgui_draw.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++20
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  OBJECT_DIR = CMakeFiles\imgui.dir
+  OBJECT_FILE_DIR = CMakeFiles\imgui.dir\_deps\imgui-src
+
+build CMakeFiles/imgui.dir/_deps/imgui-src/imgui_widgets.cpp.obj: CXX_COMPILER__imgui_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/imgui_widgets.cpp || cmake_object_order_depends_target_imgui
+  CONFIG = Release
+  DEP_FILE = CMakeFiles\imgui.dir\_deps\imgui-src\imgui_widgets.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++20
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  OBJECT_DIR = CMakeFiles\imgui.dir
+  OBJECT_FILE_DIR = CMakeFiles\imgui.dir\_deps\imgui-src
+
+build CMakeFiles/imgui.dir/_deps/imgui-src/imgui_tables.cpp.obj: CXX_COMPILER__imgui_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/imgui_tables.cpp || cmake_object_order_depends_target_imgui
+  CONFIG = Release
+  DEP_FILE = CMakeFiles\imgui.dir\_deps\imgui-src\imgui_tables.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++20
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  OBJECT_DIR = CMakeFiles\imgui.dir
+  OBJECT_FILE_DIR = CMakeFiles\imgui.dir\_deps\imgui-src
+
+build CMakeFiles/imgui.dir/_deps/imgui-src/backends/imgui_impl_glfw.cpp.obj: CXX_COMPILER__imgui_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends/imgui_impl_glfw.cpp || cmake_object_order_depends_target_imgui
+  CONFIG = Release
+  DEP_FILE = CMakeFiles\imgui.dir\_deps\imgui-src\backends\imgui_impl_glfw.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++20
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  OBJECT_DIR = CMakeFiles\imgui.dir
+  OBJECT_FILE_DIR = CMakeFiles\imgui.dir\_deps\imgui-src\backends
+
+build CMakeFiles/imgui.dir/_deps/imgui-src/backends/imgui_impl_opengl3.cpp.obj: CXX_COMPILER__imgui_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends/imgui_impl_opengl3.cpp || cmake_object_order_depends_target_imgui
+  CONFIG = Release
+  DEP_FILE = CMakeFiles\imgui.dir\_deps\imgui-src\backends\imgui_impl_opengl3.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=c++20
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  OBJECT_DIR = CMakeFiles\imgui.dir
+  OBJECT_FILE_DIR = CMakeFiles\imgui.dir\_deps\imgui-src\backends
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target imgui
+
+
+#############################################
+# Link the static library libimgui.a
+
+build libimgui.a: CXX_STATIC_LIBRARY_LINKER__imgui_Release CMakeFiles/imgui.dir/_deps/imgui-src/imgui.cpp.obj CMakeFiles/imgui.dir/_deps/imgui-src/imgui_demo.cpp.obj CMakeFiles/imgui.dir/_deps/imgui-src/imgui_draw.cpp.obj CMakeFiles/imgui.dir/_deps/imgui-src/imgui_widgets.cpp.obj CMakeFiles/imgui.dir/_deps/imgui-src/imgui_tables.cpp.obj CMakeFiles/imgui.dir/_deps/imgui-src/backends/imgui_impl_glfw.cpp.obj CMakeFiles/imgui.dir/_deps/imgui-src/backends/imgui_impl_opengl3.cpp.obj || _deps/glfw-build/src/libglfw3.a external/glad/libglad.a
+  CONFIG = Release
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = CMakeFiles\imgui.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = libimgui.a
+  TARGET_PDB = imgui.a.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -121,8 +203,6 @@ build _deps/glfw-build/src/CMakeFiles/glfw.dir/context.c.obj: C_COMPILER__glfw_u
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
 
 build _deps/glfw-build/src/CMakeFiles/glfw.dir/init.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/init.c || cmake_object_order_depends_target_glfw
   CONFIG = Release
@@ -132,8 +212,6 @@ build _deps/glfw-build/src/CMakeFiles/glfw.dir/init.c.obj: C_COMPILER__glfw_unsc
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
 
 build _deps/glfw-build/src/CMakeFiles/glfw.dir/input.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/input.c || cmake_object_order_depends_target_glfw
   CONFIG = Release
@@ -143,8 +221,6 @@ build _deps/glfw-build/src/CMakeFiles/glfw.dir/input.c.obj: C_COMPILER__glfw_uns
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
 
 build _deps/glfw-build/src/CMakeFiles/glfw.dir/monitor.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/monitor.c || cmake_object_order_depends_target_glfw
   CONFIG = Release
@@ -154,8 +230,6 @@ build _deps/glfw-build/src/CMakeFiles/glfw.dir/monitor.c.obj: C_COMPILER__glfw_u
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
 
 build _deps/glfw-build/src/CMakeFiles/glfw.dir/vulkan.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/vulkan.c || cmake_object_order_depends_target_glfw
   CONFIG = Release
@@ -165,8 +239,6 @@ build _deps/glfw-build/src/CMakeFiles/glfw.dir/vulkan.c.obj: C_COMPILER__glfw_un
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
 
 build _deps/glfw-build/src/CMakeFiles/glfw.dir/window.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/window.c || cmake_object_order_depends_target_glfw
   CONFIG = Release
@@ -176,8 +248,6 @@ build _deps/glfw-build/src/CMakeFiles/glfw.dir/window.c.obj: C_COMPILER__glfw_un
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
 
 build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_init.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/win32_init.c || cmake_object_order_depends_target_glfw
   CONFIG = Release
@@ -187,8 +257,6 @@ build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_init.c.obj: C_COMPILER__glf
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
 
 build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_joystick.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/win32_joystick.c || cmake_object_order_depends_target_glfw
   CONFIG = Release
@@ -198,8 +266,6 @@ build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_joystick.c.obj: C_COMPILER_
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
 
 build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_monitor.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/win32_monitor.c || cmake_object_order_depends_target_glfw
   CONFIG = Release
@@ -209,8 +275,6 @@ build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_monitor.c.obj: C_COMPILER__
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
 
 build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_time.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/win32_time.c || cmake_object_order_depends_target_glfw
   CONFIG = Release
@@ -220,8 +284,6 @@ build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_time.c.obj: C_COMPILER__glf
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
 
 build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_thread.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/win32_thread.c || cmake_object_order_depends_target_glfw
   CONFIG = Release
@@ -231,8 +293,6 @@ build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_thread.c.obj: C_COMPILER__g
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
 
 build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_window.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/win32_window.c || cmake_object_order_depends_target_glfw
   CONFIG = Release
@@ -242,8 +302,6 @@ build _deps/glfw-build/src/CMakeFiles/glfw.dir/win32_window.c.obj: C_COMPILER__g
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
 
 build _deps/glfw-build/src/CMakeFiles/glfw.dir/wgl_context.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/wgl_context.c || cmake_object_order_depends_target_glfw
   CONFIG = Release
@@ -253,8 +311,6 @@ build _deps/glfw-build/src/CMakeFiles/glfw.dir/wgl_context.c.obj: C_COMPILER__gl
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
 
 build _deps/glfw-build/src/CMakeFiles/glfw.dir/egl_context.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/egl_context.c || cmake_object_order_depends_target_glfw
   CONFIG = Release
@@ -264,8 +320,6 @@ build _deps/glfw-build/src/CMakeFiles/glfw.dir/egl_context.c.obj: C_COMPILER__gl
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
 
 build _deps/glfw-build/src/CMakeFiles/glfw.dir/osmesa_context.c.obj: C_COMPILER__glfw_unscanned_Release C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src/osmesa_context.c || cmake_object_order_depends_target_glfw
   CONFIG = Release
@@ -275,8 +329,6 @@ build _deps/glfw-build/src/CMakeFiles/glfw.dir/osmesa_context.c.obj: C_COMPILER_
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/src -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
 
 
 # =============================================================================
@@ -292,9 +344,8 @@ build _deps/glfw-build/src/libglfw3.a: C_STATIC_LIBRARY_LINKER__glfw_Release _de
   OBJECT_DIR = _deps\glfw-build\src\CMakeFiles\glfw.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = _deps\glfw-build\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_FILE = _deps\glfw-build\src\libglfw3.a
-  TARGET_PDB = _deps\glfw-build\src\libglfw3.pdb
+  TARGET_PDB = glfw3.a.dbg
 
 
 #############################################
@@ -349,8 +400,6 @@ build external/glad/CMakeFiles/glad.dir/src/glad.c.obj: C_COMPILER__glad_unscann
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/external/glad/include
   OBJECT_DIR = external\glad\CMakeFiles\glad.dir
   OBJECT_FILE_DIR = external\glad\CMakeFiles\glad.dir\src
-  TARGET_COMPILE_PDB = external\glad\CMakeFiles\glad.dir\glad.pdb
-  TARGET_PDB = external\glad\libglad.pdb
 
 
 # =============================================================================
@@ -366,9 +415,8 @@ build external/glad/libglad.a: C_STATIC_LIBRARY_LINKER__glad_Release external/gl
   OBJECT_DIR = external\glad\CMakeFiles\glad.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = external\glad\CMakeFiles\glad.dir\glad.pdb
   TARGET_FILE = external\glad\libglad.a
-  TARGET_PDB = external\glad\libglad.pdb
+  TARGET_PDB = glad.a.dbg
 
 
 #############################################
@@ -444,8 +492,6 @@ build src/Server/CMakeFiles/VoxelServer.dir/World.cpp.obj: CXX_COMPILER__VoxelSe
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include
   OBJECT_DIR = src\Server\CMakeFiles\VoxelServer.dir
   OBJECT_FILE_DIR = src\Server\CMakeFiles\VoxelServer.dir
-  TARGET_COMPILE_PDB = src\Server\CMakeFiles\VoxelServer.dir\VoxelServer.pdb
-  TARGET_PDB = src\Server\libVoxelServer.pdb
 
 build src/Server/CMakeFiles/VoxelServer.dir/WorldGenerator.cpp.obj: CXX_COMPILER__VoxelServer_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Server/WorldGenerator.cpp || cmake_object_order_depends_target_VoxelServer
   CONFIG = Release
@@ -454,8 +500,6 @@ build src/Server/CMakeFiles/VoxelServer.dir/WorldGenerator.cpp.obj: CXX_COMPILER
   INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include
   OBJECT_DIR = src\Server\CMakeFiles\VoxelServer.dir
   OBJECT_FILE_DIR = src\Server\CMakeFiles\VoxelServer.dir
-  TARGET_COMPILE_PDB = src\Server\CMakeFiles\VoxelServer.dir\VoxelServer.pdb
-  TARGET_PDB = src\Server\libVoxelServer.pdb
 
 
 # =============================================================================
@@ -471,9 +515,8 @@ build src/Server/libVoxelServer.a: CXX_STATIC_LIBRARY_LINKER__VoxelServer_Releas
   OBJECT_DIR = src\Server\CMakeFiles\VoxelServer.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = src\Server\CMakeFiles\VoxelServer.dir\VoxelServer.pdb
   TARGET_FILE = src\Server\libVoxelServer.a
-  TARGET_PDB = src\Server\libVoxelServer.pdb
+  TARGET_PDB = VoxelServer.a.dbg
 
 
 #############################################
@@ -511,57 +554,47 @@ build src/Server/rebuild_cache: phony src/Server/CMakeFiles/rebuild_cache.util
 #############################################
 # Order-only phony target for VoxelClient
 
-build cmake_object_order_depends_target_VoxelClient: phony || cmake_object_order_depends_target_VoxelServer cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw
+build cmake_object_order_depends_target_VoxelClient: phony || cmake_object_order_depends_target_VoxelServer cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui
 
 build src/Client/CMakeFiles/VoxelClient.dir/MeshGenerator.cpp.obj: CXX_COMPILER__VoxelClient_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/MeshGenerator.cpp || cmake_object_order_depends_target_VoxelClient
   CONFIG = Release
   DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\MeshGenerator.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
-  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
   OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
   OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelClient.dir
-  TARGET_COMPILE_PDB = src\Client\CMakeFiles\VoxelClient.dir\VoxelClient.pdb
-  TARGET_PDB = src\Client\libVoxelClient.pdb
 
 build src/Client/CMakeFiles/VoxelClient.dir/Camera.cpp.obj: CXX_COMPILER__VoxelClient_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/Camera.cpp || cmake_object_order_depends_target_VoxelClient
   CONFIG = Release
   DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\Camera.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
-  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
   OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
   OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelClient.dir
-  TARGET_COMPILE_PDB = src\Client\CMakeFiles\VoxelClient.dir\VoxelClient.pdb
-  TARGET_PDB = src\Client\libVoxelClient.pdb
 
 build src/Client/CMakeFiles/VoxelClient.dir/Shader.cpp.obj: CXX_COMPILER__VoxelClient_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/Shader.cpp || cmake_object_order_depends_target_VoxelClient
   CONFIG = Release
   DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\Shader.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
-  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
   OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
   OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelClient.dir
-  TARGET_COMPILE_PDB = src\Client\CMakeFiles\VoxelClient.dir\VoxelClient.pdb
-  TARGET_PDB = src\Client\libVoxelClient.pdb
 
 build src/Client/CMakeFiles/VoxelClient.dir/Window.cpp.obj: CXX_COMPILER__VoxelClient_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/Window.cpp || cmake_object_order_depends_target_VoxelClient
   CONFIG = Release
   DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\Window.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
-  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
   OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
   OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelClient.dir
-  TARGET_COMPILE_PDB = src\Client\CMakeFiles\VoxelClient.dir\VoxelClient.pdb
-  TARGET_PDB = src\Client\libVoxelClient.pdb
 
 build src/Client/CMakeFiles/VoxelClient.dir/Renderer.cpp.obj: CXX_COMPILER__VoxelClient_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/Renderer.cpp || cmake_object_order_depends_target_VoxelClient
   CONFIG = Release
   DEP_FILE = src\Client\CMakeFiles\VoxelClient.dir\Renderer.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
-  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
   OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
   OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelClient.dir
-  TARGET_COMPILE_PDB = src\Client\CMakeFiles\VoxelClient.dir\VoxelClient.pdb
-  TARGET_PDB = src\Client\libVoxelClient.pdb
 
 
 # =============================================================================
@@ -571,15 +604,14 @@ build src/Client/CMakeFiles/VoxelClient.dir/Renderer.cpp.obj: CXX_COMPILER__Voxe
 #############################################
 # Link the static library src\Client\libVoxelClient.a
 
-build src/Client/libVoxelClient.a: CXX_STATIC_LIBRARY_LINKER__VoxelClient_Release src/Client/CMakeFiles/VoxelClient.dir/MeshGenerator.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Camera.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Shader.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Window.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Renderer.cpp.obj || _deps/glfw-build/src/libglfw3.a external/glad/libglad.a src/Server/libVoxelServer.a
+build src/Client/libVoxelClient.a: CXX_STATIC_LIBRARY_LINKER__VoxelClient_Release src/Client/CMakeFiles/VoxelClient.dir/MeshGenerator.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Camera.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Shader.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Window.cpp.obj src/Client/CMakeFiles/VoxelClient.dir/Renderer.cpp.obj || _deps/glfw-build/src/libglfw3.a external/glad/libglad.a libimgui.a src/Server/libVoxelServer.a
   CONFIG = Release
   LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
   OBJECT_DIR = src\Client\CMakeFiles\VoxelClient.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = src\Client\CMakeFiles\VoxelClient.dir\VoxelClient.pdb
   TARGET_FILE = src\Client\libVoxelClient.a
-  TARGET_PDB = src\Client\libVoxelClient.pdb
+  TARGET_PDB = VoxelClient.a.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target VoxelEngineApp
@@ -588,17 +620,15 @@ build src/Client/libVoxelClient.a: CXX_STATIC_LIBRARY_LINKER__VoxelClient_Releas
 #############################################
 # Order-only phony target for VoxelEngineApp
 
-build cmake_object_order_depends_target_VoxelEngineApp: phony || cmake_object_order_depends_target_VoxelClient cmake_object_order_depends_target_VoxelServer cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw
+build cmake_object_order_depends_target_VoxelEngineApp: phony || cmake_object_order_depends_target_VoxelClient cmake_object_order_depends_target_VoxelServer cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui
 
 build src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj: CXX_COMPILER__VoxelEngineApp_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/main.cpp || cmake_object_order_depends_target_VoxelEngineApp
   CONFIG = Release
   DEP_FILE = src\Client\CMakeFiles\VoxelEngineApp.dir\main.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
-  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
   OBJECT_DIR = src\Client\CMakeFiles\VoxelEngineApp.dir
   OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelEngineApp.dir
-  TARGET_COMPILE_PDB = src\Client\CMakeFiles\VoxelEngineApp.dir\
-  TARGET_PDB = bin\VoxelEngineApp.pdb
 
 
 # =============================================================================
@@ -608,18 +638,17 @@ build src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj: CXX_COMPILER__Voxel
 #############################################
 # Link the executable bin\VoxelEngineApp.exe
 
-build bin/VoxelEngineApp.exe: CXX_EXECUTABLE_LINKER__VoxelEngineApp_Release src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj | src/Client/libVoxelClient.a external/glad/libglad.a src/Server/libVoxelServer.a _deps/glfw-build/src/libglfw3.a || _deps/glfw-build/src/libglfw3.a external/glad/libglad.a src/Client/libVoxelClient.a src/Server/libVoxelServer.a
+build bin/VoxelEngineApp.exe: CXX_EXECUTABLE_LINKER__VoxelEngineApp_Release src/Client/CMakeFiles/VoxelEngineApp.dir/main.cpp.obj | src/Client/libVoxelClient.a external/glad/libglad.a src/Server/libVoxelServer.a libimgui.a external/glad/libglad.a _deps/glfw-build/src/libglfw3.a || _deps/glfw-build/src/libglfw3.a external/glad/libglad.a libimgui.a src/Client/libVoxelClient.a src/Server/libVoxelServer.a
   CONFIG = Release
   FLAGS = -O3 -DNDEBUG
   LINK_FLAGS = -flto -s
-  LINK_LIBRARIES = src/Client/libVoxelClient.a  external/glad/libglad.a  src/Server/libVoxelServer.a  _deps/glfw-build/src/libglfw3.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = src/Client/libVoxelClient.a  external/glad/libglad.a  src/Server/libVoxelServer.a  libimgui.a  external/glad/libglad.a  _deps/glfw-build/src/libglfw3.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = src\Client\CMakeFiles\VoxelEngineApp.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = src\Client\CMakeFiles\VoxelEngineApp.dir\
   TARGET_FILE = bin\VoxelEngineApp.exe
   TARGET_IMPLIB = src\Client\libVoxelEngineApp.dll.a
-  TARGET_PDB = bin\VoxelEngineApp.pdb
+  TARGET_PDB = VoxelEngineApp.exe.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target VoxelDebugApp
@@ -628,17 +657,15 @@ build bin/VoxelEngineApp.exe: CXX_EXECUTABLE_LINKER__VoxelEngineApp_Release src/
 #############################################
 # Order-only phony target for VoxelDebugApp
 
-build cmake_object_order_depends_target_VoxelDebugApp: phony || cmake_object_order_depends_target_VoxelClient cmake_object_order_depends_target_VoxelServer cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw
+build cmake_object_order_depends_target_VoxelDebugApp: phony || cmake_object_order_depends_target_VoxelClient cmake_object_order_depends_target_VoxelServer cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui
 
 build src/Client/CMakeFiles/VoxelDebugApp.dir/main_debug.cpp.obj: CXX_COMPILER__VoxelDebugApp_unscanned_Release C$:/Users/berke/Desktop/voxelengine/src/Client/main_debug.cpp || cmake_object_order_depends_target_VoxelDebugApp
   CONFIG = Release
   DEP_FILE = src\Client\CMakeFiles\VoxelDebugApp.dir\main_debug.cpp.obj.d
   FLAGS = -O3 -DNDEBUG -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow -Wcast-align -Wunused -Wnull-dereference -Wdouble-promotion -fno-rtti -fno-exceptions -O3 -march=native -mtune=native -ffast-math -flto -fomit-frame-pointer -funroll-loops -ftree-vectorize -DNDEBUG
-  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
+  INCLUDES = -IC:/Users/berke/Desktop/voxelengine/include -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src -IC:/Users/berke/Desktop/voxelengine/build/_deps/imgui-src/backends -IC:/Users/berke/Desktop/voxelengine/build/_deps/glfw-src/include -IC:/Users/berke/Desktop/voxelengine/external/glad/include
   OBJECT_DIR = src\Client\CMakeFiles\VoxelDebugApp.dir
   OBJECT_FILE_DIR = src\Client\CMakeFiles\VoxelDebugApp.dir
-  TARGET_COMPILE_PDB = src\Client\CMakeFiles\VoxelDebugApp.dir\
-  TARGET_PDB = bin\VoxelDebugApp.pdb
 
 
 # =============================================================================
@@ -648,18 +675,17 @@ build src/Client/CMakeFiles/VoxelDebugApp.dir/main_debug.cpp.obj: CXX_COMPILER__
 #############################################
 # Link the executable bin\VoxelDebugApp.exe
 
-build bin/VoxelDebugApp.exe: CXX_EXECUTABLE_LINKER__VoxelDebugApp_Release src/Client/CMakeFiles/VoxelDebugApp.dir/main_debug.cpp.obj | src/Client/libVoxelClient.a external/glad/libglad.a src/Server/libVoxelServer.a _deps/glfw-build/src/libglfw3.a || _deps/glfw-build/src/libglfw3.a external/glad/libglad.a src/Client/libVoxelClient.a src/Server/libVoxelServer.a
+build bin/VoxelDebugApp.exe: CXX_EXECUTABLE_LINKER__VoxelDebugApp_Release src/Client/CMakeFiles/VoxelDebugApp.dir/main_debug.cpp.obj | src/Client/libVoxelClient.a external/glad/libglad.a src/Server/libVoxelServer.a libimgui.a external/glad/libglad.a _deps/glfw-build/src/libglfw3.a || _deps/glfw-build/src/libglfw3.a external/glad/libglad.a libimgui.a src/Client/libVoxelClient.a src/Server/libVoxelServer.a
   CONFIG = Release
   FLAGS = -O3 -DNDEBUG
   LINK_FLAGS = -flto -s
-  LINK_LIBRARIES = src/Client/libVoxelClient.a  external/glad/libglad.a  src/Server/libVoxelServer.a  _deps/glfw-build/src/libglfw3.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = src/Client/libVoxelClient.a  external/glad/libglad.a  src/Server/libVoxelServer.a  libimgui.a  external/glad/libglad.a  _deps/glfw-build/src/libglfw3.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = src\Client\CMakeFiles\VoxelDebugApp.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = src\Client\CMakeFiles\VoxelDebugApp.dir\
   TARGET_FILE = bin\VoxelDebugApp.exe
   TARGET_IMPLIB = src\Client\libVoxelDebugApp.dll.a
-  TARGET_PDB = bin\VoxelDebugApp.pdb
+  TARGET_PDB = VoxelDebugApp.exe.dbg
 
 
 #############################################
@@ -704,6 +730,8 @@ build glad: phony external/glad/libglad.a
 
 build glfw: phony _deps/glfw-build/src/libglfw3.a
 
+build imgui: phony libimgui.a
+
 build libVoxelClient.a: phony src/Client/libVoxelClient.a
 
 build libVoxelServer.a: phony src/Server/libVoxelServer.a
@@ -722,7 +750,7 @@ build update_mappings: phony _deps/glfw-build/src/update_mappings
 #############################################
 # Folder: C:/Users/berke/Desktop/voxelengine/build
 
-build all: phony _deps/glfw-build/all external/glad/all src/Shared/all src/Server/all src/Client/all
+build all: phony libimgui.a _deps/glfw-build/all external/glad/all src/Shared/all src/Server/all src/Client/all
 
 # =============================================================================
 
@@ -773,14 +801,14 @@ build src/Shared/all: phony
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja C$:/Users/berke/Desktop/voxelengine/build/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/external/glad/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/src/Shared/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/src/Server/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/src/Client/cmake_install.cmake: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerSupport.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeNinjaFindMake.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystem.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCCompilerFlag.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Diab-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX-CXXImportStd.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Renesas-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/ExternalProject/shared_internal_commands.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent/CMakeLists.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindGit.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeInspectCLinker.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeInspectCXXLinker.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckFlagCommonConfig.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Determine-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/berke/Desktop/voxelengine/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/external/glad/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Client/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Server/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Shared/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.0/CMakeCCompiler.cmake CMakeFiles/4.1.0/CMakeCXXCompiler.cmake CMakeFiles/4.1.0/CMakeRCCompiler.cmake CMakeFiles/4.1.0/CMakeSystem.cmake _deps/glfw-src/CMakeLists.txt _deps/glfw-src/src/CMakeLists.txt _deps/glfw-src/src/glfw3.pc.in _deps/glfw-src/src/glfw3Config.cmake.in _deps/glfw-src/src/glfw_config.h.in
+build build.ninja C$:/Users/berke/Desktop/voxelengine/build/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/_deps/glfw-build/src/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/external/glad/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/src/Shared/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/src/Server/cmake_install.cmake C$:/Users/berke/Desktop/voxelengine/build/src/Client/cmake_install.cmake: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCCompilerFlag.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/ExternalProject/shared_internal_commands.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent/CMakeLists.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindGit.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckFlagCommonConfig.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/berke/Desktop/voxelengine/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/external/glad/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Client/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Server/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Shared/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.0/CMakeCCompiler.cmake CMakeFiles/4.1.0/CMakeCXXCompiler.cmake CMakeFiles/4.1.0/CMakeRCCompiler.cmake CMakeFiles/4.1.0/CMakeSystem.cmake _deps/glfw-src/CMakeLists.txt _deps/glfw-src/src/CMakeLists.txt _deps/glfw-src/src/glfw3.pc.in _deps/glfw-src/src/glfw3Config.cmake.in _deps/glfw-src/src/glfw_config.h.in
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerSupport.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeNinjaFindMake.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystem.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCCompilerFlag.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Diab-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX-CXXImportStd.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Renesas-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/ExternalProject/shared_internal_commands.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent/CMakeLists.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindGit.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeInspectCLinker.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeInspectCXXLinker.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckFlagCommonConfig.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Determine-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/berke/Desktop/voxelengine/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/external/glad/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Client/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Server/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Shared/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.0/CMakeCCompiler.cmake CMakeFiles/4.1.0/CMakeCXXCompiler.cmake CMakeFiles/4.1.0/CMakeRCCompiler.cmake CMakeFiles/4.1.0/CMakeSystem.cmake _deps/glfw-src/CMakeLists.txt _deps/glfw-src/src/CMakeLists.txt _deps/glfw-src/src/glfw3.pc.in _deps/glfw-src/src/glfw3Config.cmake.in _deps/glfw-src/src/glfw_config.h.in: phony
+build C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCCompilerFlag.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/ExternalProject/shared_internal_commands.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FetchContent/CMakeLists.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindGit.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckFlagCommonConfig.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/berke/Desktop/voxelengine/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/external/glad/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Client/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Server/CMakeLists.txt C$:/Users/berke/Desktop/voxelengine/src/Shared/CMakeLists.txt CMakeCache.txt CMakeFiles/4.1.0/CMakeCCompiler.cmake CMakeFiles/4.1.0/CMakeCXXCompiler.cmake CMakeFiles/4.1.0/CMakeRCCompiler.cmake CMakeFiles/4.1.0/CMakeSystem.cmake _deps/glfw-src/CMakeLists.txt _deps/glfw-src/src/CMakeLists.txt _deps/glfw-src/src/glfw3.pc.in _deps/glfw-src/src/glfw3Config.cmake.in _deps/glfw-src/src/glfw_config.h.in: phony
 
 
 #############################################

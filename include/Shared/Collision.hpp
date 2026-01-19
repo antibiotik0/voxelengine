@@ -104,8 +104,8 @@ public:
         return false;
     }
 
-    // Move entity with collision detection
-    // Returns the actual movement (may be less than requested if collision)
+    // Move entity with collision detection (axis-by-axis resolution for sliding)
+    // Returns the actual position after collision
     template<typename GetVoxelFn>
     static void move_with_collision(
         double& x, double& y, double& z,
@@ -115,62 +115,58 @@ public:
         bool& on_ground
     ) {
         on_ground = false;
-
-        // Small epsilon for collision padding
         constexpr double EPSILON = 0.001;
+        constexpr double STEP_SIZE = 0.05;  // Small steps for precision
 
-        // Try Y movement first (gravity)
-        if (std::abs(dy) > EPSILON) {
-            double step = (dy > 0) ? 0.1 : -0.1;
-            double remaining = dy;
+        // === MOVE X AXIS ===
+        if (std::abs(dx) > EPSILON) {
+            double remaining_x = dx;
+            int steps = static_cast<int>(std::ceil(std::abs(dx) / STEP_SIZE));
+            double step_x = dx / steps;
 
-            while (std::abs(remaining) > EPSILON) {
-                double move = (std::abs(remaining) < std::abs(step)) ? remaining : step;
-                double new_y = y + move;
-
-                if (!would_collide(x, new_y, z, half_width, half_height, get_voxel)) {
-                    y = new_y;
-                    remaining -= move;
+            for (int i = 0; i < steps; ++i) {
+                double test_x = x + step_x;
+                if (!would_collide(test_x, y, z, half_width, half_height, get_voxel)) {
+                    x = test_x;
                 } else {
+                    // Hit wall, stop X movement
+                    break;
+                }
+            }
+        }
+
+        // === MOVE Y AXIS (Gravity) ===
+        if (std::abs(dy) > EPSILON) {
+            double remaining_y = dy;
+            int steps = static_cast<int>(std::ceil(std::abs(dy) / STEP_SIZE));
+            double step_y = dy / steps;
+
+            for (int i = 0; i < steps; ++i) {
+                double test_y = y + step_y;
+                if (!would_collide(x, test_y, z, half_width, half_height, get_voxel)) {
+                    y = test_y;
+                } else {
+                    // Hit floor/ceiling
                     if (dy < 0) {
-                        on_ground = true;
+                        on_ground = true;  // Landed on ground
                     }
                     break;
                 }
             }
         }
 
-        // Try X movement
-        if (std::abs(dx) > EPSILON) {
-            double step = (dx > 0) ? 0.1 : -0.1;
-            double remaining = dx;
-
-            while (std::abs(remaining) > EPSILON) {
-                double move = (std::abs(remaining) < std::abs(step)) ? remaining : step;
-                double new_x = x + move;
-
-                if (!would_collide(new_x, y, z, half_width, half_height, get_voxel)) {
-                    x = new_x;
-                    remaining -= move;
-                } else {
-                    break;
-                }
-            }
-        }
-
-        // Try Z movement
+        // === MOVE Z AXIS ===
         if (std::abs(dz) > EPSILON) {
-            double step = (dz > 0) ? 0.1 : -0.1;
-            double remaining = dz;
+            double remaining_z = dz;
+            int steps = static_cast<int>(std::ceil(std::abs(dz) / STEP_SIZE));
+            double step_z = dz / steps;
 
-            while (std::abs(remaining) > EPSILON) {
-                double move = (std::abs(remaining) < std::abs(step)) ? remaining : step;
-                double new_z = z + move;
-
-                if (!would_collide(x, y, new_z, half_width, half_height, get_voxel)) {
-                    z = new_z;
-                    remaining -= move;
+            for (int i = 0; i < steps; ++i) {
+                double test_z = z + step_z;
+                if (!would_collide(x, y, test_z, half_width, half_height, get_voxel)) {
+                    z = test_z;
                 } else {
+                    // Hit wall, stop Z movement
                     break;
                 }
             }
